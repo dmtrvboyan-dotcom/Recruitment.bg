@@ -8,71 +8,21 @@ import {
   SocialSidebar,
 } from "@/components/common"
 import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 import {
-  Code2,
-  Server,
-  Layers,
-  Cloud,
-  Brain,
-  Rocket,
-  TrendingUp,
-  Building2,
-  ArrowRight,
-} from "lucide-react"
+  HERO_DATA,
+  WHAT_WE_COVER_HEADER,
+  WHAT_WE_COVER,
+  PERFECT_FOR_HEADER,
+  PERFECT_FOR,
+  CTA_DATA,
+} from "./data"
 
 export const metadata: Metadata = {
   title: "Hire Developers in Bulgaria | Build Your Engineering Team",
   description:
     "Scale your engineering team fast with senior Bulgarian developers. Backend, frontend, full-stack, DevOps, AI – all at competitive EU rates.",
 }
-
-const WHAT_WE_COVER = [
-  {
-    icon: Code2,
-    title: "Frontend Development",
-    description:
-      "React, Vue, Angular, Next.js, TypeScript — we source developers fluent in modern frontend ecosystems.",
-  },
-  {
-    icon: Server,
-    title: "Backend Development",
-    description:
-      "Node.js, Python, Java, Go, .NET — find backend engineers who build scalable, secure systems.",
-  },
-  {
-    icon: Layers,
-    title: "Full-Stack Engineers",
-    description:
-      "Versatile developers comfortable across the entire stack, from database to deployment.",
-  },
-  {
-    icon: Cloud,
-    title: "DevOps & Cloud",
-    description:
-      "AWS, Azure, GCP, Kubernetes, CI/CD — infrastructure experts who keep your systems running smoothly.",
-  },
-]
-
-const PERFECT_FOR = [
-  {
-    icon: Rocket,
-    title: "Startups",
-    description:
-      "Move fast with senior developers who understand startup pace and can wear multiple hats.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Scale-ups",
-    description:
-      "Expand your engineering capacity quickly without sacrificing code quality or team culture.",
-  },
-  {
-    icon: Building2,
-    title: "Product Companies",
-    description:
-      "Build dedicated teams that integrate seamlessly with your existing engineering organization.",
-  },
-]
 
 export default function HireDevelopersBulgariaPage() {
   return (
@@ -86,14 +36,13 @@ export default function HireDevelopersBulgariaPage() {
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
-              Build Your Team
+              {HERO_DATA.tagline}
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
-              Hire Developers in Bulgaria and Build Your Team
+              {HERO_DATA.title}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Expand your engineering team without increasing costs. Bulgaria is
-              one of the smartest choices in Europe.
+              {HERO_DATA.description}
             </p>
           </div>
         </div>
@@ -105,10 +54,10 @@ export default function HireDevelopersBulgariaPage() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                Expertise Areas
+                {WHAT_WE_COVER_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                What We Cover
+                {WHAT_WE_COVER_HEADER.title}
               </h2>
             </div>
 
@@ -149,10 +98,10 @@ export default function HireDevelopersBulgariaPage() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                Who We Help
+                {PERFECT_FOR_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                Perfect For
+                {PERFECT_FOR_HEADER.title}
               </h2>
             </div>
 
@@ -188,20 +137,18 @@ export default function HireDevelopersBulgariaPage() {
         <section className="px-4 py-20 md:px-8 md:py-28 mb-20">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-6">
-              Ready to Build Your Development Team?
+              {CTA_DATA.title}
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10">
-              Tell us about your hiring needs and we will match you with
-              pre-vetted developers who fit your technical requirements and
-              company culture.
+              {CTA_DATA.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
                 className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-xl px-8 py-6 text-base font-medium"
               >
-                <Link href="/#contact">
-                  Start Hiring
+                <Link href={CTA_DATA.primaryButton.href}>
+                  {CTA_DATA.primaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
@@ -210,7 +157,9 @@ export default function HireDevelopersBulgariaPage() {
                 variant="outline"
                 className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-xl px-8 py-6 border-2 border-[#78B6D9]/50 text-base font-medium"
               >
-                <Link href="/#companies">View Success Stories</Link>
+                <Link href={CTA_DATA.secondaryButton.href}>
+                  {CTA_DATA.secondaryButton.text}
+                </Link>
               </Button>
             </div>
           </div>

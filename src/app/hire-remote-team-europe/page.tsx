@@ -8,69 +8,21 @@ import {
   SocialSidebar,
 } from "@/components/common"
 import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 import {
-  Globe,
-  Shield,
-  Users,
-  Zap,
-  FileCheck,
-  Handshake,
-  ArrowRight,
-  Clock,
-  BadgeCheck,
-  Briefcase,
-} from "lucide-react"
+  HERO_DATA,
+  BULGARIA_DELIVERS_HEADER,
+  BULGARIA_DELIVERS,
+  HOW_WE_HELP_HEADER,
+  HOW_WE_HELP,
+  CTA_DATA,
+} from "./data"
 
 export const metadata: Metadata = {
   title: "Build a Remote Team in Europe | Bulgaria Talent",
   description:
     "Create a high-performing remote team in Europe with top Bulgarian talent. Full EU legal framework, no complicated processes, fast onboarding.",
 }
-
-const BULGARIA_DELIVERS = [
-  {
-    icon: Globe,
-    title: "EU Legal Framework",
-    description:
-      "Full compliance with European employment law, GDPR, and IP protection standards.",
-  },
-  {
-    icon: Clock,
-    title: "Timezone Alignment",
-    description:
-      "Convenient overlap with European business hours, easy collaboration with teams in the UK, Germany, and beyond.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Top-Tier Talent",
-    description:
-      "Access to a deep pool of experienced developers, engineers, and technical specialists.",
-  },
-]
-
-const HOW_WE_HELP = [
-  {
-    step: "01",
-    icon: Briefcase,
-    title: "Define Requirements",
-    description:
-      "We work with you to understand your technical needs, team culture, and hiring timeline.",
-  },
-  {
-    step: "02",
-    icon: Users,
-    title: "Source & Vet Candidates",
-    description:
-      "Our team identifies and pre-screens candidates, presenting only those who meet your standards.",
-  },
-  {
-    step: "03",
-    icon: Handshake,
-    title: "Seamless Onboarding",
-    description:
-      "We support the hiring process through offer negotiation, contracts, and onboarding.",
-  },
-]
 
 export default function HireRemoteTeamEuropePage() {
   return (
@@ -84,14 +36,13 @@ export default function HireRemoteTeamEuropePage() {
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
-              Remote Teams in Europe
+              {HERO_DATA.tagline}
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
-              Build Your Remote Team in Europe
+              {HERO_DATA.title}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Access top-tier European talent without the hassle of complex
-              processes or legal risks.
+              {HERO_DATA.description}
             </p>
           </div>
         </div>
@@ -103,10 +54,10 @@ export default function HireRemoteTeamEuropePage() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                The Advantage
+                {BULGARIA_DELIVERS_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                Bulgaria Delivers
+                {BULGARIA_DELIVERS_HEADER.title}
               </h2>
             </div>
 
@@ -143,10 +94,10 @@ export default function HireRemoteTeamEuropePage() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                Our Process
+                {HOW_WE_HELP_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                How We Help
+                {HOW_WE_HELP_HEADER.title}
               </h2>
             </div>
 
@@ -185,20 +136,18 @@ export default function HireRemoteTeamEuropePage() {
         <section className="px-4 py-20 md:px-8 md:py-28 mb-20">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-6">
-              Ready to Build Your European Team?
+              {CTA_DATA.title}
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10">
-              Start building your remote team with top Bulgarian talent today.
-              No complicated processes, no legal risks — just great developers
-              ready to join your team.
+              {CTA_DATA.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
                 className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-xl px-8 py-6 text-base font-medium"
               >
-                <Link href="/#contact">
-                  Get Started
+                <Link href={CTA_DATA.primaryButton.href}>
+                  {CTA_DATA.primaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
@@ -207,7 +156,9 @@ export default function HireRemoteTeamEuropePage() {
                 variant="outline"
                 className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-xl px-8 py-6 border-2 border-[#78B6D9]/50 text-base font-medium"
               >
-                <Link href="/#companies">Learn About Our Process</Link>
+                <Link href={CTA_DATA.secondaryButton.href}>
+                  {CTA_DATA.secondaryButton.text}
+                </Link>
               </Button>
             </div>
           </div>

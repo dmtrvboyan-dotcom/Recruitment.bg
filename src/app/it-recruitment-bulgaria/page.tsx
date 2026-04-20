@@ -8,65 +8,21 @@ import {
   SocialSidebar,
 } from "@/components/common"
 import { Button } from "@/components/ui/button"
+import { CheckCircle, ArrowRight } from "lucide-react"
 import {
-  CheckCircle,
-  Users,
-  Clock,
-  Shield,
-  Globe,
-  ArrowRight,
-  GraduationCap,
-  Building2,
-  BadgeCheck,
-  Wallet,
-} from "lucide-react"
+  HERO_DATA,
+  WHAT_YOU_GET_HEADER,
+  WHAT_YOU_GET,
+  WHY_BULGARIA_HEADER,
+  WHY_BULGARIA,
+  APPROACH_DATA,
+  CTA_DATA,
+} from "./data"
 
 export const metadata: Metadata = {
   title: "IT Recruitment Agency Bulgaria | Hire Developers Fast",
   description:
     "Hire vetted senior software developers in Bulgaria in 3-5 days. EU-compliant, fast, and up to 50% lower cost than Western Europe.",
-}
-
-const WHAT_YOU_GET = [
-  {
-    icon: Users,
-    title: "Vetted Senior Developers",
-    description:
-      "Access pre-screened, interview-ready candidates with verified skills and experience.",
-  },
-  {
-    icon: Clock,
-    title: "Fast Turnaround",
-    description:
-      "Receive qualified candidates within 3-5 business days, not weeks or months.",
-  },
-  {
-    icon: Shield,
-    title: "EU Compliance",
-    description:
-      "Full legal compliance with EU labor laws, GDPR, and employment regulations.",
-  },
-  {
-    icon: Wallet,
-    title: "Cost Efficiency",
-    description:
-      "Up to 50% lower costs compared to Western Europe without compromising quality.",
-  },
-]
-
-const WHY_BULGARIA = {
-  left: [
-    "Over 100,000 software professionals",
-    "Strong technical education system",
-    "High English proficiency across the workforce",
-    "Cultural alignment with Western business practices",
-  ],
-  right: [
-    "EU member state with stable economy",
-    "Competitive salary expectations",
-    "Growing tech ecosystem and startup scene",
-    "Convenient timezone overlap with Europe",
-  ],
 }
 
 export default function ITRecruitmentBulgariaPage() {
@@ -81,20 +37,16 @@ export default function ITRecruitmentBulgariaPage() {
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
-              IT Recruitment Bulgaria
+              {HERO_DATA.tagline}
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
-              Hire Software Developers in Bulgaria
+              {HERO_DATA.title}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 text-pretty">
-              Bulgaria has become one of the strongest technology hubs in
-              Europe, with over 100,000 software specialists and steady IT
-              sector growth.
+              {HERO_DATA.description}
             </p>
             <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-              We help companies from the USA, UK, Germany, and across Europe
-              hire vetted developers — quickly, efficiently, and with minimal
-              risk.
+              {HERO_DATA.subDescription}
             </p>
           </div>
         </div>
@@ -106,10 +58,10 @@ export default function ITRecruitmentBulgariaPage() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                Our Promise
+                {WHAT_YOU_GET_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                What You Get
+                {WHAT_YOU_GET_HEADER.title}
               </h2>
             </div>
 
@@ -146,10 +98,10 @@ export default function ITRecruitmentBulgariaPage() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                The Advantage
+                {WHY_BULGARIA_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                Why Bulgaria
+                {WHY_BULGARIA_HEADER.title}
               </h2>
             </div>
 
@@ -190,24 +142,22 @@ export default function ITRecruitmentBulgariaPage() {
         <section className="px-4 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-              How We Work
+              {APPROACH_DATA.header.tagline}
             </p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-8">
-              Our Approach
+              {APPROACH_DATA.header.title}
             </h2>
             <div className="bg-[#f5f5f5] rounded-3xl p-8 md:p-12 border border-slate-100">
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                We combine deep local market knowledge with international
-                recruitment best practices. Our team personally vets every
-                candidate, ensuring technical skills, communication abilities,
-                and cultural fit align with your requirements.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed">
-                From initial briefing to successful placement, we provide
-                end-to-end support, making the hiring process seamless whether
-                you are building your first team in Bulgaria or expanding an
-                existing operation.
-              </p>
+              {APPROACH_DATA.paragraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className={`text-lg text-slate-700 leading-relaxed ${
+                    index < APPROACH_DATA.paragraphs.length - 1 ? "mb-6" : ""
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </section>
@@ -218,20 +168,18 @@ export default function ITRecruitmentBulgariaPage() {
         <section className="px-4 py-20 md:px-8 md:py-28 mb-20">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-6">
-              Ready to Hire Developers in Bulgaria?
+              {CTA_DATA.title}
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10">
-              Let us help you build your engineering team with top Bulgarian
-              talent. Get started today and receive your first candidates within
-              days.
+              {CTA_DATA.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
                 className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-xl px-8 py-6 text-base font-medium"
               >
-                <Link href="/#contact">
-                  Start Hiring
+                <Link href={CTA_DATA.primaryButton.href}>
+                  {CTA_DATA.primaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
@@ -240,7 +188,9 @@ export default function ITRecruitmentBulgariaPage() {
                 variant="outline"
                 className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-xl px-8 py-6 border-2 border-[#78B6D9]/50 text-base font-medium"
               >
-                <Link href="/#companies">Learn More</Link>
+                <Link href={CTA_DATA.secondaryButton.href}>
+                  {CTA_DATA.secondaryButton.text}
+                </Link>
               </Button>
             </div>
           </div>
