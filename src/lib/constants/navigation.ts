@@ -1,0 +1,40 @@
+/**
+ * Navigation configuration for the header and mobile menu
+ */
+
+export interface DropdownItem {
+  label: string
+  href: string
+}
+
+export interface NavItem {
+  label: string
+  href?: string
+  hasDropdown?: boolean
+  dropdownItems?: DropdownItem[]
+}
+
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Services", href: "#services" },
+  {
+    label: "For Companies",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "Who we serve", href: "#companies" },
+      { label: "Q&A", href: "#faq" },
+    ],
+  },
+  {
+    label: "For Candidates",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "Why us?", href: "#candidates" },
+      { label: "See our jobs", href: "#jobs" },
+    ],
+  },
+  { label: "About Us", href: "#about" },
+  { label: "smart.R ATS / CRM", href: "#smartr" },
+]
+
+export const HEADER_SCROLL_THRESHOLD = 80
+export const SCROLL_OFFSET = 100

@@ -1,0 +1,102 @@
+import { Suspense } from "react"
+
+// Common components
+import {
+  Header,
+  Footer,
+  ScrollReveal,
+  DynamicBackground,
+  SocialSidebar,
+} from "@/components/common"
+
+// Landing page feature components
+import {
+  Hero,
+  Services,
+  SpecializedRecruitment,
+  TrustSection,
+  CompaniesSection,
+  SmartRSection,
+  CandidatesSection,
+  JobsSection,
+  FAQSection,
+  MeetTheTeam,
+  CallToAction,
+  ContactForm,
+} from "@/components/features/landing"
+
+/**
+ * Landing page component for Recruitment.bg
+ * Organized with clear section structure and lazy-loaded sections for performance
+ */
+export default function LandingPage() {
+  return (
+    <main className="relative min-h-screen overflow-hidden">
+      {/* Background effects */}
+      <DynamicBackground />
+      
+      {/* Fixed elements */}
+      <Header />
+      <SocialSidebar />
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Services Section */}
+      <ScrollReveal>
+        <Services />
+      </ScrollReveal>
+
+      {/* Specialized Recruitment */}
+      <ScrollReveal>
+        <SpecializedRecruitment />
+      </ScrollReveal>
+
+      {/* Trust Metrics */}
+      <ScrollReveal>
+        <TrustSection />
+      </ScrollReveal>
+
+      {/* Companies Section */}
+      <ScrollReveal>
+        <CompaniesSection />
+      </ScrollReveal>
+
+      {/* Smart.R Platform */}
+      <ScrollReveal>
+        <SmartRSection />
+      </ScrollReveal>
+
+      {/* For Candidates */}
+      <ScrollReveal>
+        <CandidatesSection />
+      </ScrollReveal>
+
+      {/* Job Listings */}
+      <Suspense fallback={<div className="min-h-[600px]" />}>
+        <ScrollReveal>
+          <JobsSection />
+        </ScrollReveal>
+      </Suspense>
+
+      {/* FAQ Section */}
+      <ScrollReveal>
+        <FAQSection />
+      </ScrollReveal>
+
+      {/* Meet the Team */}
+      <ScrollReveal>
+        <MeetTheTeam />
+      </ScrollReveal>
+
+      {/* Contact Form */}
+      <ScrollReveal>
+        <CallToAction />
+      </ScrollReveal>
+
+    
+      {/* Footer */}
+      <Footer />
+    </main>
+  )
+}
