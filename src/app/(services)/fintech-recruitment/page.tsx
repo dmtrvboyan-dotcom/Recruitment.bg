@@ -1,33 +1,26 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import {
-  Header,
-  Footer,
-  ScrollReveal,
-  DynamicBackground,
-  SocialSidebar,
-} from "@/components/common"
+import { ScrollReveal } from "@/components/common"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { CheckCircle, ArrowRight } from "lucide-react"
 import {
   HERO_DATA,
-  SERVICES_HEADER,
-  SERVICES,
+  BULGARIA_STRENGTHS_HEADER,
+  BULGARIA_STRENGTHS,
+  WHAT_WE_HIRE_HEADER,
+  WHAT_WE_HIRE,
   CTA_DATA,
 } from "./data"
 
 export const metadata: Metadata = {
-  title: "Recruitment Agency Bulgaria | Staffing & Talent Solutions",
+  title: "Fintech Recruitment Bulgaria | Hire Fintech Talent",
   description:
-    "Full-service recruitment agency in Bulgaria. We provide full-cycle recruitment, headhunting, talent sourcing, and hiring strategy for companies from Europe and the USA.",
+    "Specialized fintech recruitment in Bulgaria. Hire backend engineers, risk & compliance specialists, data analysts, and product roles for your fintech company.",
 }
 
-export default function RecruitmentAgencyBulgariaPage() {
+export default function FintechRecruitmentPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <DynamicBackground />
-      <Header />
-      <SocialSidebar />
+    <>
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -43,27 +36,57 @@ export default function RecruitmentAgencyBulgariaPage() {
               {HERO_DATA.description}
             </p>
             <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-              {HERO_DATA.marketInsight}
+              {HERO_DATA.subDescription}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Bulgaria Strengths Section */}
+      <ScrollReveal>
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
+          <div className="mx-auto max-w-4xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
+                {BULGARIA_STRENGTHS_HEADER.tagline}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
+                {BULGARIA_STRENGTHS_HEADER.title}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {BULGARIA_STRENGTHS.items.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-3 p-5 bg-white rounded-2xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-md transition-all duration-300"
+                >
+                  <CheckCircle className="w-5 h-5 text-[#085689] mt-0.5 flex-shrink-0" />
+                  <p className="text-slate-700 text-[15px] leading-relaxed font-medium">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* What We Hire Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {SERVICES_HEADER.tagline}
+                {WHAT_WE_HIRE_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {SERVICES_HEADER.title}
+                {WHAT_WE_HIRE_HEADER.title}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {SERVICES.map((item, index) => {
+              {WHAT_WE_HIRE.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div
@@ -122,8 +145,6 @@ export default function RecruitmentAgencyBulgariaPage() {
           </div>
         </section>
       </ScrollReveal>
-
-      <Footer />
-    </main>
+    </>
   )
 }
