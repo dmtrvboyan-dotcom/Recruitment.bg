@@ -20,7 +20,7 @@ const DesktopDropdown = memo(function DesktopDropdown({
   item: NavItem
   isOpen: boolean
   onToggle: () => void
-  onNavigate: (href: string) => void
+  onNavigate: (href: string, openInNewTab?: boolean) => void
 }) {
   return (
     <div className="relative group">
@@ -41,7 +41,7 @@ const DesktopDropdown = memo(function DesktopDropdown({
         {item.dropdownItems?.map((subItem) => (
           <button
             key={subItem.label}
-            onClick={() => onNavigate(subItem.href)}
+            onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
             className="w-full text-left px-5 py-3 hover:text-[#085689] rounded-xl text-[15px] transition-colors"
           >
             {subItem.label}
@@ -64,7 +64,7 @@ const MobileDropdown = memo(function MobileDropdown({
   item: NavItem
   isOpen: boolean
   onToggle: () => void
-  onNavigate: (href: string) => void
+  onNavigate: (href: string, openInNewTab?: boolean) => void
 }) {
   return (
     <div>
@@ -79,13 +79,13 @@ const MobileDropdown = memo(function MobileDropdown({
       </button>
 
       <div
-        className={`pl-6 mt-2 transition-all duration-300 overflow-hidden ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+        className={`pl-6 mt-2 transition-all duration-300 overflow-hidden ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
           }`}
       >
         {item.dropdownItems?.map((subItem) => (
           <button
             key={subItem.label}
-            onClick={() => onNavigate(subItem.href)}
+            onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
             className="block py-3 text-white/90 hover:text-white w-full text-left"
           >
             {subItem.label}
@@ -112,8 +112,12 @@ export function Header() {
   useEscapeKey(closeMenu)
   useBodyScrollLock(isMenuOpen)
 
-  const handleNavigate = useCallback((href: string) => {
-    scrollToSection(href)
+  const handleNavigate = useCallback((href: string, openInNewTab?: boolean) => {
+    if (openInNewTab) {
+      window.open(href, "_blank", "noopener,noreferrer")
+    } else {
+      scrollToSection(href)
+    }
     setIsMenuOpen(false)
     setOpenDropdown(null)
   }, [])

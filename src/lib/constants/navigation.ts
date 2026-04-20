@@ -5,6 +5,7 @@
 export interface DropdownItem {
   label: string
   href: string
+  openInNewTab?: boolean
 }
 
 export interface NavItem {
@@ -22,6 +23,9 @@ export const NAV_ITEMS: NavItem[] = [
     dropdownItems: [
       { label: "Who we serve", href: "#companies" },
       { label: "Q&A", href: "#faq" },
+      { label: "IT Recruitment Bulgaria", href: "/it-recruitment-bulgaria", openInNewTab: true },
+      { label: "Hire Developers Bulgaria", href: "/hire-developers-bulgaria", openInNewTab: true },
+      { label: "Hire Remote Team Europe", href: "/hire-remote-team-europe", openInNewTab: true },
     ],
   },
   {
