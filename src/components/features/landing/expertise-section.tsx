@@ -18,6 +18,8 @@ const ExpertiseCard = memo(function ExpertiseCard({
     return (
         <Link
             href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group block p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col"
         >
             <div className="mb-6">
