@@ -115,8 +115,17 @@ export function Header() {
   const handleNavigate = useCallback((href: string, openInNewTab?: boolean) => {
     if (openInNewTab) {
       window.open(href, "_blank", "noopener,noreferrer")
+    } else if (href.startsWith("#")) {
+      // If we're on the homepage, scroll to section
+      // If we're on a sub-page, navigate to homepage with anchor
+      if (window.location.pathname === "/") {
+        scrollToSection(href)
+      } else {
+        window.location.href = "/" + href
+      }
     } else {
-      scrollToSection(href)
+      // Regular page navigation
+      window.location.href = href
     }
     setIsMenuOpen(false)
     setOpenDropdown(null)
