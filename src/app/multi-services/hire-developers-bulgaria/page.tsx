@@ -1,38 +1,29 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import {
-  Header,
-  Footer,
-  ScrollReveal,
-  DynamicBackground,
-  SocialSidebar,
-} from "@/components/common"
+import { ScrollReveal } from "@/components/common"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import {
   HERO_DATA,
-  ROLES_HEADER,
-  ROLES,
-  DIFFERENTIATORS_HEADER,
-  DIFFERENTIATORS,
+  WHAT_WE_COVER_HEADER,
+  WHAT_WE_COVER,
+  PERFECT_FOR_HEADER,
+  PERFECT_FOR,
   CTA_DATA,
 } from "./data"
 
 export const metadata: Metadata = {
-  title: "iGaming Recruitment Bulgaria | Hire Gaming Talent",
+  title: "Hire Developers in Bulgaria | Build Your Engineering Team",
   description:
-    "Specialized iGaming and gaming recruitment in Bulgaria. Hire developers, game designers, multilingual support, and product specialists for your gaming company.",
+    "Scale your engineering team fast with senior Bulgarian developers. Backend, frontend, full-stack, DevOps, AI – all at competitive EU rates.",
 }
 
-export default function IGamingRecruitmentPage() {
+export default function HireDevelopersBulgariaPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <DynamicBackground />
-      <Header />
-      <SocialSidebar />
+    <>
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
@@ -48,38 +39,42 @@ export default function IGamingRecruitmentPage() {
         </div>
       </section>
 
-      {/* Roles Section */}
+      {/* What We Cover Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {ROLES_HEADER.tagline}
+                {WHAT_WE_COVER_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {ROLES_HEADER.title}
+                {WHAT_WE_COVER_HEADER.title}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {ROLES.map((item, index) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {WHAT_WE_COVER.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div
                     key={index}
                     className="group p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="mb-6">
-                      <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
-                        <Icon className="w-7 h-7" />
+                    <div className="flex items-start gap-6">
+                      <div className="flex-shrink-0">
+                        <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                          <Icon className="w-7 h-7" />
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-slate-600 text-[15px] leading-relaxed">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
-                    <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 text-[15px] leading-relaxed">
-                      {item.description}
-                    </p>
                   </div>
                 )
               })}
@@ -88,36 +83,41 @@ export default function IGamingRecruitmentPage() {
         </section>
       </ScrollReveal>
 
-      {/* Differentiators Section */}
+      {/* Perfect For Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {DIFFERENTIATORS_HEADER.tagline}
+                {PERFECT_FOR_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {DIFFERENTIATORS_HEADER.title}
+                {PERFECT_FOR_HEADER.title}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {DIFFERENTIATORS.map((item, index) => (
-                <div
-                  key={index}
-                  className="group p-8 bg-white rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 text-center"
-                >
-                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#085689] text-white text-xl font-bold mx-auto mb-6">
-                    {index + 1}
+              {PERFECT_FOR.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <div
+                    key={index}
+                    className="group p-8 bg-white rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 text-center"
+                  >
+                    <div className="mb-6 flex justify-center">
+                      <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                        <Icon className="w-8 h-8" />
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-2xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-600 text-[15px] leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                  <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-600 text-[15px] leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>
@@ -156,8 +156,6 @@ export default function IGamingRecruitmentPage() {
           </div>
         </section>
       </ScrollReveal>
-
-      <Footer />
-    </main>
+    </>
   )
 }

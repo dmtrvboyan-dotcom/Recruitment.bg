@@ -38,4 +38,4 @@ const DynamicBackground = memo(function DynamicBackground() {
   )
 })
 
-export default DynamicBackground
+export default DynamicBackground;

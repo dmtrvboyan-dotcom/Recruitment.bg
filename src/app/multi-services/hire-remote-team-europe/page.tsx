@@ -1,33 +1,26 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import {
-  Header,
-  Footer,
-  ScrollReveal,
-  DynamicBackground,
-  SocialSidebar,
-} from "@/components/common"
+import { ScrollReveal } from "@/components/common"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import {
   HERO_DATA,
-  SERVICES_HEADER,
-  SERVICES,
+  BULGARIA_DELIVERS_HEADER,
+  BULGARIA_DELIVERS,
+  HOW_WE_HELP_HEADER,
+  HOW_WE_HELP,
   CTA_DATA,
 } from "./data"
 
 export const metadata: Metadata = {
-  title: "Recruitment Agency Bulgaria | Staffing & Talent Solutions",
+  title: "Build a Remote Team in Europe | Bulgaria Talent",
   description:
-    "Full-service recruitment agency in Bulgaria. We provide full-cycle recruitment, headhunting, talent sourcing, and hiring strategy for companies from Europe and the USA.",
+    "Create a high-performing remote team in Europe with top Bulgarian talent. Full EU legal framework, no complicated processes, fast onboarding.",
 }
 
-export default function RecruitmentAgencyBulgariaPage() {
+export default function HireRemoteTeamEuropePage() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <DynamicBackground />
-      <Header />
-      <SocialSidebar />
+    <>
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -39,37 +32,77 @@ export default function RecruitmentAgencyBulgariaPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
               {HERO_DATA.title}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 text-pretty">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
               {HERO_DATA.description}
-            </p>
-            <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-              {HERO_DATA.marketInsight}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Bulgaria Delivers Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {SERVICES_HEADER.tagline}
+                {BULGARIA_DELIVERS_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {SERVICES_HEADER.title}
+                {BULGARIA_DELIVERS_HEADER.title}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {SERVICES.map((item, index) => {
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {BULGARIA_DELIVERS.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div
                     key={index}
-                    className="group p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
+                    className="group p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 text-center"
                   >
+                    <div className="mb-6 flex justify-center">
+                      <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                        <Icon className="w-8 h-8" />
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-2xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-600 text-[15px] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* How We Help Section */}
+      <ScrollReveal>
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
+                {HOW_WE_HELP_HEADER.tagline}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
+                {HOW_WE_HELP_HEADER.title}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {HOW_WE_HELP.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <div
+                    key={index}
+                    className="group p-8 bg-white rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 relative"
+                  >
+                    <div className="absolute top-6 right-6 text-5xl font-bold text-[#085689]/10 group-hover:text-[#78B6D9]/20 transition-colors">
+                      {item.step}
+                    </div>
                     <div className="mb-6">
                       <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
                         <Icon className="w-7 h-7" />
@@ -122,8 +155,6 @@ export default function RecruitmentAgencyBulgariaPage() {
           </div>
         </section>
       </ScrollReveal>
-
-      <Footer />
-    </main>
+    </>
   )
 }

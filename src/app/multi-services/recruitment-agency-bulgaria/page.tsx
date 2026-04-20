@@ -1,35 +1,24 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import {
-  Header,
-  Footer,
-  ScrollReveal,
-  DynamicBackground,
-  SocialSidebar,
-} from "@/components/common"
+import { ScrollReveal } from "@/components/common"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import {
   HERO_DATA,
-  WHAT_WE_COVER_HEADER,
-  WHAT_WE_COVER,
-  PERFECT_FOR_HEADER,
-  PERFECT_FOR,
+  SERVICES_HEADER,
+  SERVICES,
   CTA_DATA,
 } from "./data"
 
 export const metadata: Metadata = {
-  title: "Hire Developers in Bulgaria | Build Your Engineering Team",
+  title: "Recruitment Agency Bulgaria | Staffing & Talent Solutions",
   description:
-    "Scale your engineering team fast with senior Bulgarian developers. Backend, frontend, full-stack, DevOps, AI – all at competitive EU rates.",
+    "Full-service recruitment agency in Bulgaria. We provide full-cycle recruitment, headhunting, talent sourcing, and hiring strategy for companies from Europe and the USA.",
 }
 
-export default function HireDevelopersBulgariaPage() {
+export default function RecruitmentAgencyBulgariaPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <DynamicBackground />
-      <Header />
-      <SocialSidebar />
+    <>
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -41,84 +30,43 @@ export default function HireDevelopersBulgariaPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
               {HERO_DATA.title}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 text-pretty">
               {HERO_DATA.description}
+            </p>
+            <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+              {HERO_DATA.marketInsight}
             </p>
           </div>
         </div>
       </section>
 
-      {/* What We Cover Section */}
+      {/* Services Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {WHAT_WE_COVER_HEADER.tagline}
+                {SERVICES_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {WHAT_WE_COVER_HEADER.title}
+                {SERVICES_HEADER.title}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {WHAT_WE_COVER.map((item, index) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {SERVICES.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div
                     key={index}
                     className="group p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="flex items-start gap-6">
-                      <div className="flex-shrink-0">
-                        <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
-                          <Icon className="w-7 h-7" />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="text-slate-600 text-[15px] leading-relaxed">
-                          {item.description}
-                        </p>
+                    <div className="mb-6">
+                      <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                        <Icon className="w-7 h-7" />
                       </div>
                     </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* Perfect For Section */}
-      <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-14">
-              <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {PERFECT_FOR_HEADER.tagline}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {PERFECT_FOR_HEADER.title}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {PERFECT_FOR.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <div
-                    key={index}
-                    className="group p-8 bg-white rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 text-center"
-                  >
-                    <div className="mb-6 flex justify-center">
-                      <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
-                        <Icon className="w-8 h-8" />
-                      </div>
-                    </div>
-                    <h3 className="font-semibold text-2xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
+                    <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-slate-600 text-[15px] leading-relaxed">
@@ -165,8 +113,6 @@ export default function HireDevelopersBulgariaPage() {
           </div>
         </section>
       </ScrollReveal>
-
-      <Footer />
-    </main>
+    </>
   )
 }

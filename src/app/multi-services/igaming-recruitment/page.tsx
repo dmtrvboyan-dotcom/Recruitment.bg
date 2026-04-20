@@ -1,38 +1,29 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import {
-  Header,
-  Footer,
-  ScrollReveal,
-  DynamicBackground,
-  SocialSidebar,
-} from "@/components/common"
+import { ScrollReveal } from "@/components/common"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import {
   HERO_DATA,
-  BULGARIA_STRENGTHS_HEADER,
-  BULGARIA_STRENGTHS,
-  WHAT_WE_HIRE_HEADER,
-  WHAT_WE_HIRE,
+  ROLES_HEADER,
+  ROLES,
+  DIFFERENTIATORS_HEADER,
+  DIFFERENTIATORS,
   CTA_DATA,
 } from "./data"
 
 export const metadata: Metadata = {
-  title: "Fintech Recruitment Bulgaria | Hire Fintech Talent",
+  title: "iGaming Recruitment Bulgaria | Hire Gaming Talent",
   description:
-    "Specialized fintech recruitment in Bulgaria. Hire backend engineers, risk & compliance specialists, data analysts, and product roles for your fintech company.",
+    "Specialized iGaming and gaming recruitment in Bulgaria. Hire developers, game designers, multilingual support, and product specialists for your gaming company.",
 }
 
-export default function FintechRecruitmentPage() {
+export default function IGamingRecruitmentPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <DynamicBackground />
-      <Header />
-      <SocialSidebar />
+    <>
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
@@ -41,61 +32,28 @@ export default function FintechRecruitmentPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance mb-6">
               {HERO_DATA.title}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 text-pretty">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
               {HERO_DATA.description}
-            </p>
-            <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-              {HERO_DATA.subDescription}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Bulgaria Strengths Section */}
-      <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
-          <div className="mx-auto max-w-4xl">
-            <div className="text-center mb-14">
-              <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {BULGARIA_STRENGTHS_HEADER.tagline}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {BULGARIA_STRENGTHS_HEADER.title}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {BULGARIA_STRENGTHS.items.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-3 p-5 bg-white rounded-2xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-md transition-all duration-300"
-                >
-                  <CheckCircle className="w-5 h-5 text-[#085689] mt-0.5 flex-shrink-0" />
-                  <p className="text-slate-700 text-[15px] leading-relaxed font-medium">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* What We Hire Section */}
+      {/* Roles Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {WHAT_WE_HIRE_HEADER.tagline}
+                {ROLES_HEADER.tagline}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {WHAT_WE_HIRE_HEADER.title}
+                {ROLES_HEADER.title}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {WHAT_WE_HIRE.map((item, index) => {
+              {ROLES.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div
@@ -116,6 +74,41 @@ export default function FintechRecruitmentPage() {
                   </div>
                 )
               })}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* Differentiators Section */}
+      <ScrollReveal>
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
+          <div className="mx-auto max-w-5xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
+                {DIFFERENTIATORS_HEADER.tagline}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
+                {DIFFERENTIATORS_HEADER.title}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {DIFFERENTIATORS.map((item, index) => (
+                <div
+                  key={index}
+                  className="group p-8 bg-white rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 text-center"
+                >
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#085689] text-white text-xl font-bold mx-auto mb-6">
+                    {index + 1}
+                  </div>
+                  <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-[15px] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -154,8 +147,6 @@ export default function FintechRecruitmentPage() {
           </div>
         </section>
       </ScrollReveal>
-
-      <Footer />
-    </main>
+    </>
   )
 }
