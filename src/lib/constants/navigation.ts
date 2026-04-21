@@ -5,6 +5,7 @@
 export interface DropdownItem {
   label: string
   href: string
+  openInNewTab?: boolean
 }
 
 export interface NavItem {
@@ -28,12 +29,21 @@ export const NAV_ITEMS: NavItem[] = [
     label: "For Candidates",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Why us?", href: "#candidates" },
+      { label: "Why us?", href: "/candidates", openInNewTab: true },
       { label: "See our jobs", href: "#jobs" },
     ],
   },
+   {
+    label: "Own ATS / CRM",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "smart.R", href: "/applicant-tracking-system", openInNewTab: true },
+      { label: "Book a demo", href: "#contact" },
+    ],
+  },
   { label: "About Us", href: "#about" },
-  { label: "smart.R ATS / CRM", href: "#smartr" },
+  // { label: "smart.R ATS / CRM", href: "#smartr" },
+
 ]
 
 export const HEADER_SCROLL_THRESHOLD = 80

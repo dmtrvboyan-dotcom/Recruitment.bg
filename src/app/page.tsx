@@ -76,9 +76,9 @@ export default function LandingPage() {
       </ScrollReveal>
 
       {/* For Candidates */}
-      <ScrollReveal>
+      {/* <ScrollReveal>
         <CandidatesSection />
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       {/* Job Listings */}
       <Suspense fallback={<div className="min-h-150" />}>
