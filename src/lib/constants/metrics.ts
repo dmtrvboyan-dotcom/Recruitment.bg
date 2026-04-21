@@ -20,11 +20,6 @@ export const TRUST_METRICS: TrustMetric[] = [
     description: "",
   },
   {
-    value: "70%",
-    label: "Seniors + roles",
-    description: "",
-  },
-  {
     value: "100%",
     label: "Recruiting all Tech Stacks",
     description: "",

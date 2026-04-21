@@ -349,6 +349,28 @@ export const SAMPLE_JOBS: Job[] = [
     techStack: ["React", "Next.js", "Tailwind"],
     posted: "15 april.",
   },
+   {
+    id: 9,
+    title: "asd",
+    seniority: "1-2 years",
+    location: "Varna",
+    type: "Office",
+    contract: "b2b",
+    techStack: ["React", "Next.js", "Tailwind"],
+    posted: "15 april.",
+  },
+   {
+    id: 10,
+    title: "asd",
+    seniority: "1-2 years",
+    location: "Varna",
+    type: "Office",
+    contract: "b2b",
+    techStack: ["React", "Next.js", "Tailwind"],
+    posted: "15 april.",
+  },
+
+  
 ]
 
 export const JOB_LOCATIONS = ["Sofia", "Plovdiv", "Varna", "Fully Remote"]

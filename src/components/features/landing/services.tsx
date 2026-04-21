@@ -5,7 +5,7 @@ import { useEscapeKey, useClickOutside } from "@/lib/hooks"
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"
 import { X, Plus, Users, Search, ChevronDown, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { SERVICES, EXECUTIVE_STATS, type Service } from "@/lib/constants/services"
+import { SERVICES, EXECUTIVE_STATS, HIRE_STATS, type Service } from "@/lib/constants/services"
 import { scrollToSection } from "@/lib/utils/scroll"
 
 
@@ -135,14 +135,16 @@ const ServiceDetails = memo(function ServiceDetails({
           </Button>
         )}
 
-        {service.title === "For Candidates" && (
+        {service.title === "IT Salary Benchmarking & Hiring Insights" && (
           <Button
-            onClick={() => handleNavigate("#jobs")}
+            onClick={() => handleNavigate("#contact")}
             className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl"
           >
-            See all Jobs <Search className="w-4 h-4 ml-2" />
+            Learn more <Search className="w-4 h-4 ml-2" />
           </Button>
         )}
+
+
       </div>
 
       {service.title === "Executive Search & Headhunting" && (
@@ -153,6 +155,36 @@ const ServiceDetails = memo(function ServiceDetails({
               <div className="text-sm text-gray-600">{stat.label}</div>
             </div>
           ))}
+        </div>
+      )}
+
+      {service.title === "Hire Contract or Freelance Developers" && (
+        <div className="mt-12 flex flex-row  lg:flex-row gap-10 items-start">
+          {/* Stats - Left */}
+          <div className="flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {HIRE_STATS.map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="text-[2.1rem] font-bold leading-none text-[#085689]">
+                    {stat.value}
+                  </div>
+                  <div className="mt-3 text-sm font-medium text-gray-600">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Button - Right */}
+          <div className="lg:w-80 pt-4">
+            <Button
+              onClick={() => handleNavigate("#companies")}
+              className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium shadow-md hover:shadow-lg transition-all active:scale-[0.98]"
+            >
+              Hire contract <Users className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </div>
       )}
     </>
@@ -268,15 +300,16 @@ const DesktopPanel = memo(function DesktopPanel({
                 </Button>
               )}
 
-              {service.title === "For Candidates" && (
+              {service.title === "IT Salary Benchmarking & Hiring Insights" && (
                 <Button
-                  onClick={() => handleNavigate("#jobs")}
+                  onClick={() => handleNavigate("#contact")}
                   className="w-full sm:w-auto px-8 py-3.5 text-base font-medium bg-[#085689] hover:bg-[#0a6a9c] text-white rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2"
                 >
-                  See all Jobs
+                  Learn more
                   <Search className="w-4 h-4" />
                 </Button>
               )}
+
             </div>
 
             {service.title === "Executive Search & Headhunting" && (
@@ -295,6 +328,34 @@ const DesktopPanel = memo(function DesktopPanel({
                 </div>
               </div>
             )}
+            {/* Action + Stats for Hire Contract */}
+
+            {service.title === "Hire Contract or Freelance Developers" && (
+              <div className="mt-10 flex flex-row lg:flex-row gap-8 lg:gap-0 items-start">
+
+                <div className="flex">
+                  <div className="grid grid-cols-1 pr-12">
+                    {HIRE_STATS.map((stat, idx) => (
+                      <div key={idx} className="text-center">
+                        <div className="text-[2rem] font-bold text-[#085689]">{stat.value}</div>
+                        <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Button - Right (closer on desktop) */}
+                <div className="lg:w-[260px]  lg:shrink-0 mt-8 lg:pt-2">
+                  <Button
+                    onClick={() => handleNavigate("#companies")}
+                    className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium"
+                  >
+                    Hire contract <Users className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+            )}
+
           </div>
         )}
       </div>
@@ -318,21 +379,21 @@ export function Services() {
 
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
-const toggleMobile = useCallback((service: Service) => {
-  setExpandedMobile((prev) => {
-    if (prev === service.title) return null
+  const toggleMobile = useCallback((service: Service) => {
+    setExpandedMobile((prev) => {
+      if (prev === service.title) return null
 
-    setTimeout(() => {
-      const el = cardRefs.current.get(service.title)
-      if (el) {
-        const y = el.getBoundingClientRect().top + window.scrollY - 80
-        window.scrollTo({ top: y, behavior: "smooth" })
-      }
-    }, 350)
+      setTimeout(() => {
+        const el = cardRefs.current.get(service.title)
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 80
+          window.scrollTo({ top: y, behavior: "smooth" })
+        }
+      }, 350)
 
-    return service.title
-  })
-}, [])
+      return service.title
+    })
+  }, [])
 
 
   return (
@@ -348,28 +409,28 @@ const toggleMobile = useCallback((service: Service) => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {SERVICES.map((service, index) => (
-  <div
-    key={index}
-    ref={(el) => {
-      if (el) cardRefs.current.set(service.title, el)
-      else cardRefs.current.delete(service.title)
-    }}
-  >
-    <ServiceCard
-      service={service}
-      isSelected={selectedService?.title === service.title}
-      isExpanded={expandedMobile === service.title}
-      onSelect={() => setSelectedService(service)}
-      onToggleMobile={() => toggleMobile(service)}
-    />
-    <MobileExpansion
-      service={service}
-      isExpanded={expandedMobile === service.title}
-      onClose={closeMobile}
-    />
-  </div>
-))}
+          {SERVICES.map((service, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                if (el) cardRefs.current.set(service.title, el)
+                else cardRefs.current.delete(service.title)
+              }}
+            >
+              <ServiceCard
+                service={service}
+                isSelected={selectedService?.title === service.title}
+                isExpanded={expandedMobile === service.title}
+                onSelect={() => setSelectedService(service)}
+                onToggleMobile={() => toggleMobile(service)}
+              />
+              <MobileExpansion
+                service={service}
+                isExpanded={expandedMobile === service.title}
+                onClose={closeMobile}
+              />
+            </div>
+          ))}
         </div>
 
         <div className="text-center">

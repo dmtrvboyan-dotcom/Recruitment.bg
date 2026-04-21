@@ -26,8 +26,8 @@ import { CheckCircle, Upload } from "lucide-react"
 
 import { contactFormSchema, type ContactFormData } from "@/lib/schemas"
 
-type Mode = "candidate" | "company"
-type Interest = "hiring" | "demo"
+type Mode = "candidate" | "company";
+type Interest = "hiring" | "demo" | "salary";
 
 interface ContactFormProps {
   mode?: Mode
@@ -116,7 +116,9 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
       ? "Tell us about your career goals and what you're looking for..."
       : interest === "hiring"
         ? "Tell us about your hiring needs, positions, number of roles, budget range, timeline..."
-        : "I'd like to schedule a Smart.r ATS/CRM demonstration..."
+        : interest === "demo"
+          ? "I'd like to schedule a Smart.r ATS/CRM demonstration..."
+          : "Please tell us about your salary benchmarking needs (job titles, experience levels, location, etc.)..."
 
   if (isSubmitted) {
     return (
@@ -214,13 +216,14 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
         {mode === "company" && (
           <div>
             <FormLabel>I&apos;m interested in:</FormLabel>
-            <Select value={interest} onValueChange={(value: Interest) => setInterest(value)}>
-              <SelectTrigger className="h-12 w-full">
+            <Select value={interest} onValueChange={(value: Interest) => setInterest(value as Interest)}>
+              <SelectTrigger className="h-12 w-full mt-2">
                 <SelectValue placeholder="Select an option" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="hiring">Hiring for my company</SelectItem>
                 <SelectItem value="demo">Smart.r ATS/CRM demonstration</SelectItem>
+                <SelectItem value="salary">Salary Benchmarking</SelectItem>
               </SelectContent>
             </Select>
           </div>

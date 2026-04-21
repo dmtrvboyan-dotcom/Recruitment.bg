@@ -1,19 +1,50 @@
 "use client"
 
-import { memo } from "react"
+import { memo, useState } from "react"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
+import {
+  Code2,
+  Cloud,
+  ShieldCheck,
+  Database,
+  BrainCircuit,
+  PenTool,
+  Smartphone,
+  Crown,
+  X,
+} from "lucide-react"
 import { TECHNOLOGY_PILLS, TECH_CATEGORIES, type TechCategory } from "@/lib/constants/specialized"
+import { scrollToSection } from "@/lib/utils/scroll"
+
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  "code-2": Code2,
+  "cloud": Cloud,
+  "shield-check": ShieldCheck,
+  "database": Database,
+  "brain-circuit": BrainCircuit,
+  "pen-tool": PenTool,
+  "smartphone": Smartphone,
+  "crown": Crown,
+}
 
 /**
- * Technology pill component
+ * Technology pill component (top row pills)
  */
 const TechPill = memo(function TechPill({ tech }: { tech: string }) {
   return (
     <Badge
       variant="secondary"
-      className="px-5 py-2 text-sm font-medium bg-[#085689] hover:bg-[#78B6D9]/90 text-white border-none transition-all duration-200 hover:scale-105"
+      className="px-4 py-1.5 text-sm font-medium bg-[#085689] hover:text-black hover:bg-[#78B6D9] text-[#fff] border border-[#c5daf0] rounded-full transition-all duration-200 cursor-default"
     >
       {tech}
     </Badge>
@@ -21,30 +52,149 @@ const TechPill = memo(function TechPill({ tech }: { tech: string }) {
 })
 
 /**
- * Category card component
+ * Category card component — matches Image 1 exactly
  */
-const CategoryCard = memo(function CategoryCard({ category }: { category: TechCategory }) {
+const CategoryCard = memo(function CategoryCard({
+  category,
+  onClick,
+}: {
+  category: TechCategory
+  onClick: () => void
+}) {
+  const IconComponent = ICON_MAP[category.icon] ?? Code2
+  // Show first 3 techs, then "+N" badge
+  const visibleTechs = category.techs.slice(0, 3)
+  const extraCount = category.techs.length - visibleTechs.length
+
   return (
-    <Card className="group border border-slate-100 hover:border-[#085689]/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-[#f5f5f5]">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-xl font-semibold text-slate-900 group-hover:text-[#085689] transition-colors">
-          {category.title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2">
-          {category.techs.map((tech) => (
-            <Badge
-              key={tech}
-              variant="outline"
-              className="bg-slate-50 text-slate-700 border-slate-200 hover:bg-[#085689] hover:text-white hover:border-[#085689] transition-all text-xs font-medium px-3 py-1"
-            >
-              {tech}
-            </Badge>
-          ))}
+    <div
+      onClick={onClick}
+      className="group border border-slate-100 rounded-2xl p-5 bg-[#f5f5f5] hover:border-[#085689]/20 hover:shadow-lg transition-all duration-300 cursor-pointer"
+    >
+      {/* Icon + category label */}
+      <div className="flex items-center gap-2 mb-3 ">
+        <div className="w-8 h-8 rounded-2xl bg-[#78B6D9]/10 flex items-center justify-center">
+          <IconComponent className="w-4 h-4 text-[#085689]" />
         </div>
-      </CardContent>
-    </Card>
+        <span className="text-[11px] font-semibold text-[#085689] uppercase tracking-widest">
+          {category.categoryLabel}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h3 className="text-[15px] font-bold text-slate-900 mb-4 leading-snug group-hover:text-[#085689] transition-colors">
+        {category.title}
+      </h3>
+
+      {/* Tech tags */}
+      <div className="flex flex-wrap gap-1.5">
+        {visibleTechs.map((tech) => (
+          <span
+            key={tech}
+            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200"
+          >
+            {tech}
+          </span>
+        ))}
+        {extraCount > 0 && (
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-500 border border-slate-200">
+            +{extraCount}
+          </span>
+        )}
+      </div>
+    </div>
+  )
+})
+
+/**
+ * Modal content — matches Image 2 exactly
+ */
+const CategoryModal = memo(function CategoryModal({ category }: { category: TechCategory }) {
+  const IconComponent = ICON_MAP[category.icon] ?? Code2
+  const [email, setEmail] = useState("")
+
+  return (
+    <div className="p-2">
+      {/* Icon */}
+      <div className="w-12 h-12 rounded-xl bg-[#78B6D9]/10 flex items-center justify-center mb-5">
+        <IconComponent className="w-6 h-6 text-[#085689]" />
+      </div>
+
+      {/* Title */}
+      <h2 className="text-2xl font-bold text-slate-900 mb-1">{category.title}</h2>
+
+      {/* Subtitle */}
+      <p className="text-[#085689] text-sm font-medium mb-6">{category.subtitle}</p>
+
+      <Separator className="mb-5" />
+
+      {/* Two-column bullet lists */}
+      <div className="grid grid-cols-2 gap-6 mb-6">
+        <div>
+          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-3">
+            HOW WE SOURCE
+          </p>
+          <ul className="space-y-2">
+            {category.howWeSource.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-3">
+            WHAT YOU GET
+          </p>
+          <ul className="space-y-2">
+            {category.whatYouGet.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <Separator className="mb-5" />
+
+      {/* Stats row */}
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div>
+          <p className="text-3xl font-bold text-[#085689]">{category.stat1Value}</p>
+          <p className="text-sm text-slate-500 mt-0.5">{category.stat1Label}</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-[#085689]">{category.stat2Value}</p>
+          <p className="text-sm text-slate-500 mt-0.5">{category.stat2Label}</p>
+        </div>
+      </div>
+
+      {/* Email input */}
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="you@company.com"
+        className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#085689]/30 focus:border-[#085689] mb-3 transition"
+      />
+
+      {/* CTA button */}
+      <Button
+        className="w-full bg-[#085689] hover:bg-[#0a6aa8] text-white py-3 rounded-xl text-sm font-semibold transition-all"
+        onClick={() => {
+          /* handle send */
+        }}
+      >
+        Send Request →
+      </Button>
+
+      <p className="text-center text-xs text-slate-400 mt-3">
+        We'll get back to you within 24 hours.
+      </p>
+    </div>
   )
 })
 
@@ -52,27 +202,26 @@ const CategoryCard = memo(function CategoryCard({ category }: { category: TechCa
  * Specialized recruitment section component
  */
 export function SpecializedRecruitment() {
+  const [selectedCategory, setSelectedCategory] = useState<TechCategory | null>(null)
+
   return (
-    <section className="py-20 lg:py-28 lg:mb-[120px] md:mb-[50px] sm:md-[0px]">
+    <section className="py-20 lg:py-28 lg:mb-[120px] md:mb-[50px]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
+          <p className="text-sm font-semibold text-[#085689] uppercase tracking-wider mb-4">
             Industry-Focused Expertise
           </p>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
             Specialized recruitment
           </h2>
-
-          <p className="text-xl text-slate-600 leading-relaxed">
-            Our team of industry-specialized recruiters brings deep expertise to
-            your talent search.
+          <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            From technical support and junior software engineers to CTOs — we help you hire the right professionals.
           </p>
         </div>
 
         {/* Tech Stack Pills */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 mb-14">
           {TECHNOLOGY_PILLS.map((tech) => (
             <TechPill key={tech} tech={tech} />
           ))}
@@ -80,13 +229,44 @@ export function SpecializedRecruitment() {
 
         <Separator className="mb-12" />
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {TECH_CATEGORIES.map((category, index) => (
-            <CategoryCard key={index} category={category} />
+        {/* Categories Grid — 4 columns matching Image 1 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+          {TECH_CATEGORIES.map((category) => (
+            <CategoryCard
+              key={category.id}
+              category={category}
+              onClick={() => setSelectedCategory(category)}
+            />
           ))}
         </div>
+
+        {/* CTA Button */}
+        <div className="flex justify-center mt-12">
+          <Button
+            onClick={() => scrollToSection("#contact")}
+            className="bg-[#085689] hover:bg-[#0a6aa8] text-white px-10 py-6 text-sm font-semibold rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98]"
+          >
+            Looking for a specific role? Let's talk
+          </Button>
+        </div>
       </div>
+
+      {/* Modal — matching Image 2 */}
+      <Dialog
+        open={!!selectedCategory}
+        onOpenChange={(open) => !open && setSelectedCategory(null)}
+      >
+        <DialogContent className="max-w-lg rounded-2xl p-6 bg-[#f5f5f5] shadow-2xl border-0">
+          <VisuallyHidden>
+            <DialogTitle>{selectedCategory?.title ?? "Category details"}</DialogTitle>
+            <DialogDescription>{selectedCategory?.subtitle ?? ""}</DialogDescription>
+          </VisuallyHidden>
+          {/* <DialogClose className="absolute top-4 right-4 rounded-full p-1 hover:bg-slate-100 transition">
+            <X className="w-4 h-4 text-slate-400" />
+          </DialogClose> */}
+          {selectedCategory && <CategoryModal category={selectedCategory} />}
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

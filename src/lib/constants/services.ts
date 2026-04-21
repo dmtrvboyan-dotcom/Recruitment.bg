@@ -46,26 +46,26 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Briefcase,
-    title: "Recruitment & Employer Branding",
+    title: "Hire Contract or Freelance Developers",
     subtitle: "Position Your Company to Attract the Right Talent",
     intro: "",
     sections: [
       {
         heading: "Improve How You Hire",
         points: [
-          "Analysis of your current hiring process",
-          "Clear positioning of your company in the tech market",
-          "Practical advice on attracting and engaging candidates",
-          "Support in building a consistent and honest employer image",
+          "Developers ready to start in days, not months",
+          "Immediate impact on ongoing projects",
+          "Ability to scale your team up or down anytime",
+          "No long-term commitments or hiring risks",
         ],
       },
       {
         heading: "What Changes",
         points: [
-          "More relevant candidates",
-          "Better candidate experience",
-          "Stronger market presence",
-          "Higher offer acceptance rates",
+          "Start in 3–10 days",
+          "Pre-vetted candidates only",
+          "Flexible contracts",
+          "No hire, no long-term commitment",
         ],
       },
     ],
@@ -148,28 +148,54 @@ export const SERVICES: Service[] = [
       },
     ],
   },
-  {
+  // {
+  //   icon: UserCheck,
+  //   title: "For Candidates",
+  //   subtitle: "Find a Role That Actually Fits",
+  //   intro: "",
+  //   sections: [
+  //     {
+  //       heading: "Your Goals Come First",
+  //       points: [
+  //         "Clear conversation about your skills and direction",
+  //         "Honest feedback and realistic opportunities",
+  //         "Roles aligned with your expectations and lifestyle",
+  //         "Support throughout the entire hiring process",
+  //       ],
+  //     },
+  //     {
+  //       heading: "What You Get",
+  //       points: [
+  //         "Relevant job opportunities",
+  //         "Transparent communication",
+  //         "Faster feedback",
+  //         "Long-term career support",
+  //       ],
+  //     },
+  //   ],
+  // },
+   {
     icon: UserCheck,
-    title: "For Candidates",
+    title: "IT Salary Benchmarking & Hiring Insights",
     subtitle: "Find a Role That Actually Fits",
     intro: "",
     sections: [
       {
         heading: "Your Goals Come First",
         points: [
-          "Clear conversation about your skills and direction",
-          "Honest feedback and realistic opportunities",
-          "Roles aligned with your expectations and lifestyle",
-          "Support throughout the entire hiring process",
+          "Real salary data based on current market demand",
+          "Benchmarks by role, seniority, and tech stack",
+          "Insights into candidate expectations",
+          "Guidance on competitive offers",
         ],
       },
       {
-        heading: "What You Get",
+        heading: "Real Impact",
         points: [
-          "Relevant job opportunities",
-          "Transparent communication",
-          "Faster feedback",
-          "Long-term career support",
+          "Real Impact",
+          "Avoid overpaying or underpaying",
+          "Speed up hiring decisions",
+          "Improve hiring success rate",
         ],
       },
     ],
@@ -180,4 +206,8 @@ export const EXECUTIVE_STATS = [
   { value: "25", label: "Senior Roles" },
   { value: "95%", label: "Offer Acceptance Rate" },
   { value: "6-15", label: "Days to Present Candidates" },
+]
+
+export const HIRE_STATS = [
+  { value: "100+", label: "Vetted Contractors"}
 ]

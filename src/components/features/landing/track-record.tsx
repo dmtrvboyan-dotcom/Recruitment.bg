@@ -4,9 +4,7 @@ import { memo } from "react"
 import { TRUST_METRICS } from "@/lib/constants/metrics"
 import { useAnimatedCounter } from "@/lib/hooks/use-animated-counter"
 
-/**
- * Animated counter component for trust metrics
- */
+
 const AnimatedCounter = memo(function AnimatedCounter({
   value,
   label,

@@ -253,9 +253,8 @@ const FilterSection = memo(function FilterSection({
         />
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-96" : "max-h-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96" : "max-h-0"
+          }`}
       >
         {children}
       </div>
@@ -327,6 +326,8 @@ export function JobsSection() {
   const [searchQuery, setSearchQuery] = useState("")
   const [showFilters, setShowFilters] = useState(false)
   const [selectedJob, setSelectedJob] = useState<Job | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+
 
   const [openSections, setOpenSections] = useState({
     technology: true,
@@ -340,24 +341,25 @@ export function JobsSection() {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }))
   }, [])
 
-  const filteredJobs = useMemo(
-    () =>
-      filterJobs(SAMPLE_JOBS, {
-        locations: selectedLocations,
-        type: selectedType,
-        tech: selectedTech,
-        seniorities: selectedSeniorities,
-        contracts: selectedContracts,
-        searchQuery,
-      }),
-    [
-      selectedLocations,
-      selectedType,
-      selectedTech,
-      selectedSeniorities,
-      selectedContracts,
+  const filteredJobs = useMemo(() => {
+    setCurrentPage(1) // reset to page 1 whenever filters change
+    return filterJobs(SAMPLE_JOBS, {
+      locations: selectedLocations,
+      type: selectedType,
+      tech: selectedTech,
+      seniorities: selectedSeniorities,
+      contracts: selectedContracts,
       searchQuery,
-    ]
+    })
+  }, [selectedLocations, selectedType, selectedTech, selectedSeniorities, selectedContracts, searchQuery])
+
+  const JOBS_PER_PAGE = 6
+
+
+  const totalPages = Math.ceil(filteredJobs.length / JOBS_PER_PAGE)
+  const paginatedJobs = filteredJobs.slice(
+    (currentPage - 1) * JOBS_PER_PAGE,
+    currentPage * JOBS_PER_PAGE
   )
 
   return (
@@ -414,9 +416,8 @@ export function JobsSection() {
 
           {/* Filters panel */}
           <div
-            className={`lg:w-80 lg:shrink-0 transition-all ${
-              showFilters ? "block" : "hidden"
-            } lg:block`}
+            className={`lg:w-80 lg:shrink-0 transition-all ${showFilters ? "block" : "hidden"
+              } lg:block`}
           >
             <div className="bg-[#f5f5f5] border border-slate-200 rounded-3xl p-6 lg:sticky lg:top-8 space-y-6">
               <FilterSection
@@ -429,11 +430,10 @@ export function JobsSection() {
                     <button
                       key={tech.value}
                       onClick={() => setSelectedTech(tech.value)}
-                      className={`py-3 px-4 rounded-2xl text-sm font-medium transition-all ${
-                        selectedTech === tech.value
-                          ? "bg-[#78B6D9] text-white"
-                          : "bg-slate-100 hover:bg-slate-200 text-slate-700"
-                      }`}
+                      className={`py-3 px-4 rounded-2xl text-sm font-medium transition-all ${selectedTech === tech.value
+                        ? "bg-[#78B6D9] text-white"
+                        : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+                        }`}
                     >
                       {tech.label}
                     </button>
@@ -522,19 +522,18 @@ export function JobsSection() {
                     <button
                       key={type}
                       onClick={() => setSelectedType(type)}
-                      className={`w-full text-left px-4 py-3 rounded-2xl transition-all ${
-                        selectedType === type
-                          ? "bg-[#78B6D9] text-white"
-                          : "hover:bg-slate-100 text-slate-700"
-                      }`}
+                      className={`w-full text-left px-4 py-3 rounded-2xl transition-all ${selectedType === type
+                        ? "bg-[#78B6D9] text-white"
+                        : "hover:bg-slate-100 text-slate-700"
+                        }`}
                     >
                       {type === "all"
                         ? "All"
                         : type === "hybrid"
-                        ? "Hybrid"
-                        : type === "remote"
-                        ? "Fully Remote"
-                        : "Office"}
+                          ? "Hybrid"
+                          : type === "remote"
+                            ? "Fully Remote"
+                            : "Office"}
                     </button>
                   ))}
                 </div>
@@ -556,21 +555,54 @@ export function JobsSection() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredJobs.map((job) => (
-                <JobCard
-                  key={job.id}
-                  job={job}
-                  onSelect={() => setSelectedJob(job)}
-                />
+              {paginatedJobs.map((job) => (
+                <JobCard key={job.id} job={job} onSelect={() => setSelectedJob(job)} />
               ))}
             </div>
 
-            {filteredJobs.length === 0 && (
+           {filteredJobs.length === 0 && (
               <div className="text-center py-20 text-slate-500">
                 No jobs found matching your criteria.
               </div>
             )}
+
+         {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-10">
+              <button
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              >
+                ‹
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`w-10 h-10 rounded-2xl text-sm font-semibold transition-all ${currentPage === page
+                      ? "bg-[#085689] text-white shadow-md"
+                      : "bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#78B6D9] hover:text-white"
+                    }`}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+                className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              >
+                ›
+              </button>
+            </div>
+          )}
+
+
           </div>
+ 
+         
         </div>
       </div>
     </section>

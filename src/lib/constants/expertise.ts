@@ -10,45 +10,40 @@ import {
 
 export const EXPERTISE_AREAS = [
     {
-        title: "IT Recruitment",
-        description: "Specialized recruitment for software engineers, architects, DevOps, and technical leadership roles across Bulgaria and Europe.",
-        href: "/multi-services/it-recruitment-bulgaria",
-        icon: Code2,
-    },
-    {
-        title: "Hire Developers",
-        description: "Fast and reliable hiring of top-tier developers — from mid-level to senior and staff engineers.",
-        href: "/multi-services/hire-developers-bulgaria",
-        icon: Users,
-    },
-    {
-        title: "Remote Teams Europe",
-        description: "Build high-performing remote development teams across Eastern Europe with full compliance and support.",
-        href: "/multi-services/hire-remote-team-europe",
-        icon: Globe,
-    },
-    {
         title: "Fintech Recruitment",
         description: "Expert recruitment for fintech, banking, payments, and financial technology companies.",
-        href: "/multi-services/fintech-recruitment",
-        icon: CreditCard,
+        href: "/expertise-services/fintech-recruitment",
+        icon: Briefcase,
     },
     {
         title: "iGaming Recruitment",
         description: "Dedicated recruitment solutions for the fast-paced iGaming and online betting industry.",
-        href: "/multi-services/igaming-recruitment",
+        href: "/expertise-services/igaming-recruitment",
         icon: Gamepad2,
     },
     {
-        title: "Executive Search",
-        description: "C-level and senior leadership hiring with deep market knowledge and discreet approach.",
-        href: "/multi-services/executive-search-bulgaria",
-        icon: Briefcase,
+        title: "SaaS Recruitment",
+        description: "SaaS recruitment for engineers, DevOps, and technical leaders across Bulgaria and Europe.",
+        href: "/expertise-services/saas-recruitment",
+        icon: Code2,
     },
     {
-        title: "Recruitment Agency Bulgaria",
-        description: "End-to-end recruitment services across all industries in Bulgaria and the region.",
-        href: "/multi-services/recruitment-agency-bulgaria",
+        title: "E-commerce Recruitment",
+        description: "Ecommerce recruitment for Shopify, Magento, and online retail teams across Europe.",
+        href: "/expertise-services/ecommerce-recruitment",
+        icon: Globe,
+    },
+    {
+        title: "AI / ML Recruitment",
+        description: "AI recruitment for machine learning engineers, data scientists, and MLOps teams.",
+        href: "/expertise-services/aiml-recruitment",
+        icon: Users,
+    },
+
+    {
+        title: "Cybersecurity Recruitment",
+        description: "Cybersecurity recruitment for security engineers, SOC analysts, and DevSecOps teams.",
+        href: "/expertise-services/cybersecurity-recruitment",
         icon: Building2,
     },
 ];

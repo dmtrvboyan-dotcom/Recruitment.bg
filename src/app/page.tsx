@@ -41,7 +41,9 @@ export default function LandingPage() {
       <SocialSidebar />
 
       {/* Hero Section */}
-      <Hero />
+      <ScrollReveal>
+        <Hero />
+      </ScrollReveal>
 
       {/* Services Section */}
       <ScrollReveal>
@@ -54,9 +56,9 @@ export default function LandingPage() {
       </ScrollReveal>
 
       {/* Trust Metrics */}
-      <ScrollReveal>
+      {/* <ScrollReveal>
         <TrustSection />
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       {/* Companies Section */}
       <ScrollReveal>
