@@ -109,34 +109,35 @@ const CategoryCard = memo(function CategoryCard({
 /**
  * Modal content — matches Image 2 exactly
  */
+// CategoryModal — tighten spacing and shrink text on mobile
 const CategoryModal = memo(function CategoryModal({ category }: { category: TechCategory }) {
   const IconComponent = ICON_MAP[category.icon] ?? Code2
   const [email, setEmail] = useState("")
 
   return (
-    <div className="p-2">
+    <div className="p-1">
       {/* Icon */}
-      <div className="w-12 h-12 rounded-xl bg-[#78B6D9]/10 flex items-center justify-center mb-5">
-        <IconComponent className="w-6 h-6 text-[#085689]" />
+      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#78B6D9]/10 flex items-center justify-center mb-3 sm:mb-5">
+        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-[#085689]" />
       </div>
 
       {/* Title */}
-      <h2 className="text-2xl font-bold text-slate-900 mb-1">{category.title}</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">{category.title}</h2>
 
       {/* Subtitle */}
-      <p className="text-[#085689] text-sm font-medium mb-6">{category.subtitle}</p>
+      <p className="text-[#085689] text-sm font-medium mb-4 sm:mb-6">{category.subtitle}</p>
 
-      <Separator className="mb-5" />
+      <Separator className="mb-4 sm:mb-5" />
 
       {/* Two-column bullet lists */}
-      <div className="grid grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-4 sm:mb-6">
         <div>
-          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-3">
+          <p className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3">
             HOW WE SOURCE
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-1.5 sm:space-y-2">
             {category.howWeSource.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
                 {item}
               </li>
@@ -144,12 +145,12 @@ const CategoryModal = memo(function CategoryModal({ category }: { category: Tech
           </ul>
         </div>
         <div>
-          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-3">
+          <p className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3">
             WHAT YOU GET
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-1.5 sm:space-y-2">
             {category.whatYouGet.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
                 {item}
               </li>
@@ -158,17 +159,17 @@ const CategoryModal = memo(function CategoryModal({ category }: { category: Tech
         </div>
       </div>
 
-      <Separator className="mb-5" />
+      <Separator className="mb-4 sm:mb-5" />
 
       {/* Stats row */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-2 gap-4 mb-4 sm:mb-6">
         <div>
-          <p className="text-3xl font-bold text-[#085689]">{category.stat1Value}</p>
-          <p className="text-sm text-slate-500 mt-0.5">{category.stat1Label}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-[#085689]">{category.stat1Value}</p>
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">{category.stat1Label}</p>
         </div>
         <div>
-          <p className="text-3xl font-bold text-[#085689]">{category.stat2Value}</p>
-          <p className="text-sm text-slate-500 mt-0.5">{category.stat2Label}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-[#085689]">{category.stat2Value}</p>
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">{category.stat2Label}</p>
         </div>
       </div>
 
@@ -178,15 +179,13 @@ const CategoryModal = memo(function CategoryModal({ category }: { category: Tech
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@company.com"
-        className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#085689]/30 focus:border-[#085689] mb-3 transition"
+        className="w-full border border-slate-200 rounded-xl px-4 py-2.5 sm:py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#085689]/30 focus:border-[#085689] mb-3 transition"
       />
 
       {/* CTA button */}
       <Button
-        className="w-full bg-[#085689] hover:bg-[#0a6aa8] text-white py-3 rounded-xl text-sm font-semibold transition-all"
-        onClick={() => {
-          /* handle send */
-        }}
+        className="w-full bg-[#085689] hover:bg-[#0a6aa8] text-white py-2.5 sm:py-3 rounded-xl text-sm font-semibold transition-all"
+        onClick={() => {}}
       >
         Send Request →
       </Button>
@@ -256,14 +255,11 @@ export function SpecializedRecruitment() {
         open={!!selectedCategory}
         onOpenChange={(open) => !open && setSelectedCategory(null)}
       >
-        <DialogContent className="max-w-lg h-[90%] rounded-2xl p-6 bg-[#f5f5f5] shadow-2xl border-0">
+        <DialogContent className="max-w-lg w-[calc(100%-2rem)] rounded-2xl p-4 sm:p-6 bg-[#f5f5f5] shadow-2xl border-0 max-h-[85dvh] overflow-y-auto">
           <VisuallyHidden>
             <DialogTitle>{selectedCategory?.title ?? "Category details"}</DialogTitle>
             <DialogDescription>{selectedCategory?.subtitle ?? ""}</DialogDescription>
           </VisuallyHidden>
-          {/* <DialogClose className="absolute top-4 right-4 rounded-full p-1 hover:bg-slate-100 transition">
-            <X className="w-4 h-4 text-slate-400" />
-          </DialogClose> */}
           {selectedCategory && <CategoryModal category={selectedCategory} />}
         </DialogContent>
       </Dialog>
