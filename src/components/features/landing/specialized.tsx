@@ -256,7 +256,7 @@ export function SpecializedRecruitment() {
         open={!!selectedCategory}
         onOpenChange={(open) => !open && setSelectedCategory(null)}
       >
-        <DialogContent className="max-w-lg rounded-2xl p-6 bg-[#f5f5f5] shadow-2xl border-0">
+        <DialogContent className="max-w-lg h-[90%] rounded-2xl p-6 bg-[#f5f5f5] shadow-2xl border-0">
           <VisuallyHidden>
             <DialogTitle>{selectedCategory?.title ?? "Category details"}</DialogTitle>
             <DialogDescription>{selectedCategory?.subtitle ?? ""}</DialogDescription>
