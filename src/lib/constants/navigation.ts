@@ -37,7 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Own ATS / CRM",
     hasDropdown: true,
     dropdownItems: [
-      { label: "smart.R", href: "/applicant-tracking-system", openInNewTab: true },
+      { label: "smart.R", href: "#smartr"},
       { label: "Book a demo", href: "#contact" },
     ],
   },
