@@ -48,13 +48,12 @@ export const Hero = memo(function Hero() {
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-[500] font-poppins text-foreground leading-[1.1] text-balance mb-6">
             IT Recruitment Agency for{" "}
-            <span className="text-[#085689]">Tech Companies</span>
+            <span className="text-[#085689]">Tech Roles</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 text-pretty">
-            We connect companies with IT professionals through expert IT
-            recruitment and talent acquisition services.
+            We connect companies with IT professionals through recruitment and talent acquisition services.
           </p>
 
           {/* === Animated Trust Metrics === */}
@@ -63,10 +62,10 @@ export const Hero = memo(function Hero() {
           {/* CTAs */}
           <div className="flex flex-row items-center justify-center gap-4">
             <Button
-              onClick={() => handleNavigate("#companies")}
+              onClick={() => handleNavigate("#services")}
               className="bg-[#085689] lg:w-[150px] w-[110px] lg:text-md text-sm text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 "
             >
-              Hire a talent
+              Learn More
             </Button>
             <Button
               onClick={() => handleNavigate("#jobs")}

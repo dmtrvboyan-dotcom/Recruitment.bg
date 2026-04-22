@@ -21,7 +21,7 @@ export const SERVICES: Service[] = [
   {
     icon: Users,
     title: "Permanent IT Recruitment",
-    subtitle: "Building Teams That Last",
+    subtitle: "",
     intro: "",
     sections: [
       {
@@ -47,7 +47,7 @@ export const SERVICES: Service[] = [
   {
     icon: Briefcase,
     title: "Hire Contract or Freelance Developers",
-    subtitle: "Position Your Company to Attract the Right Talent",
+    subtitle: "",
     intro: "",
     sections: [
       {
@@ -125,7 +125,7 @@ export const SERVICES: Service[] = [
   {
     icon: Search,
     title: "Executive Search & Headhunting",
-    subtitle: "Finding Leaders Who Make an Impact",
+    subtitle: "",
     intro: "",
     sections: [
       {
@@ -177,7 +177,7 @@ export const SERVICES: Service[] = [
    {
     icon: UserCheck,
     title: "IT Salary Benchmarking & Hiring Insights",
-    subtitle: "Find a Role That Actually Fits",
+    subtitle: "",
     intro: "",
     sections: [
       {
@@ -192,7 +192,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Real Impact",
         points: [
-          "Real Impact",
+          "Turn insights into hiring results",
           "Avoid overpaying or underpaying",
           "Speed up hiring decisions",
           "Improve hiring success rate",
@@ -204,10 +204,16 @@ export const SERVICES: Service[] = [
 
 export const EXECUTIVE_STATS = [
   { value: "25", label: "Senior Roles" },
-  { value: "95%", label: "Offer Acceptance Rate" },
+  { value: "85%", label: "Offer Acceptance Rate" },
   { value: "6-15", label: "Days to Present Candidates" },
 ]
 
 export const HIRE_STATS = [
   { value: "100+", label: "Vetted Contractors"}
+]
+
+export const REMOTE_STATS = [
+  { value: "65%+", label: "Wider Pool of Professionals"},
+  { value: "4-6", label: "Candidates Per Role"},
+  { value: "2-6", label: "Days to Present Candidates"},
 ]

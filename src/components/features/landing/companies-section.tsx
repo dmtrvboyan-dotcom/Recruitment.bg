@@ -70,18 +70,18 @@ export function CompaniesSection() {
         {/* Header */}
         <div className="max-w-5xl mx-auto text-center mb-16">
           <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
-            Who we serve
+            Who we work with
           </p>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
-            Connecting Companies with Exceptional Tech Talent
+            Why Companies Work With Us
           </h2>
 
-          <p className="text-xl text-slate-600 leading-relaxed">
+          {/* <p className="text-xl text-slate-600 leading-relaxed">
             With deep industry expertise and a personalized approach, we connect
             companies with pre-vetted senior developers and engineers who truly fit
             your culture and drive long-term success.
-          </p>
+          </p> */}
         </div>
 
         {/* Two Column Content */}

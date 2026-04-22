@@ -39,15 +39,15 @@ const TeamMemberCard = memo(function TeamMemberCard({
   member: TeamMember
 }) {
   return (
-    <div className="w-[80%] flex-shrink-0 snap-start group sm:w-[33.333%] sm:px-3 mt-[50px]">
+    <div className="w-[85%] shrink-0 snap-start group sm:w-[50%] lg:w-[25%] sm:px-3 mt-[50px]">
       <div className="rounded-3xl overflow-hidden flex flex-col items-center">
         <div className="flex flex-col items-center gap-2">
-          <div className="relative w-[200px] h-[200px]">
+          <div className="relative w-[120px] h-[120px] sm:w-[130px] sm:h-[130px] lg:w-[150px] lg:h-[150px]">
             <Image
               src={member.image}
               alt={member.name}
               fill
-              className="object-cover border-4 border-[#085689] rounded-full"
+              className="object-cover border-4 border-[#085689] rounded-full transition-all duration-500 group-hover:border-[#78B6D9]"
             />
           </div>
 
@@ -58,14 +58,14 @@ const TeamMemberCard = memo(function TeamMemberCard({
               rel="noopener noreferrer"
               className="text-[#085689] hover:text-[#78B6D9] transition-colors duration-200"
             >
-              <RiLinkedinBoxFill className="mt-6" size={36} />
+              <RiLinkedinBoxFill className="mt-3 sm:mt-4 lg:mt-6" size={28} />
             </a>
           )}
         </div>
 
-        <div className="p-7 flex-1 flex flex-col items-center">
-          <p className="font-semibold text-lg text-gray-900">{member.name}</p>
-          <div className="text-gray-600 text-[15px] italic text-center mt-4">
+        <div className="p-2 sm:p-4 flex-1 flex flex-col items-center">
+          <p className="font-semibold text-sm sm:text-base text-gray-900">{member.name}</p>
+          <div className="text-gray-600 text-[12px] sm:text-[13px] italic text-center mt-2 sm:mt-3">
             &quot;{member.quote}&quot;
           </div>
         </div>
@@ -95,10 +95,9 @@ const CarouselArrows = memo(function CarouselArrows({
           onClick={onScrollLeft}
           className={`w-11 h-11 rounded-full text-white bg-[#085689] flex items-center justify-center
             transform transition-all duration-200 ease-out
-            ${
-              canScrollLeft
-                ? "opacity-100 scale-100 translate-y-0"
-                : "opacity-0 scale-75 translate-y-2 pointer-events-none"
+            ${canScrollLeft
+              ? "opacity-100 scale-100 translate-y-0"
+              : "opacity-0 scale-75 translate-y-2 pointer-events-none"
             }`}
         >
           <RiArrowLeftSLine size={24} />
@@ -108,10 +107,9 @@ const CarouselArrows = memo(function CarouselArrows({
           onClick={onScrollRight}
           className={`w-11 h-11 rounded-full text-white bg-[#085689] flex items-center justify-center
             transform transition-all duration-200 ease-out
-            ${
-              canScrollRight
-                ? "opacity-100 scale-100 translate-y-0"
-                : "opacity-0 scale-75 translate-y-2 pointer-events-none"
+            ${canScrollRight
+              ? "opacity-100 scale-100 translate-y-0"
+              : "opacity-0 scale-75 translate-y-2 pointer-events-none"
             }`}
         >
           <RiArrowRightSLine size={24} />
@@ -136,7 +134,7 @@ export function MeetTheTeam() {
   return (
     <section
       id="about"
-      className="py-20 lg:py-28 lg:mb-[120px] md:mb-[50px] sm:md-[0px]"
+      className="py-14 sm:py-20 lg:py-28 lg:mb-[120px] md:mb-[50px]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -161,7 +159,7 @@ export function MeetTheTeam() {
         </div>
 
         {/* Company Values */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 max-w-4xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-8 lg:gap-y-10 max-w-4xl mx-auto mb-15 -mt-2">
           <div className="space-y-6">
             {COMPANY_VALUES.slice(0, 2).map((value, index) => (
               <ValueItem key={index} title={value.title} description={value.description} />
@@ -179,7 +177,7 @@ export function MeetTheTeam() {
         <div>
           <div
             ref={scrollContainerRef}
-            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden mt-[-30px]"
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden mt-[-50px]"
           >
             {TEAM_MEMBERS.map((member, index) => (
               <TeamMemberCard key={index} member={member} />

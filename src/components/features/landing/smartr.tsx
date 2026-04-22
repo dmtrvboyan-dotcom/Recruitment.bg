@@ -34,20 +34,21 @@ export const SmartRSection = memo(function SmartRSection() {
       </span>
     </div>
 
-    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6">
-      Smart.R — AI-Powered{" "}
-      <span className="text-[#085689]">Applicant Tracking</span>
+    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-12">
+      Smart.R — Own{" "}
+      <span className="text-[#085689]">Applicant Tracking</span> system
     </h2>
 
-    <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
-      Built by recruiters, for recruiters. <br /><br />
-      Our intelligent ATS streamlines your hiring process from candidate sourcing to offer — all in one place.
-    </p>
+   <p className="text-lg leading-relaxed mb-12 max-w-2xl">
+  <span className="font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">✦ Now available for purchase</span>
+  <br />
+  <span className="text-slate-500 mt-2 block">Get your hiring system, ready to go.</span>
+</p>
 
     <div className="flex flex-row sm:flex-row items-center justify-center gap-2 mb-12">
       <Link href="/applicant-tracking-system" target="_blank">
         <Button className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base">
-          See Smart.R
+          Learn more
         </Button>
       </Link>
 

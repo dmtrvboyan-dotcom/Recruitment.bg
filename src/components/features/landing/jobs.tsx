@@ -363,7 +363,7 @@ export function JobsSection() {
   )
 
   return (
-    <section id="jobs" className="py-16 lg:py-24 lg:mb-[120px] md:mb-[50px]">
+    <section id="jobs" className="py-16 lg:py-24 lg:mb-[20px] md:mb-[50px]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {selectedJob && (
           <JobModal job={selectedJob} onClose={() => setSelectedJob(null)} />

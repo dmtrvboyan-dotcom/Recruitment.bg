@@ -37,9 +37,6 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   "crown": Crown,
 }
 
-/**
- * Technology pill component (top row pills)
- */
 const TechPill = memo(function TechPill({ tech }: { tech: string }) {
   return (
     <Badge
@@ -51,9 +48,7 @@ const TechPill = memo(function TechPill({ tech }: { tech: string }) {
   )
 })
 
-/**
- * Category card component — matches Image 1 exactly
- */
+
 const CategoryCard = memo(function CategoryCard({
   category,
   onClick,
@@ -62,9 +57,8 @@ const CategoryCard = memo(function CategoryCard({
   onClick: () => void
 }) {
   const IconComponent = ICON_MAP[category.icon] ?? Code2
-  // Show first 3 techs, then "+N" badge
-  const visibleTechs = category.techs.slice(0, 3)
-  const extraCount = category.techs.length - visibleTechs.length
+
+  const visibleTechs = category.techs.slice(0, 8)
 
   return (
     <div
@@ -96,11 +90,7 @@ const CategoryCard = memo(function CategoryCard({
             {tech}
           </span>
         ))}
-        {extraCount > 0 && (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-500 border border-slate-200">
-            +{extraCount}
-          </span>
-        )}
+
       </div>
     </div>
   )
@@ -112,7 +102,6 @@ const CategoryCard = memo(function CategoryCard({
 // CategoryModal — tighten spacing and shrink text on mobile
 const CategoryModal = memo(function CategoryModal({ category }: { category: TechCategory }) {
   const IconComponent = ICON_MAP[category.icon] ?? Code2
-  const [email, setEmail] = useState("")
 
   return (
     <div className="p-1">
@@ -171,28 +160,7 @@ const CategoryModal = memo(function CategoryModal({ category }: { category: Tech
           <p className="text-2xl sm:text-3xl font-bold text-[#085689]">{category.stat2Value}</p>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">{category.stat2Label}</p>
         </div>
-      </div>
-
-      {/* Email input */}
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@company.com"
-        className="w-full border border-slate-200 rounded-xl px-4 py-2.5 sm:py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#085689]/30 focus:border-[#085689] mb-3 transition"
-      />
-
-      {/* CTA button */}
-      <Button
-        className="w-full bg-[#085689] hover:bg-[#0a6aa8] text-white py-2.5 sm:py-3 rounded-xl text-sm font-semibold transition-all"
-        onClick={() => {}}
-      >
-        Send Request →
-      </Button>
-
-      <p className="text-center text-xs text-slate-400 mt-3">
-        We'll get back to you within 24 hours.
-      </p>
+      </div>   
     </div>
   )
 })
@@ -204,23 +172,23 @@ export function SpecializedRecruitment() {
   const [selectedCategory, setSelectedCategory] = useState<TechCategory | null>(null)
 
   return (
-    <section className="py-20 lg:py-28 lg:mb-[120px] md:mb-[50px]">
+    <section id="specialized" className="py-20 lg:py-28 lg:mb-[120px] md:mb-[50px]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-[#085689] uppercase tracking-wider mb-4">
+          <p className="text-md font-semibold text-[#085689] uppercase tracking-wider mb-4">
             Industry-Focused Expertise
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight  text-black text-balance">
             Specialized recruitment
           </h2>
-          <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          {/* <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
             From technical support and junior software engineers to CTOs — we help you hire the right professionals.
-          </p>
+          </p> */}
         </div>
 
         {/* Tech Stack Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-14">
+        <div className="flex flex-wrap justify-center gap-2 mb-14 -mt-5">
           {TECHNOLOGY_PILLS.map((tech) => (
             <TechPill key={tech} tech={tech} />
           ))}

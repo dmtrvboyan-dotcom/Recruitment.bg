@@ -5,7 +5,7 @@ import { useEscapeKey, useClickOutside } from "@/lib/hooks"
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"
 import { X, Plus, Users, Search, ChevronDown, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { SERVICES, EXECUTIVE_STATS, HIRE_STATS, type Service } from "@/lib/constants/services"
+import { SERVICES, EXECUTIVE_STATS, HIRE_STATS, REMOTE_STATS, type Service } from "@/lib/constants/services"
 import { scrollToSection } from "@/lib/utils/scroll"
 
 
@@ -96,7 +96,7 @@ const ServiceDetails = memo(function ServiceDetails({
             onClick={onClose}
             className="p-1 hover:bg-gray-100 rounded-full transition-colors"
           >
-            <X className="w-6 h-6 text-gray-600" />
+            <X className="w-6 h-6 text-gray-600 bg-[#085689]/10 rounded-4xl p-0.5" />
           </button>
         </div>
       )}
@@ -158,9 +158,31 @@ const ServiceDetails = memo(function ServiceDetails({
         </div>
       )}
 
+      {service.title === "Remote IT Hiring & Global Talent" && (
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {EXECUTIVE_STATS.map((stat, idx) => (
+            <div key={idx} className="text-center">
+              <div className="text-[2rem] font-bold text-[#085689]">{stat.value}</div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
       {service.title === "Hire Contract or Freelance Developers" && (
         <div className="mt-12 flex flex-row  lg:flex-row gap-10 items-start">
-          {/* Stats - Left */}
+          {/* Button - Left */}
+          <div className="lg:w-80 pt-4">
+            <Button
+              onClick={() => handleNavigate("#companies")}
+              className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium shadow-md hover:shadow-lg transition-all active:scale-[0.98]"
+            >
+              Hire contract <Users className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+
+          {/* Stats - Right */}
+
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {HIRE_STATS.map((stat, idx) => (
@@ -176,15 +198,7 @@ const ServiceDetails = memo(function ServiceDetails({
             </div>
           </div>
 
-          {/* Button - Right */}
-          <div className="lg:w-80 pt-4">
-            <Button
-              onClick={() => handleNavigate("#companies")}
-              className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium shadow-md hover:shadow-lg transition-all active:scale-[0.98]"
-            >
-              Hire contract <Users className="w-4 h-4 ml-2" />
-            </Button>
-          </div>
+
         </div>
       )}
     </>
@@ -248,9 +262,9 @@ const DesktopPanel = memo(function DesktopPanel({
           <div className="p-6 md:p-8">
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors"
+              className="absolute top-6 right-6 p-2 rounded-full bg-[#085689] hover:bg-[#78B6D9] transition-colors"
             >
-              <X className="w-6 h-6 text-gray-600" />
+              <X className="w-6 h-6 hover:text-gray-600 text-white" />
             </button>
 
             <div className="w-20 h-20 rounded-2xl bg-[#085689]/10 flex items-center justify-center mb-8">
@@ -328,13 +342,40 @@ const DesktopPanel = memo(function DesktopPanel({
                 </div>
               </div>
             )}
+
+             {service.title === "Remote IT Hiring & Global Talent" && (
+              <div className="mt-16 border-t border-gray-200 pt-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {REMOTE_STATS.map((stat, idx) => (
+                    <div key={idx} className="text-center">
+                      <div className="text-[2rem] font-bold leading-none text-[#085689]">
+                        {stat.value}
+                      </div>
+                      <div className="mt-4 text-md font-medium text-gray-700">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Action + Stats for Hire Contract */}
 
             {service.title === "Hire Contract or Freelance Developers" && (
               <div className="mt-10 flex flex-row lg:flex-row gap-8 lg:gap-0 items-start">
 
+                <div className="lg:w-[260px]  lg:shrink-0 mt-8 lg:pt-2">
+                  <Button
+                    onClick={() => handleNavigate("#specialized")}
+                    className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium"
+                  >
+                    Learn more <Users className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+
                 <div className="flex">
-                  <div className="grid grid-cols-1 pr-12">
+                  <div className="grid grid-cols-1 pl-8">
                     {HIRE_STATS.map((stat, idx) => (
                       <div key={idx} className="text-center">
                         <div className="text-[2rem] font-bold text-[#085689]">{stat.value}</div>
@@ -345,14 +386,7 @@ const DesktopPanel = memo(function DesktopPanel({
                 </div>
 
                 {/* Button - Right (closer on desktop) */}
-                <div className="lg:w-[260px]  lg:shrink-0 mt-8 lg:pt-2">
-                  <Button
-                    onClick={() => handleNavigate("#companies")}
-                    className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium"
-                  >
-                    Hire contract <Users className="w-4 h-4 ml-2" />
-                  </Button>
-                </div>
+
               </div>
             )}
 
