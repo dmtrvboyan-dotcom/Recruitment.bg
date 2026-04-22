@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useCallback, memo } from "react"
-import { useEscapeKey } from "@/lib/hooks"
+import { useState, useCallback, memo, useRef } from "react"
+import { useEscapeKey, useClickOutside } from "@/lib/hooks"
 import { X, Users, Search, ChevronDown, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SERVICES, EXECUTIVE_STATS, HIRE_STATS, REMOTE_STATS, type Service } from "@/lib/constants/services"
@@ -365,10 +365,13 @@ const DesktopPanel = memo(function DesktopPanel({
 export function Services() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
   const [openMobileItems, setOpenMobileItems] = useState<number[]>([])
+  const mobileAccordionRef = useRef<HTMLDivElement>(null)
 
   const closePanel = useCallback(() => setSelectedService(null), [])
+  const closeAllMobileItems = useCallback(() => setOpenMobileItems([]), [])
 
   useEscapeKey(closePanel)
+  useClickOutside(mobileAccordionRef, closeAllMobileItems)
 
   const toggleMobileItem = useCallback((index: number) => {
     setOpenMobileItems((prev) =>
@@ -388,8 +391,8 @@ export function Services() {
           </h2>
         </div>
 
-        {/* Mobile: FAQ-style accordion */}
-        <div className="md:hidden space-y-2">
+        {/* Mobile: FAQ-style accordion - tap outside to close all */}
+        <div ref={mobileAccordionRef} className="md:hidden space-y-2">
           {SERVICES.map((service, index) => (
             <MobileServiceItem
               key={index}
