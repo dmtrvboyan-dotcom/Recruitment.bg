@@ -82,7 +82,7 @@ function HeroSection() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-6">
+        {/* <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-6">
           {heroData.stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-[#085689]">
@@ -93,7 +93,7 @@ function HeroSection() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </section>
@@ -139,50 +139,50 @@ function FeaturesSection() {
   )
 }
 
-function HowItWorksSection() {
-  return (
-    <section className="py-20 md:py-32 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
-            {howItWorksData.tagline}
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
-            {howItWorksData.title}
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            {howItWorksData.subtitle}
-          </p>
-        </div>
+// function HowItWorksSection() {
+//   return (
+//     <section className="py-20 md:py-32 px-6">
+//       <div className="max-w-6xl mx-auto">
+//         <div className="text-center mb-16">
+//           <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+//             {howItWorksData.tagline}
+//           </span>
+//           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
+//             {howItWorksData.title}
+//           </h2>
+//           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+//             {howItWorksData.subtitle}
+//           </p>
+//         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {howItWorksData.items.map((step, index) => (
-            <div key={index} className="relative">
-              {/* Connector line */}
-              {index < howItWorksData.items.length - 1 && (
-                <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-slate-200 -translate-x-1/2 z-0" />
-              )}
+//         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+//           {howItWorksData.items.map((step, index) => (
+//             <div key={index} className="relative">
+//               {/* Connector line */}
+//               {index < howItWorksData.items.length - 1 && (
+//                 <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-slate-200 -translate-x-1/2 z-0" />
+//               )}
               
-              <div className="relative z-10 text-center">
-                <div className="w-24 h-24 rounded-full bg-[#085689]/10 flex items-center justify-center mx-auto mb-6 border-4 border-white shadow-lg">
-                  <span className="text-2xl font-bold text-[#085689]">
-                    {step.number}
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-black mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+//               <div className="relative z-10 text-center">
+//                 <div className="w-24 h-24 rounded-full bg-[#085689]/10 flex items-center justify-center mx-auto mb-6 border-4 border-white shadow-lg">
+//                   <span className="text-2xl font-bold text-[#085689]">
+//                     {step.number}
+//                   </span>
+//                 </div>
+//                 <h3 className="text-xl font-semibold text-black mb-3">
+//                   {step.title}
+//                 </h3>
+//                 <p className="text-slate-600 leading-relaxed">
+//                   {step.description}
+//                 </p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   )
+// }
 
 function BenefitsSection() {
   return (
@@ -544,12 +544,12 @@ export default function ApplicantTrackingSystemPage() {
 
       <HeroSection />
       <FeaturesSection />
-      <HowItWorksSection />
+      {/* <HowItWorksSection /> */}
       <BenefitsSection />
       <ScreenshotsSection />
       <IntegrationsSection />
       <SecuritySection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <FAQSection />
       <CTASection />
     </>

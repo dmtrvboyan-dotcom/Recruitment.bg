@@ -127,7 +127,7 @@ const MobileServiceItem = memo(function MobileServiceItem({
             <div className="mt-8">
               <Button
                 onClick={() => handleNavigate("#companies")}
-                className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl"
+                className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl cursor-pointer"
               >
                 Learn more <Users className="w-4 h-4 ml-2" />
               </Button>
@@ -138,7 +138,7 @@ const MobileServiceItem = memo(function MobileServiceItem({
             <div className="mt-8">
               <Button
                 onClick={() => handleNavigate("#contact")}
-                className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl"
+                className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl cursor-pointer"
               >
                 Learn more <Search className="w-4 h-4 ml-2" />
               </Button>
@@ -269,7 +269,7 @@ const DesktopPanel = memo(function DesktopPanel({
               {service.title === "Permanent IT Recruitment" && (
                 <Button
                   onClick={() => handleNavigate("#companies")}
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-medium bg-[#085689] hover:bg-[#0a6a9c] text-white rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-medium bg-[#085689] hover:bg-[#0a6a9c] text-white rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2 cursor-pointer"
                 >
                   Learn more
                   <Users className="w-4 h-4" />
@@ -279,7 +279,7 @@ const DesktopPanel = memo(function DesktopPanel({
               {service.title === "IT Salary Benchmarking & Hiring Insights" && (
                 <Button
                   onClick={() => handleNavigate("#contact")}
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-medium bg-[#085689] hover:bg-[#0a6a9c] text-white rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-medium bg-[#085689] hover:bg-[#0a6a9c] text-white rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2 cursor-pointer"
                 >
                   Learn more
                   <Search className="w-4 h-4" />
@@ -330,7 +330,7 @@ const DesktopPanel = memo(function DesktopPanel({
                 <div className="lg:w-[260px]  lg:shrink-0 mt-8 lg:pt-2">
                   <Button
                     onClick={() => handleNavigate("#specialized")}
-                    className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium"
+                    className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium cursor-pointer"
                   >
                     Learn more <Users className="w-4 h-4 ml-2" />
                   </Button>

@@ -19,6 +19,7 @@ import {
   Star,
   Puzzle,
   Smartphone,
+  Headset,
 } from "lucide-react"
 
 // ============================================================================
@@ -239,19 +240,19 @@ export const featuresData = {
       icon: Bot,
       title: "AI-Powered Matching",
       description:
-        "Our intelligent algorithms analyze candidate profiles and match them with your requirements, surfacing the best fits instantly.",
+        "Our intelligent algorithms analyze candidate profiles and match them with your requirements, with Smart.R features surfacing the best fits instantly.",
     },
     {
       icon: Kanban,
       title: "Visual Pipeline",
       description:
-        "Drag-and-drop kanban boards give you complete visibility into your hiring funnel. Track every candidate from application to offer.",
+        "Drag-and-drop kanban boards give you complete visibility into your hiring funnel with Smart.R tools. Track every candidate from application to offer.",
     },
     {
       icon: Workflow,
       title: "Automated Workflows",
       description:
-        "Set up triggers and actions to automate repetitive tasks. Send emails, move candidates, and update statuses automatically.",
+        "Set up triggers and actions to automate repetitive tasks using Smart.R workflows. Send emails, move candidates, and update statuses automatically.",
     },
     {
       icon: BarChart3,
@@ -263,25 +264,25 @@ export const featuresData = {
       icon: Users,
       title: "Team Collaboration",
       description:
-        "Share candidate profiles, collect feedback, and keep all stakeholders aligned with built-in collaboration tools.",
+        "Share candidate profiles, collect feedback, and keep all stakeholders aligned with built-in Smart.R collaboration tools.",
     },
     {
       icon: Mail,
       title: "Email Integration",
       description:
-        "Send personalized emails at scale. Track opens, clicks, and responses directly within the platform.",
+        "Send personalized emails at scale through Smart.R. Track opens, clicks, and responses directly within the platform.",
     },
     {
-      icon: Calendar,
-      title: "Interview Scheduling",
+      icon: Headset,
+      title: "Bulgarian Support",
       description:
-        "Eliminate scheduling back-and-forth. Let candidates book interviews based on your team's availability.",
+        "We’re just a call or email away with Smart.R support. Get fast, reliable assistance in Bulgarian—whether it’s onboarding, troubleshooting, or optimizing your hiring workflows.",
     },
     {
       icon: FileSearch,
       title: "Resume Parsing",
       description:
-        "Automatically extract and structure data from resumes. Search across all candidates with powerful filters.",
+        "Automatically extract and structure data from resumes using Smart.R parsing. Search across all candidates with powerful filters.",
     },
   ] as Feature[],
 }
@@ -332,8 +333,8 @@ export const howItWorksData = {
 
 export const benefitsData = {
   tagline: "WHY SMART.R",
-  title: "Transform Your Hiring Process",
-  subtitle: "Join teams who have revolutionized how they recruit",
+  title: "Transform Your Hiring Process Positively",
+  subtitle: "Enhance your candidate experience with seamless communication.",
   items: [
     {
       icon: Clock,
@@ -480,7 +481,7 @@ export const testimonialsData = {
 export const faqData = {
   tagline: "FAQ",
   title: "Frequently Asked Questions",
-  subtitle: "Everything you need to know about Smart.R",
+  subtitle: "",
   items: [
     {
       question: "How long does it take to set up Smart.R?",

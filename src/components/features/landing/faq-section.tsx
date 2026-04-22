@@ -127,7 +127,7 @@ export function FAQSection() {
         <div className="flex justify-center mt-16">
           <Button
             onClick={handleNavigate}
-            className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base"
+            className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base cursor-pointer"
           >
             Still have questions? Let&apos;s talk
           </Button>

@@ -211,8 +211,7 @@ const JobModal = memo(function JobModal({
           </p>
         </div>
 
-        {/* Footer */}
-        <div className="shrink-0 px-5 py-4 border-t border-slate-100">
+        <div className="shrink-0 px-5 py-4 border-t border-slate-100 ">
           <button
             onClick={() => console.log(`Applying for: ${job.title}`)}
             className="w-full bg-[#085689] hover:bg-[#0a6a9e] text-white py-4 rounded-2xl font-semibold text-base transition-all active:scale-[0.98]"
@@ -307,7 +306,7 @@ const JobCard = memo(function JobCard({
         </div>
         <button
           onClick={onSelect}
-          className="bg-[#78B6D9] hover:bg-[#0a6a9e] text-white px-4 py-2 rounded-2xl text-xs font-medium transition-all active:scale-95"
+          className="bg-[#78B6D9] hover:bg-[#0a6a9e] text-white px-4 py-2 rounded-2xl text-xs font-medium transition-all active:scale-95 cursor-pointer"
         >
           View Position
         </button>
@@ -416,10 +415,10 @@ export function JobsSection() {
 
           {/* Filters panel */}
           <div
-            className={`lg:w-80 lg:shrink-0 transition-all ${showFilters ? "block" : "hidden"
+            className={`lg:w-80 lg:shrink-0 transition-all  ${showFilters ? "block" : "hidden "
               } lg:block`}
           >
-            <div className="bg-[#f5f5f5] border border-slate-200 rounded-3xl p-6 lg:sticky lg:top-8 space-y-6">
+            <div className="bg-[#f5f5f5] border border-slate-200 rounded-3xl p-6 lg:sticky lg:top-8 space-y-6 ">
               <FilterSection
                 title="Technology"
                 isOpen={openSections.technology}

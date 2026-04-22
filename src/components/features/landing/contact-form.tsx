@@ -309,7 +309,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
         <Button
           type="submit"
           size="lg"
-          className="w-full bg-[#085689] hover:bg-[#0a6a9c]"
+          className="w-full bg-[#085689] hover:bg-[#0a6a9c] cursor-pointer"
           disabled={isSubmitting}
         >
           {isSubmitting ? (

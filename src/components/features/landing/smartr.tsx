@@ -47,7 +47,7 @@ export const SmartRSection = memo(function SmartRSection() {
 
     <div className="flex flex-row sm:flex-row items-center justify-center gap-2 mb-12">
       <Link href="/applicant-tracking-system" target="_blank">
-        <Button className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base">
+        <Button className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base cursor-pointer">
           Learn more
         </Button>
       </Link>
@@ -55,7 +55,7 @@ export const SmartRSection = memo(function SmartRSection() {
       <Button
         onClick={handleNavigate}
         variant="outline"
-        className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-lg px-8 py-6 text-base border-slate-300"
+        className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-lg px-8 py-6 text-base border-slate-300 cursor-pointer"
       >
         Book a demo
       </Button>

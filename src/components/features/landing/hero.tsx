@@ -63,14 +63,14 @@ export const Hero = memo(function Hero() {
           <div className="flex flex-row items-center justify-center gap-4">
             <Button
               onClick={() => handleNavigate("#services")}
-              className="bg-[#085689] lg:w-[150px] w-[110px] lg:text-md text-sm text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 "
+              className="bg-[#085689] lg:w-[150px] w-[110px] lg:text-md text-sm text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 cursor-pointer"
             >
               Learn More
             </Button>
             <Button
               onClick={() => handleNavigate("#jobs")}
               variant="outline"
-              className="bg-transparent lg:w-[150px] w-[110px] text-sm text-black hover:bg-[#085689] bg-[#78B6D9] hover:text-white rounded-lg px-8 py-6 border-2 border-[#78B6D9]/50 "
+              className="bg-transparent lg:w-[150px] w-[110px] text-sm text-black hover:bg-[#085689] bg-[#78B6D9] hover:text-white rounded-lg px-8 py-6 border-2 border-[#78B6D9]/50 cursor-pointer"
             >
               Find a job
             </Button>
