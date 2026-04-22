@@ -543,14 +543,91 @@ export function JobsSection() {
 
           {/* Job cards */}
           <div className="flex-1">
-            <div className="mb-8 flex items-baseline gap-3">
-              <span className="text-2xl font-semibold">
-                {filteredJobs.length} positions
-              </span>
-              {searchQuery && (
-                <span className="text-slate-500 text-sm">
-                  matching &quot;{searchQuery}&quot;
+            <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              {/* Left: positions count */}
+              <div className="flex items-baseline gap-3">
+                <span className="text-2xl font-semibold">
+                  {filteredJobs.length} positions
                 </span>
+                {searchQuery && (
+                  <span className="text-slate-500 text-sm">
+                    matching &quot;{searchQuery}&quot;
+                  </span>
+                )}
+              </div>
+
+              {/* Right: pagination */}
+              {totalPages > 1 && (
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
+                  >
+                    ‹
+                  </button>
+
+                  {(() => {
+                    const pages: (number | string)[] = []
+                    
+                    if (totalPages <= 3) {
+                      // Show all pages if 3 or less
+                      for (let i = 1; i <= totalPages; i++) pages.push(i)
+                    } else {
+                      // Always show first page
+                      pages.push(1)
+                      
+                      if (currentPage <= 2) {
+                        // Near start: 1 2 ... last
+                        pages.push(2)
+                        pages.push("...")
+                        pages.push(totalPages)
+                      } else if (currentPage >= totalPages - 1) {
+                        // Near end: 1 ... second-last last
+                        pages.push("...")
+                        pages.push(totalPages - 1)
+                        pages.push(totalPages)
+                      } else {
+                        // Middle: 1 ... current ... last
+                        pages.push("...")
+                        pages.push(currentPage)
+                        pages.push("...")
+                        pages.push(totalPages)
+                      }
+                    }
+
+                    return pages.map((page, idx) =>
+                      page === "..." ? (
+                        <span
+                          key={`ellipsis-${idx}`}
+                          className="w-6 text-center text-slate-400 text-sm"
+                        >
+                          ...
+                        </span>
+                      ) : (
+                        <button
+                          key={page}
+                          onClick={() => setCurrentPage(page as number)}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                            currentPage === page
+                              ? "bg-[#085689] text-white shadow-md"
+                              : "bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#78B6D9] hover:text-white"
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      )
+                    )
+                  })()}
+
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
+                  >
+                    ›
+                  </button>
+                </div>
               )}
             </div>
 
@@ -565,41 +642,6 @@ export function JobsSection() {
                 No jobs found matching your criteria.
               </div>
             )}
-
-         {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2 mt-10">
-              <button
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-                className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-              >
-                ‹
-              </button>
-
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`w-10 h-10 rounded-2xl text-sm font-semibold transition-all ${currentPage === page
-                      ? "bg-[#085689] text-white shadow-md"
-                      : "bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#78B6D9] hover:text-white"
-                    }`}
-                >
-                  {page}
-                </button>
-              ))}
-
-              <button
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-                className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-              >
-                ›
-              </button>
-            </div>
-          )}
-
-
           </div>
  
          
