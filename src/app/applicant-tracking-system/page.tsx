@@ -74,7 +74,7 @@ function HeroSection() {
           <Link href={heroData.secondaryCta.href} className="w-full sm:w-auto">
             <Button
               variant="outline"
-              className="w-full sm:w-auto bg-white border-slate-300 hover:bg-[#78B6D9] hover:text-white hover:border-[#78B6D9] rounded-xl px-6 py-5 text-sm"
+              className="w-full sm:w-auto bg-transparent border-slate-300 hover:bg-[#78B6D9] hover:text-white hover:border-[#78B6D9] rounded-xl px-6 py-5 text-sm"
             >
               {heroData.secondaryCta.text}
             </Button>
@@ -105,7 +105,7 @@ function FeaturesSection() {
     <section className="py-20 md:py-32 px-6 bg-transparent">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
             {featuresData.tagline}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
@@ -144,7 +144,7 @@ function HowItWorksSection() {
     <section className="py-20 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
             {howItWorksData.tagline}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
@@ -186,16 +186,16 @@ function HowItWorksSection() {
 
 function BenefitsSection() {
   return (
-    <section className="py-20 md:py-32 px-6 bg-[#085689]">
+    <section className="py-20 md:py-32 px-6 bg-transparent">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium text-white/70 uppercase tracking-wider mb-4 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
             {benefitsData.tagline}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight  mb-4 text-balance">
             {benefitsData.title}
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             {benefitsData.subtitle}
           </p>
         </div>
@@ -207,19 +207,19 @@ function BenefitsSection() {
               className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center">
-                  <benefit.icon className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 rounded-lg bg-[#085689]/10 flex items-center justify-center">
+                  <benefit.icon className="w-6 h-6 text-[#085689]" />
                 </div>
                 {benefit.stat && (
-                  <span className="text-2xl font-bold text-white/90">
+                  <span className="text-2xl font-bold text-[#78B6D9]">
                     {benefit.stat}
                   </span>
                 )}
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-black mb-2">
                 {benefit.title}
               </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </div>
@@ -235,7 +235,7 @@ function ScreenshotsSection() {
     <section className="py-20 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
             PRODUCT TOUR
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
@@ -251,7 +251,7 @@ function ScreenshotsSection() {
           <div className="group">
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 mb-4">
               <Image
-                src="/images/smartr-pipeline.png"
+                src="/uploaded/product-smart.png"
                 alt="Smart.R Visual Hiring Pipeline"
                 fill
                 className="object-cover"
@@ -333,7 +333,7 @@ function IntegrationsSection() {
     <section className="py-20 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center lg:text-center">
-          <span className="text-sm font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
             {integrationsData.tagline}
           </span>
 
@@ -376,7 +376,7 @@ function SecuritySection() {
     <section className="py-16 px-6 border-y border-slate-200">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <span className="text-sm font-medium text-[#085689] uppercase tracking-wider mb-2 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-2 block">
             {securityData.tagline}
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-black text-balance">
@@ -409,7 +409,7 @@ function TestimonialsSection() {
     <section className="py-20 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
             {testimonialsData.tagline}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
@@ -455,7 +455,7 @@ function FAQSection() {
     <section className="py-20 md:py-32 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
             {faqData.tagline}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">

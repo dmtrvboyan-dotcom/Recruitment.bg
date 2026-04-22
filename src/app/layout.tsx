@@ -22,7 +22,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Recruitment.bg - Executive Search & IT Headhunting",
+  title: "IT recruitment agency and services in Bulgaria for companies hiring IT professionals",
   description:
     "Bulgaria's premier executive search and IT headhunting agency. We connect top talent with leading companies through personalized recruitment solutions.",
   keywords: [
