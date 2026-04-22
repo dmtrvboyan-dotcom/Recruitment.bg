@@ -543,14 +543,82 @@ export function JobsSection() {
 
           {/* Job cards */}
           <div className="flex-1">
-            <div className="mb-8 flex items-baseline gap-3">
-              <span className="text-2xl font-semibold">
-                {filteredJobs.length} positions
-              </span>
-              {searchQuery && (
-                <span className="text-slate-500 text-sm">
-                  matching &quot;{searchQuery}&quot;
+            <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              {/* Left: positions count */}
+              <div className="flex items-baseline gap-3">
+                <span className="text-2xl font-semibold">
+                  {filteredJobs.length} positions
                 </span>
+                {searchQuery && (
+                  <span className="text-slate-500 text-sm">
+                    matching &quot;{searchQuery}&quot;
+                  </span>
+                )}
+              </div>
+
+              {/* Right: pagination — always exactly 3 page buttons */}
+              {totalPages > 1 && (
+                <div className="flex items-center gap-1.5 sm:gap-2 ml-auto lg:mt-0 md:mt-0 sm:mt-0 -mt-12">
+                  {/* Prev arrow */}
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
+                  >
+                    ‹
+                  </button>
+
+                  {(() => {
+                    // 2 pages: show just 2 buttons
+                    if (totalPages === 2) {
+                      return [1, 2].map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => setCurrentPage(page)}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                            currentPage === page
+                              ? "bg-[#085689] text-white shadow-md"
+                              : "bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#78B6D9] hover:text-white"
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))
+                    }
+
+                    // 3+ pages: always exactly 3 buttons — [1] [middle] [last]
+                    // Middle = current page, clamped so it's never 1 or last
+                    const middle =
+                      currentPage === 1
+                        ? 2
+                        : currentPage === totalPages
+                        ? totalPages - 1
+                        : currentPage
+
+                    return [1, middle, totalPages].map((page, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentPage(page)}
+                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                          currentPage === page
+                            ? "bg-[#085689] text-white shadow-md"
+                            : "bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#78B6D9] hover:text-white"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    ))
+                  })()}
+
+                  {/* Next arrow */}
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all text-sm"
+                  >
+                    ›
+                  </button>
+                </div>
               )}
             </div>
 
@@ -565,41 +633,6 @@ export function JobsSection() {
                 No jobs found matching your criteria.
               </div>
             )}
-
-         {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2 mt-10">
-              <button
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-                className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-              >
-                ‹
-              </button>
-
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`w-10 h-10 rounded-2xl text-sm font-semibold transition-all ${currentPage === page
-                      ? "bg-[#085689] text-white shadow-md"
-                      : "bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#78B6D9] hover:text-white"
-                    }`}
-                >
-                  {page}
-                </button>
-              ))}
-
-              <button
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-                className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#f5f5f5] border border-slate-200 text-slate-600 hover:bg-[#085689] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-              >
-                ›
-              </button>
-            </div>
-          )}
-
-
           </div>
  
          

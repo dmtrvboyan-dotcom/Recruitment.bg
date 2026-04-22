@@ -392,7 +392,7 @@ export function Services() {
         </div>
 
         {/* Mobile: FAQ-style accordion - tap outside to close all */}
-        <div ref={mobileAccordionRef} className="md:hidden space-y-2">
+        {/* <div ref={mobileAccordionRef} className="md:hidden space-y-2">
           {SERVICES.map((service, index) => (
             <MobileServiceItem
               key={index}
@@ -401,7 +401,7 @@ export function Services() {
               onToggle={() => toggleMobileItem(index)}
             />
           ))}
-        </div>
+        </div> */}
 
         {/* Desktop: Card grid with sliding panel */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
