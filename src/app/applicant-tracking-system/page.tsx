@@ -2,15 +2,17 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Sparkles, ArrowRight, ChevronDown } from "lucide-react"
+import { ArrowRight, ChevronDown } from "lucide-react"
 
+import {
+  ProductTourSection,
+  PowerfulFeaturesSection,
+} from "./components"
 import {
   atsMetadata,
   atsJsonLd,
   atsBreadcrumbJsonLd,
   heroData,
-  featuresData,
-  howItWorksData,
   benefitsData,
   integrationsData,
   securityData,
@@ -31,158 +33,69 @@ export const metadata: Metadata = atsMetadata
 
 function HeroSection() {
   return (
-    <section className="relative lg:mt-24 pb-20 md:pt-40 md:pb-32 mt-50 px-6 overflow-hidden">
-      <div className="max-w-3xl mx-auto text-center">
-        
-        {/* Tagline */}
-        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-5">
-          <Sparkles className="w-4 h-4 text-orange-500" />
-          <span className="uppercase tracking-widest text-[#085689] font-semibold">
-            {heroData.tagline}
-          </span>
-        </div>
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        {/* Centered Text Content */}
+        <div className="text-center mb-12">
+          {/* Title */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black mb-6 leading-tight text-balance">
+            {heroData.title}
+          </h1>
 
-        {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black mb-5 leading-tight">
-          {heroData.title}
-        </h1>
+          {/* Subtitle */}
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8 text-pretty">
+            {heroData.subtitle}
+          </p>
 
-        {/* Subtitle */}
-        <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-4">
-          {heroData.subtitle}
-        </p>
-
-        {/* Description */}
-        {/* <p className="text-sm sm:text-base text-slate-500 mb-8">
-          {heroData.description}
-        </p> */}
-
-        {/* CTAs */}
-        <div className="flex flex-row sm:flex-row gap-3 justify-center mb-10 mt-10">
-          <a
-            href={heroData.primaryCta.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto"
-          >
-            <Button className="w-full sm:w-auto bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-xl px-6 py-5 text-sm   group shadow-lg">
-              {heroData.primaryCta.text}
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </a>
-
-          <Link href={heroData.secondaryCta.href} className="w-full sm:w-auto">
-            <Button
-              variant="outline"
-              className="w-full sm:w-auto bg-transparent border-slate-300 hover:bg-[#78B6D9] hover:text-white hover:border-[#78B6D9] rounded-xl px-6 py-5 text-sm"
+          {/* CTAs */}
+          <div className="flex flex-row gap-4 justify-center">
+            <a
+              href={heroData.primaryCta.href}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {heroData.secondaryCta.text}
-            </Button>
-          </Link>
+              <Button className="bg-[#085689] text-white hover:bg-[#064266] rounded-xl px-8 py-6 text-base font-medium group shadow-lg shadow-[#085689]/20 transition-all duration-300 hover:shadow-xl hover:shadow-[#085689]/30">
+                {heroData.primaryCta.text}
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </a>
+
+            <Link href={heroData.secondaryCta.href}>
+              <Button
+                variant="outline"
+                className="bg-transparent border-2 border-slate-300 hover:bg-slate-100 hover:border-slate-400 rounded-xl px-8 py-6 text-base font-medium transition-all duration-300"
+              >
+                {heroData.secondaryCta.text}
+              </Button>
+            </Link>
+          </div>
         </div>
 
-        {/* Stats */}
-        {/* <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-6">
-          {heroData.stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-[#085689]">
-                {stat.value}
-              </div>
-              <div className="text-xs uppercase tracking-widest text-slate-500 mt-1">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div> */}
-
+        {/* Product Mockup - Centered Dashboard Preview */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200/50">
+            <Image
+              src="/uploaded/product-smart.png"
+              alt="Smart.R Dashboard - Visual Hiring Pipeline"
+              width={1200}
+              height={675}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+          
+          {/* Decorative Elements */}
+          <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#78B6D9]/20 rounded-full blur-2xl" />
+          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#085689]/10 rounded-full blur-2xl" />
+        </div>
       </div>
     </section>
   );
 }
 
 function FeaturesSection() {
-  return (
-    <section className="py-20 md:py-32 px-6 bg-transparent">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
-            {featuresData.tagline}
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
-            {featuresData.title}
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            {featuresData.subtitle}
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuresData.items.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-6 border border-slate-200/50 hover:border-[#085689]/30 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-lg bg-[#085689]/10 flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-[#085689]" />
-              </div>
-              <h3 className="text-lg font-semibold text-black mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+  return <PowerfulFeaturesSection />
 }
-
-// function HowItWorksSection() {
-//   return (
-//     <section className="py-20 md:py-32 px-6">
-//       <div className="max-w-6xl mx-auto">
-//         <div className="text-center mb-16">
-//           <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
-//             {howItWorksData.tagline}
-//           </span>
-//           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
-//             {howItWorksData.title}
-//           </h2>
-//           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-//             {howItWorksData.subtitle}
-//           </p>
-//         </div>
-
-//         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-//           {howItWorksData.items.map((step, index) => (
-//             <div key={index} className="relative">
-//               {/* Connector line */}
-//               {index < howItWorksData.items.length - 1 && (
-//                 <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-slate-200 -translate-x-1/2 z-0" />
-//               )}
-              
-//               <div className="relative z-10 text-center">
-//                 <div className="w-24 h-24 rounded-full bg-[#085689]/10 flex items-center justify-center mx-auto mb-6 border-4 border-white shadow-lg">
-//                   <span className="text-2xl font-bold text-[#085689]">
-//                     {step.number}
-//                   </span>
-//                 </div>
-//                 <h3 className="text-xl font-semibold text-black mb-3">
-//                   {step.title}
-//                 </h3>
-//                 <p className="text-slate-600 leading-relaxed">
-//                   {step.description}
-//                 </p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
 
 function BenefitsSection() {
   return (
@@ -231,101 +144,7 @@ function BenefitsSection() {
 }
 
 function ScreenshotsSection() {
-  return (
-    <section className="py-20 md:py-32 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
-            PRODUCT TOUR
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
-            See Smart.R in Action
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Explore the powerful features that make Smart.R the choice for modern hiring teams
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Screenshot 1 */}
-          <div className="group">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 mb-4">
-              <Image
-                src="/uploaded/product-smart.png"
-                alt="Smart.R Visual Hiring Pipeline"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-black mb-2">
-              Visual Hiring Pipeline
-            </h3>
-            <p className="text-slate-600">
-              Drag-and-drop kanban boards for complete visibility into your hiring funnel.
-            </p>
-          </div>
-
-          {/* Screenshot 2 */}
-          <div className="group">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 mb-4">
-              <Image
-                src="/images/smartr-analytics.png"
-                alt="Smart.R Analytics Dashboard"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-black mb-2">
-              Real-time Analytics
-            </h3>
-            <p className="text-slate-600">
-              Comprehensive dashboards showing time-to-hire, source effectiveness, and more.
-            </p>
-          </div>
-
-          {/* Screenshot 3 */}
-          <div className="group">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 mb-4">
-              <Image
-                src="/images/smartr-candidate.png"
-                alt="Smart.R Candidate Profile"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-black mb-2">
-              Rich Candidate Profiles
-            </h3>
-            <p className="text-slate-600">
-              All candidate information, communications, and feedback in one place.
-            </p>
-          </div>
-
-          {/* Screenshot 4 */}
-          <div className="group">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 mb-4">
-              <Image
-                src="/images/smartr-ai.png"
-                alt="Smart.R AI Matching"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <h3 className="text-xl font-semibold text-black mb-2">
-              AI-Powered Matching
-            </h3>
-            <p className="text-slate-600">
-              Intelligent algorithms surface the best candidates for your open roles.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+  return <ProductTourSection />
 }
 
 function IntegrationsSection() {
