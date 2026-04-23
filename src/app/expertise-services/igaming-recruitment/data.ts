@@ -36,17 +36,41 @@ export interface CtaData {
   }
 }
 
+export interface StatItem {
+  value: string
+  label: string
+}
+
 export const HERO_DATA: HeroData = {
   tagline: "iGaming Recruitment",
   title: "iGaming & Gaming Recruitment",
   description:
-    "Bulgaria is one of the leading iGaming hubs in Europe. We help companies hire top gaming talent fast.",
+    "Bulgaria is one of the leading iGaming hubs in Europe. We help companies hire top gaming expert fast.",
 }
 
 export const ROLES_HEADER: SectionHeader = {
   tagline: "Who We Hire",
   title: "We Help Companies Find",
 }
+
+export const STATS_DATA: StatItem[] = [
+   {
+    value: "100+",
+    label: "iGaming roles across Bulgaria & EU",
+  },
+  {
+    value: "48–72h",
+    label: "Average time candidate delivery",
+  },
+  {
+    value: "15+",
+    label: "Years in IT & iGaming",
+  },
+  {
+    value: "95%",
+    label: "Client retention rate on hiring",
+  },
+]
 
 export const ROLES: RoleItem[] = [
   {
@@ -89,7 +113,7 @@ export const DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     title: "Access to Passive Candidates",
     description:
-      "Our network includes top talent who aren't actively looking but are open to the right opportunity.",
+      "Our network includes top experts who aren't actively looking but are open to the right opportunity.",
   },
   {
     title: "Fast Pipeline",
@@ -99,11 +123,11 @@ export const DIFFERENTIATORS: DifferentiatorItem[] = [
 ]
 
 export const CTA_DATA: CtaData = {
-  title: "Ready to Hire Gaming Talent?",
+  title: "Ready to Hire Gaming Expert?",
   description:
     "Let us help you build your gaming team with Bulgaria's best iGaming professionals.",
   primaryButton: {
-    text: "Hire Gaming Talent",
+    text: "Hire Gaming Expert",
     href: "/#contact",
   },
   secondaryButton: {

@@ -33,9 +33,9 @@ export interface CtaData {
 
 export const HERO_DATA: HeroData = {
   tagline: "SaaS Recruitment",
-  title: "SaaS Talent Acquisition & B2B Software Hiring",
+  title: "SaaS Specialists Acquisition & B2B Software Hiring",
   description:
-    "We specialize in SaaS recruitment, helping companies hire top talent for cloud-based software, B2B SaaS platforms, and subscription products. From early-stage startups to scaling SaaS companies, we connect you with professionals who build, launch, and grow successful software products.",
+    "We specialize in SaaS recruitment, helping companies hire top specialists for cloud-based software, B2B SaaS platforms, and subscription products.",
 }
 
 export const WHAT_WE_COVER_HEADER: SectionHeader = {
@@ -80,7 +80,7 @@ export const PERFECT_FOR: ServiceItem[] = [
     icon: Rocket,
     title: "SaaS Startups",
     description:
-      "Hire agile SaaS talent who thrive in fast-paced startup environments and can help build and launch cloud-based products from scratch.",
+      "Hire agile SaaS Specialists who thrive in fast-paced startup environments and can help build and launch cloud-based products from scratch.",
   },
   {
     icon: TrendingUp,
@@ -97,11 +97,11 @@ export const PERFECT_FOR: ServiceItem[] = [
 ]
 
 export const CTA_DATA: CtaData = {
-  title: "Looking to Hire SaaS Talent?",
+  title: "Looking to Hire SaaS Specialists?",
   description:
-    "Partner with a SaaS recruitment agency that understands cloud software, B2B SaaS, and subscription-based products. We help you find and hire the right talent to scale your platform.",
+    "Partner with a SaaS recruitment agency that understands cloud software, B2B SaaS, and subscription-based products. We help you find and hire the right specialists to scale your platform.",
   primaryButton: {
-    text: "Start Hiring SaaS Talent",
+    text: "Start Hiring SaaS Specialists",
     href: "/#contact",
   },
   secondaryButton: {

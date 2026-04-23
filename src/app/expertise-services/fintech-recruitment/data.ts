@@ -48,7 +48,7 @@ export const HERO_DATA: HeroData = {
   description:
     "The fintech sector is growing rapidly, and the need for experienced professionals is growing with it.",
   subDescription:
-    "Bulgaria has become a strong hub for blockchain, payments, cybersecurity, and data & AI development.",
+    "",
 }
 
 export const BULGARIA_STRENGTHS_HEADER: SectionHeader = {
@@ -98,11 +98,11 @@ export const WHAT_WE_HIRE: WhatWeHireItem[] = [
 ]
 
 export const CTA_DATA: CtaData = {
-  title: "Ready to Hire Fintech Talent?",
+  title: "Ready to Hire Fintech Specialists?",
   description:
     "Let us connect you with experienced fintech professionals who can drive your business forward.",
   primaryButton: {
-    text: "Hire Fintech Talent",
+    text: "Hire Fintech Specialists",
     href: "/#contact",
   },
   secondaryButton: {

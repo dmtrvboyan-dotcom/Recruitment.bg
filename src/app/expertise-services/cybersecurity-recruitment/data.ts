@@ -34,15 +34,15 @@ export interface CtaData {
 
 export const HERO_DATA: HeroData = {
   tagline: "Cybersecurity Recruitment",
-  title: "Hire Cybersecurity & Information Security Talent",
+  title: "Hire Cybersecurity & Information Security specialists",
   description:
-    "We help companies hire top cybersecurity professionals, including security engineers, SOC analysts, penetration testers, and cloud security experts.",
+    "We help startups and companies hire Security Engineers, SOC Analysts, Penetration Testers, Cloud Security Engineers, and DevSecOps specialists",
   marketInsight:
-    "Cybersecurity talent is in high demand globally, with a growing shortage of skilled professionals in areas like cloud security, DevSecOps, and threat detection.",
+    "",
 }
 
 export const SERVICES_HEADER: SectionHeader = {
-  tagline: "What We Offer",
+  tagline: "What We Cover",
   title: "Cybersecurity Recruitment Services",
 }
 
@@ -57,11 +57,11 @@ export const SERVICES: ServiceItem[] = [
     icon: Target,
     title: "Cybersecurity Headhunting",
     description:
-      "Targeted headhunting of top security talent, including passive candidates in information security, ethical hacking, and risk management.",
+      "Targeted headhunting of top security specialist, including passive candidates in information security, ethical hacking, and risk management.",
   },
   {
     icon: Search,
-    title: "Security Talent Sourcing",
+    title: "Security Specialist Sourcing",
     description:
       "Building pipelines of qualified cybersecurity candidates across SOC, cloud security, DevSecOps, and penetration testing.",
   },
@@ -74,7 +74,7 @@ export const SERVICES: ServiceItem[] = [
 ]
 
 export const CTA_DATA: CtaData = {
-  title: "Looking to Hire Cybersecurity Talent?",
+  title: "Looking to Hire Cybersecurity Specialist?",
   description:
     "Partner with a cybersecurity recruitment agency that understands information security, cloud security, and threat detection. Hire faster and build secure teams.",
   primaryButton: {

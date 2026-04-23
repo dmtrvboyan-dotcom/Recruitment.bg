@@ -44,11 +44,11 @@ export interface CtaData {
 
 export const HERO_DATA: HeroData = {
   tagline: "AI & ML Recruitment",
-  title: "Hire AI Engineers & Machine Learning Talent",
+  title: "Hire AI Engineers & Machine Learning Experts",
   description:
-    "We help companies hire top AI engineers, machine learning specialists, and data scientists to build intelligent systems, automate processes, and drive innovation.",
+    "We help startups and global tech teams hire top AI, ML, and data experts — from engineers to MLOps — to build, automate, and scale faster.",
   subDescription:
-    "From startups to global tech companies, we connect you with experts in deep learning, NLP, computer vision, and MLOps — quickly and efficiently.",
+    "",
 }
 
 export const WHAT_YOU_GET_HEADER: SectionHeader = {
@@ -59,7 +59,7 @@ export const WHAT_YOU_GET_HEADER: SectionHeader = {
 export const WHAT_YOU_GET: WhatYouGetItem[] = [
   {
     icon: Users,
-    title: "Vetted AI Talent",
+    title: "Vetted AI Experts",
     description:
       "Access pre-screened AI engineers, data scientists, and ML specialists with proven experience.",
   },
@@ -115,7 +115,7 @@ export const APPROACH_DATA: ApproachData = {
 }
 
 export const CTA_DATA: CtaData = {
-  title: "Looking to Hire AI Talent?",
+  title: "Looking to Hire AI Experts?",
   description:
     "Partner with an AI recruitment agency that understands machine learning, data science, and advanced technologies. Hire faster and build world-class AI teams.",
   primaryButton: {

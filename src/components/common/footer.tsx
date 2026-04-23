@@ -28,7 +28,7 @@ const FooterLinkSection = memo(function FooterLinkSection({
           <li key={link.label}>
             <button
               onClick={() => onNavigate(link.href)}
-              className="text-sm text-slate-500 hover:text-[#78B6D9] text-left transition-colors"
+              className="text-sm text-slate-500 hover:text-[#78B6D9] text-left transition-colors cursor-pointer"
             >
               {link.label}
             </button>
@@ -53,7 +53,7 @@ const SocialLinks = memo(function SocialLinks() {
             href={social.href}
             target={social.href.startsWith("http") ? "_blank" : undefined}
             rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all group"
+            className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer"
             aria-label={social.label}
           >
             <IconComponent className="w-5 h-5 text-[#78B6D9] group-hover:scale-110 transition-transform" />
@@ -127,13 +127,13 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="#"
-              className="text-slate-500 hover:text-[#78B6D9] transition-colors"
+              className="text-slate-500 hover:text-[#78B6D9] transition-colors cursor-pointer"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-slate-500 hover:text-[#78B6D9] transition-colors"
+              className="text-slate-500 hover:text-[#78B6D9] transition-colors cursor-pointer"
             >
               Terms of Service
             </Link>

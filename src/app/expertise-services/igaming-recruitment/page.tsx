@@ -10,6 +10,7 @@ import {
   DIFFERENTIATORS_HEADER,
   DIFFERENTIATORS,
   CTA_DATA,
+  STATS_DATA
 } from "./data"
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function IGamingRecruitmentPage() {
     <>
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden  mt-35 sm:mt-50 ">
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
@@ -35,13 +36,27 @@ export default function IGamingRecruitmentPage() {
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
               {HERO_DATA.description}
             </p>
+
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
+        {STATS_DATA.map((stat, index) => (
+          <div key={index} className="text-center">
+            <div className="text-3xl font-semibold text-[#085689]">
+              {stat.value}
+            </div>
+<div className="text-sm text-slate-600 mt-1 leading-snug max-w-[160px] sm:max-w-[180px] mx-auto">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+
           </div>
         </div>
       </section>
 
       {/* Roles Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28">
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
@@ -81,7 +96,7 @@ export default function IGamingRecruitmentPage() {
 
       {/* Differentiators Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
+        <section className="px-4 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-5xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">

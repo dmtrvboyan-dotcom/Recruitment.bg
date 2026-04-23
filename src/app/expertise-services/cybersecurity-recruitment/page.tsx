@@ -42,7 +42,7 @@ export default function RecruitmentAgencyBulgariaPage() {
 
       {/* Services Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28">
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">

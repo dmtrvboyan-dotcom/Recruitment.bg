@@ -41,7 +41,7 @@ export default function SaasRecruitmentPage() {
 
       {/* What We Cover Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28">
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
@@ -85,7 +85,7 @@ export default function SaasRecruitmentPage() {
 
       {/* Perfect For Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-trasparent">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
@@ -125,7 +125,7 @@ export default function SaasRecruitmentPage() {
 
       {/* CTA Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 mb-20">
+        <section className="px-4 py-20 md:px-8 md:py-28 mb-20 ">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-6">
               {CTA_DATA.title}

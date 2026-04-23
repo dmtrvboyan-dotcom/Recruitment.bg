@@ -43,45 +43,7 @@ export default function AiMlRecruitment() {
         </div>
       </section>
 
-      {/* What You Get Section */}
-      <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-14">
-              <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
-                {WHAT_YOU_GET_HEADER.tagline}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
-                {WHAT_YOU_GET_HEADER.title}
-              </h2>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {WHAT_YOU_GET.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <div
-                    key={index}
-                    className="group p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
-                  >
-                    <div className="mb-6">
-                      <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
-                        <Icon className="w-7 h-7" />
-                      </div>
-                    </div>
-                    <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 text-[15px] leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
 
       {/* Why Bulgaria Section */}
       <ScrollReveal>
@@ -128,9 +90,49 @@ export default function AiMlRecruitment() {
         </section>
       </ScrollReveal>
 
-      {/* Our Approach Section */}
+           {/* What You Get Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28">
+        <section className="px-4 py-20 md:px-8 md:py-28 ">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
+                {WHAT_YOU_GET_HEADER.tagline}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
+                {WHAT_YOU_GET_HEADER.title}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {WHAT_YOU_GET.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <div
+                    key={index}
+                    className="group p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="mb-6">
+                      <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                        <Icon className="w-7 h-7" />
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-600 text-[15px] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* Our Approach Section */}
+      {/* <ScrollReveal>
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-[#f5f5f5]/50">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
               {APPROACH_DATA.header.tagline}
@@ -152,7 +154,7 @@ export default function AiMlRecruitment() {
             </div>
           </div>
         </section>
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       {/* CTA Section */}
       <ScrollReveal>

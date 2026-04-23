@@ -40,10 +40,9 @@ export interface CtaData {
 
 export const HERO_DATA: HeroData = {
   tagline: "Ecommerce Recruitment",
-  title: "Ecommerce Talent & Online Retail Hiring",
+  title: "Ecommerce Experts & Online Retail Hiring",
   description:
-    "We help ecommerce companies hire top talent across Shopify, Magento, digital marketing, and online retail operations. Build high-performing teams that drive growth, conversions, and revenue.",
-}
+"We help ecommerce companies hire top experts across Shopify, Magento, Salesforce Commerce Cloud, digital marketing, and online retail operations."}
 
 export const BULGARIA_DELIVERS_HEADER: SectionHeader = {
   tagline: "Ecommerce Expertise",
@@ -55,17 +54,17 @@ export const BULGARIA_DELIVERS: HighlightItem[] = [
     icon: Globe,
     title: "Ecommerce Market Expertise",
     description:
-      "Deep understanding of ecommerce, online retail, DTC brands, and marketplace ecosystems across Europe.",
+      "Deep understanding of ecommerce, online retails across Europe, with expertise in Shopify, Magento, and WooCommetrce hiring markets.",
   },
   {
     icon: Clock,
     title: "Fast Hiring Process",
     description:
-      "Quick access to pre-vetted ecommerce talent, reducing time-to-hire for critical roles.",
+      "Quick access to pre-vetted ecommerce experts, reducing time-to-hire for critical roles.",
   },
   {
     icon: BadgeCheck,
-    title: "Proven Ecommerce Talent",
+    title: "Proven Ecommerce experts",
     description:
       "Hire experienced professionals in Shopify, Magento, performance marketing, and conversion optimization.",
   },
@@ -87,7 +86,7 @@ export const HOW_WE_HELP: ProcessStep[] = [
   {
     step: "02",
     icon: Users,
-    title: "Source Ecommerce Talent",
+    title: "Source Ecommerce Experts",
     description:
       "We identify and vet candidates with proven experience in ecommerce platforms, digital marketing, and online sales.",
   },
@@ -101,7 +100,7 @@ export const HOW_WE_HELP: ProcessStep[] = [
 ]
 
 export const CTA_DATA: CtaData = {
-  title: "Looking to Hire Ecommerce Talent?",
+  title: "Looking to Hire Ecommerce Experts?",
   description:
     "Partner with an ecommerce recruitment agency that understands online retail, digital marketing, and growth. Hire faster and scale your ecommerce business with the right team.",
   primaryButton: {

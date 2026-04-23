@@ -36,14 +36,14 @@ const FAQItemComponent = memo(function FAQItemComponent({
         </div>
 
         <ChevronDown
-          className={`w-6 h-6 text-[#085689] transition-transform duration-500 shrink-0 ${
+          className={`w-6 h-6 text-[#085689] transition-transform duration-500 shrink-0 cursor-pointer  hover:text-[#78B6D9] ${
             isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`overflow-hidden transition-all duration-500 ease-in-out cursor-pointer hover:text-[#78B6D9] ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >

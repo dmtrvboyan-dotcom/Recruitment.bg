@@ -332,8 +332,8 @@ export const howItWorksData = {
 // ============================================================================
 
 export const benefitsData = {
-  tagline: "WHY SMART.R",
-  title: "Transform Your Hiring Process Positively",
+  tagline: "Hire better.",
+  title: "Why Smart.R",
   subtitle: "Enhance your candidate experience with seamless communication.",
   items: [
     {
