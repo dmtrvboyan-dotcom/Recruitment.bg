@@ -207,9 +207,9 @@ export const atsBreadcrumbJsonLd = {
 
 export const heroData = {
   tagline: "Smart.R",
-  title: "The All-in-One ATS Built for Modern Recruiters",
+  title: "",
   subtitle:
-    "From candidate sourcing to hire — Smart.R streamlines your entire recruitment process with AI-powered matching and intuitive workflows.",
+    "Built for Modern Recruiters",
   description:
     "Built by recruiters with 15+ years of hands-on experience. Used by teams who want to hire smarter, not harder.",
   primaryCta: {
