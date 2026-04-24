@@ -117,6 +117,7 @@ const CarouselArrows = memo(function CarouselArrows({
 function PhotoGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [thumbPage, setThumbPage] = useState(0)
+  const [hasSwiped, setHasSwiped] = useState(false)
   
   // Touch/swipe state
   const touchStartX = useRef<number | null>(null)
@@ -178,8 +179,10 @@ function PhotoGallery() {
 
     if (isLeftSwipe) {
       goToNextImage()
+      setHasSwiped(true)
     } else if (isRightSwipe) {
       goToPrevImage()
+      setHasSwiped(true)
     }
 
     // Reset
@@ -207,8 +210,10 @@ function PhotoGallery() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30 pointer-events-none" />
         
-        {/* Swipe hint on mobile */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-white/70 text-sm md:hidden">
+        {/* Swipe hint on mobile - fades out after first swipe */}
+        <div 
+          className={`absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-white/70 text-sm md:hidden transition-opacity duration-500 ${hasSwiped ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        >
           <span className="animate-pulse">Swipe to browse</span>
         </div>
       </div>
