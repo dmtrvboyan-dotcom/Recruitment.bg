@@ -9,9 +9,9 @@ export function BenefitsSection() {
 
     const bgImages = [
         "/smartr/1.jpg",
-        "/images/benefits/reduce-bottlenecks.jpg",
-        "/images/benefits/candidate-experience.jpg",
-        "/images/benefits/gain-visibility.jpg",
+        "/smartr/2.jpg",
+        "/smartr/3.jpg",
+        "/smartr/4.jpg",
     ];
 
     const handleClick = (index: number) => {
@@ -34,7 +34,7 @@ export function BenefitsSection() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mt-16">
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col order-2 lg:order-1">
                         {benefitsData.items.map((benefit, index) => (
                             <div
                                 key={index}
@@ -77,7 +77,7 @@ export function BenefitsSection() {
                         ))}
                     </div>
 
-                    <div className="lg:sticky lg:top-10 rounded-2xl overflow-hidden aspect-[4/3] relative border border-slate-200 shadow-[0_16px_40px_rgba(8,86,137,0.12)]">
+    <div className="lg:sticky lg:top-10 rounded-2xl overflow-hidden aspect-[4/3] relative border border-slate-200 shadow-[0_16px_40px_rgba(8,86,137,0.12)] order-1 lg:order-2">
                         {bgImages.map((src, index) => (
                             <Image
                                 key={index}
