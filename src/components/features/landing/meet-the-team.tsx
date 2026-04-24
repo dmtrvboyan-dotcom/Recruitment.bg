@@ -1,6 +1,6 @@
 "use client"
 
-import { memo, useState, useRef } from "react"
+import { memo, useState, useRef, useCallback } from "react"
 import Image from "next/image"
 import { RiArrowLeftSLine, RiArrowRightSLine, RiLinkedinBoxFill, RiCheckLine } from "react-icons/ri"
 import { TbPointFilled } from "react-icons/tb"
@@ -117,6 +117,11 @@ const CarouselArrows = memo(function CarouselArrows({
 function PhotoGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [thumbPage, setThumbPage] = useState(0)
+  
+  // Touch/swipe state
+  const touchStartX = useRef<number | null>(null)
+  const touchEndX = useRef<number | null>(null)
+  const minSwipeDistance = 50
 
   const totalPages = Math.ceil(GALLERY_PHOTOS.length / THUMBS_PER_PAGE)
   const visibleThumbs = GALLERY_PHOTOS.slice(
@@ -132,19 +137,80 @@ function PhotoGallery() {
     setThumbPage((p) => Math.min(totalPages - 1, p + 1))
   }
 
+  // Navigate to previous image
+  const goToPrevImage = useCallback(() => {
+    setActiveIndex((prev) => {
+      const newIndex = prev > 0 ? prev - 1 : GALLERY_PHOTOS.length - 1
+      // Update thumb page to show the new active image
+      const newThumbPage = Math.floor(newIndex / THUMBS_PER_PAGE)
+      setThumbPage(newThumbPage)
+      return newIndex
+    })
+  }, [])
+
+  // Navigate to next image
+  const goToNextImage = useCallback(() => {
+    setActiveIndex((prev) => {
+      const newIndex = prev < GALLERY_PHOTOS.length - 1 ? prev + 1 : 0
+      // Update thumb page to show the new active image
+      const newThumbPage = Math.floor(newIndex / THUMBS_PER_PAGE)
+      setThumbPage(newThumbPage)
+      return newIndex
+    })
+  }, [])
+
+  // Touch event handlers
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchEndX.current = null
+    touchStartX.current = e.targetTouches[0].clientX
+  }, [])
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX
+  }, [])
+
+  const onTouchEnd = useCallback(() => {
+    if (!touchStartX.current || !touchEndX.current) return
+    
+    const distance = touchStartX.current - touchEndX.current
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      goToNextImage()
+    } else if (isRightSwipe) {
+      goToPrevImage()
+    }
+
+    // Reset
+    touchStartX.current = null
+    touchEndX.current = null
+  }, [goToNextImage, goToPrevImage])
+
   return (
     <div className="relative mb-20">
-      {/* ── Main photo ── */}
-      <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+      {/* ── Main photo with swipe support ── */}
+      <div 
+        className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl cursor-grab active:cursor-grabbing touch-pan-y"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <Image
           key={activeIndex}
           src={GALLERY_PHOTOS[activeIndex].src}
           alt={GALLERY_PHOTOS[activeIndex].alt}
           fill
-          className="object-cover transition-opacity duration-500"
+          className="object-cover transition-opacity duration-500 select-none pointer-events-none"
           priority={activeIndex === 0}
+          draggable={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30 pointer-events-none" />
+        
+        {/* Swipe hint on mobile */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-white/70 text-sm md:hidden">
+          <span className="animate-pulse">Swipe to browse</span>
+        </div>
       </div>
 
       {/* ── Thumbnail strip ── */}
