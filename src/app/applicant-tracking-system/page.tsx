@@ -211,46 +211,70 @@ export function FeaturesSection() {
 }
 
 function BenefitsSection() {
+  const bgImages = [
+    "/smartr/1.jpg",
+    "/images/benefits/reduce-bottlenecks.jpg",
+    "/images/benefits/candidate-experience.jpg",
+    "/images/benefits/gain-visibility.jpg",
+  ]
+
   return (
-    <section className="py-20 md:py-32 px-6 bg-transparent">
+    <section className="py-20 md:py-32 px-6 bg-transparent overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4 block">
+
+        {/* Header */}
+        <div className="text-center mb-6">
+          <span className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-2 block ">
             {benefitsData.tagline}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight  mb-4 text-balance">
-            {benefitsData.title}
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            {benefitsData.subtitle}
-          </p>
+                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
+{benefitsData.title}</h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="flex flex-col gap-2 mb-16 items-center mt-20">
           {benefitsData.items.map((benefit, index) => (
-            <div
-              key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-[#085689]/10 flex items-center justify-center">
-                  <benefit.icon className="w-6 h-6 text-[#085689]" />
-                </div>
-                {benefit.stat && (
-                  <span className="text-2xl font-bold text-[#78B6D9]">
-                    {benefit.stat}
-                  </span>
-                )}
-              </div>
-              <h3 className="text-lg font-semibold text-black mb-2">
+            <div key={index} className="relative flex items-center justify-center w-full">
+              {benefit.stat && (
+                <span className="text-7xl sm:text-8xl lg:text-9xl font-black leading-none text-[#085689]/20 select-none pointer-events-none">
+                  {benefit.stat}
+                </span>
+              )}
+              <span className="absolute text-xl sm:text-5xl mt-20 font-bold tracking-tight text-[#085689]  p-2">
                 {benefit.title}
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                {benefit.description}
-              </p>
+              </span>
             </div>
           ))}
         </div>
+        {/* 4-column cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {benefitsData.items.map((benefit, index) => (
+            <div
+              key={index}
+              className="group relative rounded-2xl p-6 border border-slate-200 bg-white overflow-hidden
+                         flex flex-col justify-end min-h-[220px]
+                         transition-all duration-300 hover:-translate-y-1.5
+                         hover:shadow-[0_16px_40px_rgba(8,86,137,0.15)]"
+            >
+              <Image
+                src={bgImages[index]}
+                alt=""
+                fill
+                className="object-cover opacity-10 transition-opacity duration-500 group-hover:opacity-20"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent" />
+              <div className="relative z-10 flex flex-col gap-3">
+                <div className="w-9 h-9 rounded-lg bg-[#085689]/10 flex items-center justify-center">
+                  <benefit.icon className="w-4 h-4 text-[#085689]" />
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   )

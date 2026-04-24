@@ -64,7 +64,7 @@ export function CompaniesSection() {
   return (
     <section
       id="companies"
-      className="py-20 lg:py-28 bg-transparent lg:mb-[120px] md:mb-[50px]"
+      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}

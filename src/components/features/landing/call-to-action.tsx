@@ -43,7 +43,7 @@ export function CallToAction() {
   const handleCandidateClick = useCallback(() => setActiveTab("candidate"), [])
 
   return (
-    <section id="contact" className="py-24 lg:py-32 mb-[200px]">
+    <section id="contact" className="py-24 lg:py-32 lg:pb-[170px] md:pb-[50px] mb-50 bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

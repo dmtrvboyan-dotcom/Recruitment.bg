@@ -10,8 +10,8 @@
   --font-sans: "Poppins";
   --font-mono: "Fira Code", "Fira Code Fallback";
 
-  --color-background: oklch(94.611% 0.00011 271.152);
-  /* --color-background: oklch(100.00% 0.000 0); */
+  /* --color-background: oklch(94.611% 0.00011 271.152); */
+  --color-background: oklch(0.9821 0 0);
 
   --color-foreground: oklch(14.08% 0 0);
   --color-card: oklch(100% 0 0);

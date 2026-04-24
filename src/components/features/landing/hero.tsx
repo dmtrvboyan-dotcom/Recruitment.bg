@@ -37,7 +37,7 @@ export const Hero = memo(function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20">
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20 bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
       <div
         className="absolute inset-0 bg-[size:4rem_4rem]"
         aria-hidden="true"

@@ -20,7 +20,7 @@ export const SmartRSection = memo(function SmartRSection() {
   return (
     <section
       id="smartr"
-      className="py-24 md:py-32 px-6 lg:mb-[120px] md:mb-[50px] relative overflow-hidden"
+      className="py-24 md:py-32 px-6 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12 relative overflow-hidden "
     >
 
 

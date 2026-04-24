@@ -380,7 +380,7 @@ export function Services() {
   }, [])
 
   return (
-    <section id="services" className="py-24 lg:py-32 lg:mb-[100px] md:mb-[50px]">
+    <section id="services" className="py-24 lg:py-32 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center mb-16 lg:mb-20">
           <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
@@ -392,7 +392,7 @@ export function Services() {
         </div>
 
         {/* Mobile: FAQ-style accordion - tap outside to close all */}
-        {/* <div ref={mobileAccordionRef} className="md:hidden space-y-2">
+        <div ref={mobileAccordionRef} className="md:hidden space-y-2">
           {SERVICES.map((service, index) => (
             <MobileServiceItem
               key={index}
@@ -401,7 +401,7 @@ export function Services() {
               onToggle={() => toggleMobileItem(index)}
             />
           ))}
-        </div> */}
+        </div>
 
         {/* Desktop: Card grid with sliding panel */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
