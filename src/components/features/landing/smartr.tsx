@@ -41,7 +41,7 @@ export const SmartRSection = memo(function SmartRSection() {
             <span className="text-[#085689]">Applicant Tracking</span> system
           </h2>
 
-          <p className="text-lg leading-relaxed mb-12 max-w-2xl">
+          <div className="text-lg leading-relaxed mb-12 max-w-2xl">
             <span className="font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">✦ Now available for purchase</span>
             <br />
             {/* <span className="text-slate-500 mt-2 block">Get your hiring system, ready to go.</span> */}
@@ -89,7 +89,7 @@ export const SmartRSection = memo(function SmartRSection() {
               </div>
             </div>
 
-          </p>
+          </div>
 
           <div className="flex flex-row sm:flex-row items-center justify-center gap-2 mb-12">
             <Link href="/applicant-tracking-system" target="_blank">

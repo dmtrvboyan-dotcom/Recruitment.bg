@@ -57,7 +57,7 @@ const productTourImages = [
 // Product Tour Client Component
 // ============================================================================
 
-export function ProductTourClient() {
+export function ShowcaseSection() {
   const [activeImage, setActiveImage] = useState(productTourImages[0])
 
   return (

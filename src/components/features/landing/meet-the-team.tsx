@@ -32,8 +32,8 @@ const ValueItem = memo(function ValueItem({
         <TbPointFilled size={32} />
       </div>
       <div>
-        <h3 className="font-semibold text-xl mb-1">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <h3 className="font-semibold sm:text-xl text-md mb-1">{title}</h3>
+        <p className="text-gray-600 sm: text-md text-sm">{description}</p>
       </div>
     </div>
   )
@@ -274,11 +274,6 @@ function TeamCarousel() {
           ))}
         </div>
         
-        <div 
-          className={`absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-500 text-sm md:hidden transition-opacity duration-500 ${hasSwiped ? 'opacity-0' : 'opacity-100 animate-pulse'}`}
-        >
-          Swipe to see more
-        </div>
       </div>
 
       <div className="flex items-center justify-center gap-3 mt-8">

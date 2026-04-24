@@ -21,14 +21,14 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Diana Tosheva",
     image: "/members/diana.png",
     linkedin: "https://bg.linkedin.com/in/diana-tosheva-037144208",
-    quote: "Competative by nature, inspired by results",
+    quote: "Competitive by nature, inspired by results",
   },
   {
     name: "Svetlana Manolova",
     image: "/members/ai/svetlana1.png",
     linkedin: "https://bg.linkedin.com/in/svetlana-manolova-62051b197",
     quote:
-      "Loves to sing, travel and be with the family. Believes in people genuinely until proven otherwise",
+      "I keep it simple: trust people, talk honestly, and help them succeed along the way.",
   },
   {
     name: "Mirela Nikolova",

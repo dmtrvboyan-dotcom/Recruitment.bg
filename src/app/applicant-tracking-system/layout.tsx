@@ -1,7 +1,5 @@
-import { Header } from "@/components/common/header"
-import { Footer } from "@/components/common/footer"
-import DynamicBackground from "@/components/common/dynamic-background"
-import { SocialSidebar } from "@/components/common/social-sidebar"
+import { DynamicBackground, Header, SocialSidebar, Footer } from "@/components/common"
+
 
 export default function ATSLayout({
   children,
@@ -13,7 +11,9 @@ export default function ATSLayout({
       <DynamicBackground />
       <Header />
       <SocialSidebar />
+
       <main>{children}</main>
+
       <Footer />
     </div>
   )
