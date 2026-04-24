@@ -53,7 +53,7 @@ export const SmartRSection = memo(function SmartRSection() {
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
                 <RiCheckLine className="text-[#085689]" size={16} />
-                <span>Pipeline visualization</span>
+                <span>Customizable workflows</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
@@ -68,7 +68,7 @@ export const SmartRSection = memo(function SmartRSection() {
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
                 <RiCheckLine className="text-[#085689]" size={16} />
-                <span>Integration ready</span>
+                <span>Ready for any domain</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
@@ -76,10 +76,7 @@ export const SmartRSection = memo(function SmartRSection() {
                 <span>Hiring manager tools</span>
               </div>
 
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
-                <span>Customizable workflows</span>
-              </div>
+              
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
                 <RiCheckLine className="text-[#085689]" size={16} />

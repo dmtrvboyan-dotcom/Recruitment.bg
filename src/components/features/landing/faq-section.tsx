@@ -89,9 +89,9 @@ export function FAQSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-slate-600 leading-relaxed">
+          {/* <p className="text-xl text-slate-600 leading-relaxed">
             Everything you need to know about working with us.
-          </p>
+          </p> */}
         </div>
 
         {/* Two Column Grid */}

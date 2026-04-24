@@ -5,7 +5,7 @@
 export const WHY_CHOOSE_US_POINTS: string[] = [
   "Access to 31,000+ curated tech professionals",
   "Flexible working models with us",
-  "High retention through cultural fit matching",
+  "Big enough to scale, small enough to care.",
   "Market insights, salary benchmarking & flexible engagement models",
 ]
 

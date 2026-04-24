@@ -49,7 +49,7 @@ function HeroSection() {
   return (
     <ScrollReveal>
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
-        
+
         {/* Text content — keep centered with max-width */}
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -86,7 +86,7 @@ function HeroSection() {
 
         {/* ── Curved overlap section — also full-bleed ── */}
         <div className="relative w-screen left-1/2 -translate-x-1/2 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-40">
-          
+
           {/* SVG wave */}
           <div className="w-full overflow-hidden leading-[0] ">
             <svg
@@ -211,12 +211,12 @@ export function FeaturesSection() {
 }
 
 function BenefitsSection() {
-  const bgImages = [
-    "/smartr/1.jpg",
-    "/images/benefits/reduce-bottlenecks.jpg",
-    "/images/benefits/candidate-experience.jpg",
-    "/images/benefits/gain-visibility.jpg",
-  ]
+const bgImages = [
+  "/smartr/1.jpg",
+  "/smartr/2.jpg",
+  "/smartr/3.jpg",
+  "/smartr/4.jpg",
+]
 
   return (
     <section className="py-20 md:py-32 px-6 bg-transparent overflow-hidden">
@@ -227,11 +227,11 @@ function BenefitsSection() {
           <span className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-2 block ">
             {benefitsData.tagline}
           </span>
-                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
-{benefitsData.title}</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
+            {benefitsData.title}</h2>
         </div>
 
-      <div className="flex flex-col gap-2 mb-16 items-center mt-20">
+        <div className="flex flex-col gap-2 mb-16 items-center mt-20">
           {benefitsData.items.map((benefit, index) => (
             <div key={index} className="relative flex items-center justify-center w-full">
               {benefit.stat && (
@@ -250,7 +250,7 @@ function BenefitsSection() {
           {benefitsData.items.map((benefit, index) => (
             <div
               key={index}
-              className="group relative rounded-2xl p-6 border border-slate-200 bg-white overflow-hidden
+              className="group relative rounded-2xl p-6 border border-slate-200 overflow-hidden
                          flex flex-col justify-end min-h-[220px]
                          transition-all duration-300 hover:-translate-y-1.5
                          hover:shadow-[0_16px_40px_rgba(8,86,137,0.15)]"
@@ -259,7 +259,7 @@ function BenefitsSection() {
                 src={bgImages[index]}
                 alt=""
                 fill
-                className="object-cover opacity-10 transition-opacity duration-500 group-hover:opacity-20"
+                className="object-cover opacity-40 transition-opacity duration-500 group-hover:opacity-20"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent" />

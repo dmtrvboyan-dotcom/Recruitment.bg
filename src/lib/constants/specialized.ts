@@ -29,7 +29,8 @@ export const TECHNOLOGY_PILLS: string[] = [
   "Android",
   "Project",
   "Product",
-  "Delivery Managers",
+  "Delivery Managers", 
+  "and more"
 ]
 
 export const TECH_CATEGORIES: TechCategory[] = [
