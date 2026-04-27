@@ -24,12 +24,6 @@ export const featuresData = {
   subtitle: "Comprehensive tools designed around how real hiring actually works",
   items: [
     {
-      icon: Bot,
-      title: "AI-Powered Matching",
-      description:
-        "Our intelligent algorithms analyze candidate profiles and match them with your requirements, with Smart.R features surfacing the best fits instantly.",
-    },
-    {
       icon: Kanban,
       title: "Visual Pipeline",
       description:

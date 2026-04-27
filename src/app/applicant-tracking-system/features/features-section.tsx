@@ -5,7 +5,6 @@ import Image from "next/image"
 import { featuresData } from "./data"
 
 const featureImages: Record<string, string> = {
-  "AI-Powered Matching": "/smartr/1.jpg",
   "Visual Pipeline": "/smartr/2.jpg",
   "Automated Workflows": "/smartr/3.jpg",
   "Real-time Analytics": "/smartr/4.jpg",
@@ -20,9 +19,11 @@ export function FeaturesSection() {
     <section className="py-20 md:py-32 px-6 bg-gradient-to-b from-white to-[#ededed] -mt-25">
       <div className="max-w-6xl mx-auto mt-15">
         <div className="text-center mb-16">
-          <span className="text-sm font-semibold text-[#085689] uppercase tracking-wider mb-4 block">
-            {featuresData.tagline}
-          </span>
+           <span className="inline-flex items-center gap-2 text-md font-bold text-[#085689] uppercase tracking-[0.2em] mb-5">
+                    <span className="block w-6 h-px bg-[#085689]/40" />
+                    {featuresData.tagline}
+                    <span className="block w-6 h-px bg-[#085689]/40" />
+                  </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
             {featuresData.title}
           </h2>

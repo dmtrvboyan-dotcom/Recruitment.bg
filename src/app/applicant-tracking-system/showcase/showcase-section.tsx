@@ -1,131 +1,243 @@
 "use client"
-
 import { useState } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react"
+import { showcaseData } from "./data";
 
-// ============================================================================
-// Product Tour Images Data
-// ============================================================================
-
-const productTourImages = [
-  {
-    id: 1,
-    src: "/uploaded/product-smart.png",
-    alt: "Smart.R Visual Hiring Pipeline",
-    title: "Visual Hiring Pipeline",
-    description: "Drag-and-drop kanban boards for complete visibility into your hiring funnel.",
-  },
-  {
-    id: 2,
-    src: "/images/smartr-analytics.jpg",
-    alt: "Smart.R Analytics Dashboard",
-    title: "Real-time Analytics",
-    description: "Comprehensive dashboards showing time-to-hire, source effectiveness, and more.",
-  },
-  {
-    id: 3,
-    src: "/images/smartr-candidate.jpg",
-    alt: "Smart.R Candidate Profile",
-    title: "Rich Candidate Profiles",
-    description: "All candidate information, communications, and feedback in one place.",
-  },
-  {
-    id: 4,
-    src: "/images/smartr-ai.jpg",
-    alt: "Smart.R AI Matching",
-    title: "AI-Powered Matching",
-    description: "Intelligent algorithms surface the best candidates for your open roles.",
-  },
-  {
-    id: 5,
-    src: "/images/smartr-workflow.jpg",
-    alt: "Smart.R Automated Workflows",
-    title: "Automated Workflows",
-    description: "Set up triggers and actions to automate repetitive recruitment tasks.",
-  },
-  {
-    id: 6,
-    src: "/images/smartr-team.jpg",
-    alt: "Smart.R Team Collaboration",
-    title: "Team Collaboration",
-    description: "Share candidate profiles, collect feedback, and keep all stakeholders aligned.",
-  },
-]
-
-// ============================================================================
-// Product Tour Client Component
-// ============================================================================
+const items = showcaseData.items
 
 export function ShowcaseSection() {
-  const [activeImage, setActiveImage] = useState(productTourImages[0])
+  const [activeIdx, setActiveIdx] = useState<number>(-1)
+  const [currentBg, setCurrentBg] = useState<number>(0)
+
+  function handleItemClick(i: number) {
+    if (i === activeIdx) {
+      setActiveIdx(-1)
+      return
+    }
+    setActiveIdx(i)
+    setCurrentBg(i)
+  }
+
+  function handleClose() {
+    setActiveIdx(-1)
+  }
+
+  function navigateUp() {
+    const newIdx = currentBg > 0 ? currentBg - 1 : items.length - 1
+    setCurrentBg(newIdx)
+    setActiveIdx(newIdx)
+  }
+
+  function navigateDown() {
+    const newIdx = currentBg < items.length - 1 ? currentBg + 1 : 0
+    setCurrentBg(newIdx)
+    setActiveIdx(newIdx)
+  }
 
   return (
-    <section className="py-20 md:py-32 px-6">
+    <section className="w-full">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-[#085689] uppercase tracking-wider mb-4 block">
-            PRODUCT TOUR
+          <span className="inline-flex items-center gap-2 text-md font-bold text-[#085689] uppercase tracking-[0.2em] mb-5">
+            <span className="block w-6 h-px bg-[#085689]/40" />
+            {showcaseData.tagline}
+            <span className="block w-6 h-px bg-[#085689]/40" />
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
-            See Smart.R in Action
+            {showcaseData.title}
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto text-pretty">
-            Explore the powerful features that make Smart.R the choice for modern hiring teams
+            {showcaseData.description}
           </p>
         </div>
-
-        {/* Main Featured Image */}
-        <div className="mb-8">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200/50 bg-slate-100">
-            <Image
-              src={activeImage.src}
-              alt={activeImage.alt}
-              fill
-              className="object-cover transition-opacity duration-500"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              priority
-            />
-          </div>
-          
-          {/* Active Image Info */}
-          <div className="mt-6 text-center">
-            <h3 className="text-2xl font-semibold text-black mb-2">
-              {activeImage.title}
-            </h3>
-            <p className="text-slate-600 max-w-xl mx-auto">
-              {activeImage.description}
-            </p>
-          </div>
-        </div>
-
-        {/* Thumbnail Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4">
-          {productTourImages.map((image) => (
-            <button
-              key={image.id}
-              onClick={() => setActiveImage(image)}
+        {/* Desktop Layout — inline pill expansion (pushes others down) */}
+        <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-16/9 bg-[#4e4f5e0c]">
+          {/* Background Images */}
+          {items.map((item, i) => (
+            <div
+              key={item.id}
               className={cn(
-                "relative aspect-video rounded-xl overflow-hidden border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#085689] focus:ring-offset-2",
-                activeImage.id === image.id
-                  ? "border-[#085689] shadow-lg shadow-[#085689]/20 scale-[1.02]"
-                  : "border-transparent hover:border-slate-300 hover:shadow-md opacity-70 hover:opacity-100"
+                "absolute inset-0 transition-opacity duration-700 ease-in-out",
+                currentBg === i ? "opacity-100" : "opacity-0",
               )}
             >
               <Image
-                src={image.src}
-                alt={image.alt}
+                src={item.image || "/placeholder.svg"}
+                alt={item.label}
                 fill
                 className="object-cover"
-                sizes="(max-width: 640px) 33vw, 16vw"
+                priority={i === 0}
+                sizes="(max-width: 1152px) 100vw, 1152px"
               />
-              
-              {/* Active Indicator Overlay */}
-              {activeImage.id === image.id && (
-                <div className="absolute inset-0 bg-[#085689]/10 pointer-events-none" />
-              )}
-            </button>
+            </div>
           ))}
+
+          {/* Close button */}
+          <button
+            onClick={handleClose}
+            className={cn(
+              "absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-gray-600 hover:bg-white transition-all shadow-lg",
+              activeIdx >= 0 ? "opacity-100" : "opacity-0 pointer-events-none",
+            )}
+            aria-label="Close"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          {/* Pills column */}
+          <div className="absolute inset-y-0 left-0 z-10 flex items-center px-8 md:px-12 lg:px-16">
+            <div className="flex flex-col gap-2 w-full max-w-[320px]">
+              {items.map((item, i) => {
+                const isActive = activeIdx === i
+                return (
+                  <div key={item.id} className="relative">
+                    {/* Collapsed pill */}
+                    <button
+                      onClick={() => handleItemClick(i)}
+                      aria-expanded={isActive}
+                      className={cn(
+                        "flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/85 backdrop-blur-md shadow-sm hover:bg-white transition-all duration-300 ease-out",
+                        isActive
+                          ? "opacity-0 scale-95 max-h-0 py-0 pointer-events-none overflow-hidden"
+                          : "opacity-100 scale-100 max-h-12",
+                      )}
+                    >
+                      <Plus
+                        className="w-4 h-4 text-gray-500 flex-shrink-0"
+                        strokeWidth={2}
+                      />
+                      <span className="text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {item.label}
+                      </span>
+                    </button>
+
+                    {/* Expanded content card (inline, pushes others down) */}
+                    <div
+                      className={cn(
+                        "transition-all duration-300 ease-out overflow-hidden",
+                        isActive
+                          ? "opacity-100 h-auto scale-100"
+                          : "opacity-0 max-h-0 scale-95 pointer-events-none",
+                      )}
+                    >
+                      <div className="bg-white/50 backdrop-blur-md rounded-2xl p-4 shadow-md">
+                        <p className="text-sm leading-relaxed text-gray-800">
+                          <strong className="font-semibold text-gray-900">{item.label}.</strong>{" "}
+                          {item.content}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout — bottom pills row with horizontal scroll */}
+        <div className="md:hidden relative mx-4 h-[70vh] max-h-[600px] w-full overflow-hidden rounded-2xl">
+          {items.map((item, i) => (
+            <div
+              key={item.id}
+              className={cn(
+                "absolute inset-0 transition-opacity duration-700 ease-in-out",
+                currentBg === i ? "opacity-100" : "opacity-0",
+              )}
+            >
+              <Image
+                src={item.image || "/placeholder.svg"}
+                alt={item.label}
+                fill
+                className="object-cover object-top"
+                priority={i === 0}
+                sizes="100vw"
+              />
+            </div>
+          ))}
+
+          {/* Dark gradient overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+
+          {/* Close button */}
+          <button
+            onClick={handleClose}
+            className={cn(
+              "absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-all",
+              activeIdx >= 0 ? "opacity-100" : "opacity-0 pointer-events-none",
+            )}
+            aria-label="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+
+          {/* Navigation arrows */}
+          <button
+            onClick={navigateUp}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={navigateDown}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+            aria-label="Next"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+
+          {/* Bottom content area */}
+          <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-6">
+            {/* Expanded content card for mobile */}
+            <div
+              className={cn(
+                "mb-4 transition-all duration-300 ease-out overflow-hidden",
+                activeIdx >= 0 ? "max-h-40 opacity-100" : "max-h-0 opacity-0",
+              )}
+            >
+              {activeIdx >= 0 && (
+                <div className="bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl">
+                  <p className="text-sm leading-relaxed text-gray-700">
+                    <strong className="font-semibold text-gray-900">
+                      {items[activeIdx].label}.
+                    </strong>{" "}
+                    {items[activeIdx].content}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pills row */}
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+              {items.map((item, i) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleItemClick(i)}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-md",
+                    activeIdx === i ? "bg-white/95 shadow-md" : "bg-white/20 hover:bg-white/30",
+                  )}
+                >
+                  <Plus
+                    className={cn(
+                      "w-3.5 h-3.5 flex-shrink-0 transition-colors",
+                      activeIdx === i ? "text-gray-600" : "text-white/80",
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "text-xs font-medium transition-colors",
+                      activeIdx === i ? "text-gray-800" : "text-white",
+                    )}
+                  >
+                    {item.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
