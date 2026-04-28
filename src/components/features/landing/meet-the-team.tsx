@@ -28,12 +28,12 @@ const ValueItem = memo(function ValueItem({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="text-[#085689] mt-1">
+      <div className="text-primary mt-1">
         <TbPointFilled size={32} />
       </div>
       <div>
-        <h3 className="font-semibold sm:text-xl text-md mb-1">{title}</h3>
-        <p className="text-gray-600 sm: text-md text-sm">{description}</p>
+        <h3 className="font-semibold sm:text-xl text-md mb-1 text-foreground">{title}</h3>
+        <p className="text-muted-foreground sm: text-md text-sm">{description}</p>
       </div>
     </div>
   )
@@ -47,7 +47,7 @@ const TeamMemberCard = memo(function TeamMemberCard({ member }: { member: TeamMe
           src={member.image}
           alt={member.name}
           fill
-          className="object-cover border-4 border-[#085689] rounded-full transition-all duration-500 group-hover:border-[#78B6D9]"
+          className="object-cover border-4 border-primary rounded-full transition-all duration-500 group-hover:border-primary/60"
         />
       </div>
       {member.linkedin && (
@@ -55,14 +55,14 @@ const TeamMemberCard = memo(function TeamMemberCard({ member }: { member: TeamMe
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#085689] hover:text-[#78B6D9] transition-colors duration-200 mt-3"
+          className="text-primary hover:text-primary/70 transition-colors duration-200 mt-3"
         >
           <RiLinkedinBoxFill size={28} />
         </a>
       )}
       <div className="text-center mt-2 px-2">
-        <p className="font-semibold text-sm sm:text-base text-gray-900">{member.name}</p>
-        <p className="text-gray-600 text-xs sm:text-sm italic mt-1 line-clamp-3">
+        <p className="font-semibold text-sm sm:text-base text-foreground">{member.name}</p>
+        <p className="text-muted-foreground text-xs sm:text-sm italic mt-1 line-clamp-3">
           &quot;{member.quote}&quot;
         </p>
       </div>
@@ -158,7 +158,7 @@ function PhotoGallery() {
         <button
           onClick={() => setThumbPage((p) => Math.max(0, p - 1))}
           disabled={thumbPage === 0}
-          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white bg-[#085689] transition-opacity duration-200 ${thumbPage === 0 ? "opacity-30 cursor-not-allowed" : "hover:bg-[#78B6D9]"}`}
+          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-primary-foreground bg-primary transition-opacity duration-200 ${thumbPage === 0 ? "opacity-30 cursor-not-allowed" : "hover:bg-primary/80"}`}
         >
           <RiArrowLeftSLine size={22} />
         </button>
@@ -171,7 +171,7 @@ function PhotoGallery() {
               <button
                 key={globalIndex}
                 onClick={() => setActiveIndex(globalIndex)}
-                className={`relative w-24 h-16 shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-200 ${isActive ? "border-[#78B6D9] scale-105 shadow-lg" : "border-white/20 hover:border-white/60"}`}
+                className={`relative w-24 h-16 shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-200 ${isActive ? "border-primary scale-105 shadow-lg" : "border-border hover:border-primary/50"}`}
               >
                 <Image src={photo.src} alt={photo.alt} fill className="object-cover" sizes="96px" />
               </button>
@@ -182,7 +182,7 @@ function PhotoGallery() {
         <button
           onClick={() => setThumbPage((p) => Math.min(totalPages - 1, p + 1))}
           disabled={thumbPage >= totalPages - 1}
-          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white bg-[#085689] transition-opacity duration-200 ${thumbPage >= totalPages - 1 ? "opacity-30 cursor-not-allowed" : "hover:bg-[#78B6D9]"}`}
+          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-primary-foreground bg-primary transition-opacity duration-200 ${thumbPage >= totalPages - 1 ? "opacity-30 cursor-not-allowed" : "hover:bg-primary/80"}`}
         >
           <RiArrowRightSLine size={22} />
         </button>
@@ -280,14 +280,14 @@ function TeamCarousel() {
         <button
           onClick={goToPrev}
           disabled={!canGoPrev}
-          className={`w-11 h-11 rounded-full flex items-center justify-center text-white bg-[#085689] transition-all duration-200 ${canGoPrev ? "hover:bg-[#78B6D9]" : "opacity-30 cursor-not-allowed"}`}
+          className={`w-11 h-11 rounded-full flex items-center justify-center text-primary-foreground bg-primary transition-all duration-200 ${canGoPrev ? "hover:bg-primary/80" : "opacity-30 cursor-not-allowed"}`}
         >
           <RiArrowLeftSLine size={24} />
         </button>
         <button
           onClick={goToNext}
           disabled={!canGoNext}
-          className={`w-11 h-11 rounded-full flex items-center justify-center text-white bg-[#085689] transition-all duration-200 ${canGoNext ? "hover:bg-[#78B6D9]" : "opacity-30 cursor-not-allowed"}`}
+          className={`w-11 h-11 rounded-full flex items-center justify-center text-primary-foreground bg-primary transition-all duration-200 ${canGoNext ? "hover:bg-primary/80" : "opacity-30 cursor-not-allowed"}`}
         >
           <RiArrowRightSLine size={24} />
         </button>
@@ -300,23 +300,23 @@ function TeamCarousel() {
 
 export function MeetTheTeam() {
   return (
-    <section id="about" className="py-14 sm:py-20 lg:py-28 lg:pb-[120px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
+    <section id="about" className="py-14 sm:py-20 lg:py-28 lg:pb-[120px] md:pb-[50px] bg-gradient-to-b from-background to-primary/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
+          <p className="text-md font-medium text-primary uppercase tracking-wider mb-4">
             Meet the Team
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6">
             Nice to meet you
           </h2>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-6 text-xs sm:text-sm text-gray-600 font-medium">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-6 text-xs sm:text-sm text-muted-foreground font-medium">
             <div className="flex items-center gap-2">
-              <RiCheckLine className="text-[#085689]" size={16} />
+              <RiCheckLine className="text-primary" size={16} />
               <span>15+ years IT Recruitment Experience</span>
             </div>
             <div className="flex items-center gap-2">
-              <RiCheckLine className="text-[#085689]" size={16} />
-              <span>Average time 2–10 days to present candidates</span>
+              <RiCheckLine className="text-primary" size={16} />
+              <span>Average time 2-10 days to present candidates</span>
             </div>
           </div>
         </div>

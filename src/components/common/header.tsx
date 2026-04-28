@@ -35,7 +35,7 @@ const DesktopDropdown = memo(function DesktopDropdown({
       </button>
 
       <div
-        className={`absolute top-full left-0 mt-3 w-56 bg-[#f5f5f5] rounded-2xl shadow-xl py-3 px-2 transition-all duration-300 origin-top ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none cursor-pointer"
+        className={`absolute top-full left-0 mt-3 w-56 bg-white rounded-xl shadow-lg border border-border/50 py-2 px-2 transition-all duration-300 origin-top ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none cursor-pointer"
           }`}
       >
         
@@ -43,7 +43,7 @@ const DesktopDropdown = memo(function DesktopDropdown({
           <button
             key={subItem.label}
             onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
-            className="w-full text-left px-5 py-3 hover:text-[#085689] rounded-xl text-[15px] transition-colors cursor-pointer"
+            className="w-full text-left px-4 py-2.5 hover:text-primary hover:bg-muted rounded-lg text-[15px] text-foreground transition-colors cursor-pointer"
           >
             {subItem.label}
           </button>
@@ -71,7 +71,7 @@ const MobileDropdown = memo(function MobileDropdown({
     <div>
       <button
         onClick={onToggle}
-        className="flex items-center justify-between w-full py-3 text-left text-lg text-white hover:text-white/80 transition-all border-b border-white/20 cursor-pointer"
+        className="flex items-center justify-between w-full py-3 text-left text-lg text-white hover:text-white/80 transition-all border-b border-white/10 cursor-pointer"
       >
         {item.label}
         <ChevronDown
@@ -87,7 +87,7 @@ const MobileDropdown = memo(function MobileDropdown({
           <button
             key={subItem.label}
             onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
-            className="block py-3 text-white/90 hover:text-white w-full text-left cursor-pointer"
+            className="block py-2.5 text-white/80 hover:text-white w-full text-left cursor-pointer"
           >
             {subItem.label}
           </button>
@@ -192,7 +192,7 @@ export function Header() {
 
               <Button
                 onClick={() => handleNavigate("#contact")}
-                className="bg-[#085689] hover:bg-[#78B6D9] text-primary-foreground rounded-lg px-6 py-5 cursor-pointer"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-5 cursor-pointer"
               >
                 Contact Us
               </Button>
@@ -219,7 +219,7 @@ export function Header() {
         <div className="absolute inset-0 bg-black/50" onClick={closeMenu} />
 
         <div
-          className={`absolute top-0 right-0 h-full w-full lg:w-1/2 bg-[#085689] shadow-2xl transform transition-transform duration-500  ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`absolute top-0 right-0 h-full w-full lg:w-1/2 bg-secondary shadow-2xl transform transition-transform duration-500  ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
           <div className="flex flex-col h-full p-8 pt-20 relative ">
@@ -255,7 +255,7 @@ export function Header() {
             <div className="mt-auto pt-12">
               <Button
                 onClick={() => handleNavigate("#contact")}
-                className="w-full bg-white text-[#000000] hover:bg-white/90 rounded-xl py-6 text-base font-medium cursor-pointer"
+                className="w-full bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-xl py-6 text-base font-medium cursor-pointer"
               >
                 Contact Us
               </Button>

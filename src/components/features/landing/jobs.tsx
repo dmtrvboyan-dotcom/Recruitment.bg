@@ -31,7 +31,7 @@ const BulletList = memo(function BulletList({
       {items.map((item, i) => (
         <li
           key={i}
-          className="flex items-start gap-2 text-sm text-slate-700 leading-snug"
+          className="flex items-start gap-2 text-sm text-foreground/80 leading-snug"
         >
           <span
             className="mt-1.5 shrink-0 w-2 h-2 rounded-full"
@@ -98,7 +98,7 @@ const JobModal = memo(function JobModal({
         }}
       >
         {/* Header */}
-        <div className="bg-[#085689] p-6 text-white relative shrink-0">
+        <div className="bg-secondary p-6 text-secondary-foreground relative shrink-0">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-colors"

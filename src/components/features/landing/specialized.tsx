@@ -41,7 +41,7 @@ const TechPill = memo(function TechPill({ tech }: { tech: string }) {
   return (
     <Badge
       variant="secondary"
-      className="px-4 py-1.5 text-sm font-medium bg-[#085689] hover:text-black hover:bg-[#78B6D9] text-[#fff] border border-[#c5daf0] rounded-full transition-all duration-200 cursor-default"
+      className="px-4 py-1.5 text-sm font-medium bg-primary hover:bg-primary/80 text-primary-foreground border border-primary/20 rounded-full transition-all duration-200 cursor-default"
     >
       {tech}
     </Badge>
@@ -63,20 +63,20 @@ const CategoryCard = memo(function CategoryCard({
   return (
     <div
       onClick={onClick}
-      className="group border border-slate-100 rounded-2xl p-5 bg-[#f5f5f5] hover:border-[#085689]/20 hover:shadow-lg transition-all duration-300 cursor-pointer"
+      className="group border border-border rounded-xl p-5 bg-white hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer"
     >
       {/* Icon + category label */}
       <div className="flex items-center gap-2 mb-3 ">
-        <div className="w-8 h-8 rounded-2xl bg-[#78B6D9]/10 flex items-center justify-center">
-          <IconComponent className="w-4 h-4 text-[#085689]" />
+        <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
+          <IconComponent className="w-4 h-4 text-primary" />
         </div>
-        <span className="text-[11px] font-semibold text-[#085689] uppercase tracking-widest">
+        <span className="text-[11px] font-semibold text-primary uppercase tracking-widest">
           {category.categoryLabel}
         </span>
       </div>
 
       {/* Title */}
-      <h3 className="text-[15px] font-bold text-slate-900 mb-4 leading-snug group-hover:text-[#085689] transition-colors">
+      <h3 className="text-[15px] font-bold text-foreground mb-4 leading-snug group-hover:text-primary transition-colors">
         {category.title}
       </h3>
 
@@ -85,7 +85,7 @@ const CategoryCard = memo(function CategoryCard({
         {visibleTechs.map((tech) => (
           <span
             key={tech}
-            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200"
+            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground border border-border"
           >
             {tech}
           </span>
@@ -106,41 +106,41 @@ const CategoryModal = memo(function CategoryModal({ category }: { category: Tech
   return (
     <div className="p-1">
       {/* Icon */}
-      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#78B6D9]/10 flex items-center justify-center mb-3 sm:mb-5">
-        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-[#085689]" />
+      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 sm:mb-5">
+        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
       </div>
 
       {/* Title */}
-      <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">{category.title}</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1">{category.title}</h2>
 
       {/* Subtitle */}
-      <p className="text-[#085689] text-sm font-medium mb-4 sm:mb-6">{category.subtitle}</p>
+      <p className="text-primary text-sm font-medium mb-4 sm:mb-6">{category.subtitle}</p>
 
       <Separator className="mb-4 sm:mb-5" />
 
       {/* Two-column bullet lists */}
       <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-4 sm:mb-6">
         <div>
-          <p className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3">
+          <p className="text-[10px] sm:text-[11px] font-semibold text-muted-foreground uppercase tracking-widest mb-2 sm:mb-3">
             HOW WE SOURCE
           </p>
           <ul className="space-y-1.5 sm:space-y-2">
             {category.howWeSource.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
+              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-foreground/80">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                 {item}
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <p className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3">
+          <p className="text-[10px] sm:text-[11px] font-semibold text-muted-foreground uppercase tracking-widest mb-2 sm:mb-3">
             WHAT YOU GET
           </p>
           <ul className="space-y-1.5 sm:space-y-2">
             {category.whatYouGet.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
+              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-foreground/80">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                 {item}
               </li>
             ))}
@@ -153,12 +153,12 @@ const CategoryModal = memo(function CategoryModal({ category }: { category: Tech
       {/* Stats row */}
       <div className="grid grid-cols-2 gap-4 mb-4 sm:mb-6">
         <div>
-          <p className="text-2xl sm:text-3xl font-bold text-[#085689]">{category.stat1Value}</p>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">{category.stat1Label}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-primary">{category.stat1Value}</p>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">{category.stat1Label}</p>
         </div>
         <div>
-          <p className="text-2xl sm:text-3xl font-bold text-[#085689]">{category.stat2Value}</p>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">{category.stat2Label}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-primary">{category.stat2Value}</p>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">{category.stat2Label}</p>
         </div>
       </div>
     </div>
@@ -172,17 +172,17 @@ export function SpecializedRecruitment() {
   const [selectedCategory, setSelectedCategory] = useState<TechCategory | null>(null)
 
   return (
-    <section id="specialized" className="py-20 lg:py-28 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
+    <section id="specialized" className="py-20 lg:py-28 lg:pb-[170px] md:pb-[50px] bg-gradient-to-b from-background to-primary/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-md font-semibold text-[#085689] uppercase tracking-wider mb-4">
+          <p className="text-md font-semibold text-primary uppercase tracking-wider mb-4">
             Industry-Focused Expertise
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight  text-black text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance">
             Specialized recruitment
           </h2>
-          {/* <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          {/* <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             From technical support and junior software engineers to CTOs — we help you hire the right professionals.
           </p> */}
         </div>
@@ -211,9 +211,9 @@ export function SpecializedRecruitment() {
         <div className="flex justify-center mt-12">
           <Button
             onClick={() => scrollToSection("#contact")}
-            className="bg-[#085689] hover:bg-[#78B6D9] text-white hover:text-black px-10 py-6 sm:text-[18px] text-sm font-semibold rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 sm:text-[18px] text-sm font-semibold rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer"
           >
-            Looking for a specific role? Let's talk
+            Looking for a specific role? Let&apos;s talk
           </Button>
         </div>
       </div>
@@ -223,7 +223,7 @@ export function SpecializedRecruitment() {
         open={!!selectedCategory}
         onOpenChange={(open) => !open && setSelectedCategory(null)}
       >
-        <DialogContent className="max-w-lg w-[calc(100%-2rem)] rounded-2xl p-4 sm:p-6 bg-[#f5f5f5] shadow-2xl border-0 max-h-[85dvh] overflow-y-auto">
+        <DialogContent className="max-w-lg w-[calc(100%-2rem)] rounded-xl p-4 sm:p-6 bg-white shadow-2xl border border-border max-h-[85dvh] overflow-y-auto">
           <VisuallyHidden>
             <DialogTitle>{selectedCategory?.title ?? "Category details"}</DialogTitle>
             <DialogDescription>{selectedCategory?.subtitle ?? ""}</DialogDescription>

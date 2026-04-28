@@ -16,8 +16,8 @@ const CheckListItem = memo(function CheckListItem({
   item: string
   variant?: "dark" | "brand"
 }) {
-  const bgColor = variant === "dark" ? "bg-slate-900" : "bg-[#085689]/10"
-  const iconColor = variant === "dark" ? "text-white" : "text-[#085689]"
+  const bgColor = variant === "dark" ? "bg-secondary" : "bg-primary/10"
+  const iconColor = variant === "dark" ? "text-secondary-foreground" : "text-primary"
 
   return (
     <li className="flex gap-4">
@@ -26,7 +26,7 @@ const CheckListItem = memo(function CheckListItem({
       >
         <CheckCircle className={`w-4 h-4 ${iconColor}`} />
       </div>
-      <p className="text-lg text-slate-700 leading-relaxed">{item}</p>
+      <p className="text-lg text-muted-foreground leading-relaxed">{item}</p>
     </li>
   )
 })
@@ -41,7 +41,7 @@ const SectionHeader = memo(function SectionHeader({
   label: string
   variant?: "dark" | "brand"
 }) {
-  const bgColor = variant === "dark" ? "bg-slate-900 text-white" : "bg-[#085689]/10 text-[#085689]"
+  const bgColor = variant === "dark" ? "bg-secondary text-secondary-foreground" : "bg-primary/10 text-primary"
 
   return (
     <div className="flex justify-center lg:justify-start mb-8">
@@ -64,20 +64,20 @@ export function CompaniesSection() {
   return (
     <section
       id="companies"
-      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-gradient-to-b from-primary/5 to-background"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-5xl mx-auto text-center mb-16">
-          <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
+          <p className="text-md font-medium text-primary uppercase tracking-wider mb-4">
             Who we work with
           </p>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
             Why Companies Work With Us
           </h2>
 
-          {/* <p className="text-xl text-slate-600 leading-relaxed">
+          {/* <p className="text-xl text-muted-foreground leading-relaxed">
             With deep industry expertise and a personalized approach, we connect
             companies with pre-vetted senior developers and engineers who truly fit
             your culture and drive long-term success.
@@ -108,7 +108,7 @@ export function CompaniesSection() {
         <div className="flex justify-center mt-16">
           <Button
             onClick={handleNavigate}
-            className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base cursor-pointer"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-8 py-6 text-base cursor-pointer"
           >
             Talk to us
           </Button>

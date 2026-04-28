@@ -10,46 +10,66 @@
   --font-sans: "Poppins";
   --font-mono: "Fira Code", "Fira Code Fallback";
 
-  /* --color-background: oklch(94.611% 0.00011 271.152); */
-  --color-background: oklch(0.9821 0 0);
+  /* Premium minimal SaaS color palette */
+  /* Soft White: #f7fbfd - background */
+  --color-background: #f7fbfd;
+  /* Charcoal: #353535 - foreground/text */
+  --color-foreground: #353535;
+  
+  /* Card uses soft white with subtle depth */
+  --color-card: #ffffff;
+  --color-card-foreground: #353535;
+  
+  --color-popover: #ffffff;
+  --color-popover-foreground: #353535;
+  
+  /* Primary: Muted Green #3c6e71 */
+  --color-primary: #3c6e71;
+  --color-primary-foreground: #f7fbfd;
+  
+  /* Secondary: Deep Blue #2A3E4B */
+  --color-secondary: #2A3E4B;
+  --color-secondary-foreground: #f7fbfd;
+  
+  /* Muted tones */
+  --color-muted: #f0f4f5;
+  --color-muted-foreground: #5a6a70;
+  
+  /* Accent: Muted Green for refined accents */
+  --color-accent: #3c6e71;
+  --color-accent-foreground: #f7fbfd;
+  
+  /* Destructive/CTA: Accent Red #ee6c4d */
+  --color-destructive: #ee6c4d;
+  --color-destructive-foreground: #f7fbfd;
+  
+  /* Borders and inputs */
+  --color-border: #e2e8eb;
+  --color-input: #e2e8eb;
+  --color-ring: #3c6e71;
+  
+  /* Charts */
+  --color-chart-1: #3c6e71;
+  --color-chart-2: #2A3E4B;
+  --color-chart-3: #ee6c4d;
+  --color-chart-4: #5a8a8d;
+  --color-chart-5: #4a5e6b;
+  
+  /* Sidebar */
+  --color-sidebar: #2A3E4B;
+  --color-sidebar-foreground: #f7fbfd;
+  --color-sidebar-primary: #3c6e71;
+  --color-sidebar-primary-foreground: #f7fbfd;
+  --color-sidebar-accent: #3c6e71;
+  --color-sidebar-accent-foreground: #f7fbfd;
+  --color-sidebar-border: #3a4e5b;
+  --color-sidebar-ring: #3c6e71;
 
-  --color-foreground: oklch(14.08% 0 0);
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(14.08% 0 0);
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(14.08% 0 0);
-  --color-primary: oklch(16.23% 0 0);
-  --color-primary-foreground: oklch(98.49% 0 0);
-  --color-secondary: oklch(96.08% 0 0);
-  --color-secondary-foreground: oklch(16.23% 0 0);
-  --color-muted: oklch(96.08% 0 0);
-  --color-muted-foreground: oklch(55.19% 0 0);
-  --color-accent: oklch(96.08% 0 0);
-  --color-accent-foreground: oklch(16.23% 0 0);
-  --color-destructive: oklch(57.71% 0.215 27.33);
-  --color-destructive-foreground: oklch(98.49% 0 0);
-  --color-border: oklch(90.45% 0 0);
-  --color-input: oklch(90.45% 0 0);
-  --color-ring: oklch(14.08% 0 0);
-  --color-chart-1: oklch(48.81% 0.217 264.38);
-  --color-chart-2: oklch(69.59% 0.149 143.88);
-  --color-chart-3: oklch(47.66% 0.165 261.26);
-  --color-chart-4: oklch(76.81% 0.15 75.08);
-  --color-chart-5: oklch(64.62% 0.206 26.18);
-  --color-sidebar: oklch(98.49% 0 0);
-  --color-sidebar-foreground: oklch(14.08% 0 0);
-  --color-sidebar-primary: oklch(16.23% 0 0);
-  --color-sidebar-primary-foreground: oklch(98.49% 0 0);
-  --color-sidebar-accent: oklch(96.08% 0 0);
-  --color-sidebar-accent-foreground: oklch(16.23% 0 0);
-  --color-sidebar-border: oklch(90.45% 0 0);
-  --color-sidebar-ring: oklch(14.08% 0 0);
-
-  --radius-lg: 0.625rem;
+  --radius-lg: 0.75rem;
   --radius-md: 0.5rem;
   --radius-sm: 0.375rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -75,47 +95,54 @@
   }
 }
 
-/* Brand colors for Recruitment.bg */
+/* Premium brand colors for Recruitment.bg */
 :root {
-  --color-brand-primary: oklch(35% 0.15 210);
-  --color-brand-secondary: oklch(50% 0.12 200);
-  --color-brand-accent: oklch(70% 0.18 180);
+  /* Charcoal - typography and strong contrast */
+  --color-charcoal: #353535;
+  /* Muted Green - buttons, links, icons, refined accents */
+  --color-brand-primary: #3c6e71;
+  /* Deep Blue - structure: cards, navbar, footer, section depth */
+  --color-brand-secondary: #2A3E4B;
+  /* Soft White - background, whitespace */
+  --color-brand-light: #f7fbfd;
+  /* Accent Red - rare, high-attention CTAs only */
+  --color-brand-accent: #ee6c4d;
 }
 
-/* Dark mode overrides */
+/* Dark mode overrides - maintaining premium aesthetic */
 .dark {
-  --color-background: oklch(14.08% 0 0);
-  --color-foreground: oklch(98.49% 0 0);
-  --color-card: oklch(14.08% 0 0);
-  --color-card-foreground: oklch(98.49% 0 0);
-  --color-popover: oklch(14.08% 0 0);
-  --color-popover-foreground: oklch(98.49% 0 0);
-  --color-primary: oklch(98.49% 0 0);
-  --color-primary-foreground: oklch(16.23% 0 0);
-  --color-secondary: oklch(25.33% 0 0);
-  --color-secondary-foreground: oklch(98.49% 0 0);
-  --color-muted: oklch(25.33% 0 0);
-  --color-muted-foreground: oklch(70.87% 0 0);
-  --color-accent: oklch(25.33% 0 0);
-  --color-accent-foreground: oklch(98.49% 0 0);
-  --color-destructive: oklch(62.94% 0.237 15.17);
-  --color-destructive-foreground: oklch(98.49% 0 0);
-  --color-border: oklch(25.33% 0 0);
-  --color-input: oklch(25.33% 0 0);
-  --color-ring: oklch(83.89% 0 0);
-  --color-chart-1: oklch(66.25% 0.184 230.86);
-  --color-chart-2: oklch(76.56% 0.122 172.09);
-  --color-chart-3: oklch(98.49% 0 0);
-  --color-chart-4: oklch(73.04% 0.153 46.81);
-  --color-chart-5: oklch(64.62% 0.206 26.18);
-  --color-sidebar: oklch(14.08% 0 0);
-  --color-sidebar-foreground: oklch(98.49% 0 0);
-  --color-sidebar-primary: oklch(48.81% 0.217 264.38);
-  --color-sidebar-primary-foreground: oklch(98.49% 0 0);
-  --color-sidebar-accent: oklch(25.33% 0 0);
-  --color-sidebar-accent-foreground: oklch(98.49% 0 0);
-  --color-sidebar-border: oklch(25.33% 0 0);
-  --color-sidebar-ring: oklch(83.89% 0 0);
+  --color-background: #1a2329;
+  --color-foreground: #f7fbfd;
+  --color-card: #2A3E4B;
+  --color-card-foreground: #f7fbfd;
+  --color-popover: #2A3E4B;
+  --color-popover-foreground: #f7fbfd;
+  --color-primary: #5a9a9d;
+  --color-primary-foreground: #1a2329;
+  --color-secondary: #3a4e5b;
+  --color-secondary-foreground: #f7fbfd;
+  --color-muted: #2a3a45;
+  --color-muted-foreground: #a0b0b8;
+  --color-accent: #5a9a9d;
+  --color-accent-foreground: #1a2329;
+  --color-destructive: #ee6c4d;
+  --color-destructive-foreground: #f7fbfd;
+  --color-border: #3a4e5b;
+  --color-input: #3a4e5b;
+  --color-ring: #5a9a9d;
+  --color-chart-1: #5a9a9d;
+  --color-chart-2: #4a6e7b;
+  --color-chart-3: #ee6c4d;
+  --color-chart-4: #6aaa9d;
+  --color-chart-5: #5a7e8b;
+  --color-sidebar: #1a2329;
+  --color-sidebar-foreground: #f7fbfd;
+  --color-sidebar-primary: #5a9a9d;
+  --color-sidebar-primary-foreground: #f7fbfd;
+  --color-sidebar-accent: #3a4e5b;
+  --color-sidebar-accent-foreground: #f7fbfd;
+  --color-sidebar-border: #3a4e5b;
+  --color-sidebar-ring: #5a9a9d;
 }
 
 @layer base {
@@ -206,7 +233,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -214,12 +241,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: oklch(70% 0 0 / 0.3);
-  border-radius: 4px;
+  background: #3c6e71;
+  border-radius: 3px;
+  opacity: 0.4;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(60% 0 0 / 0.5);
+  background: #2A3E4B;
 }
 
 .hide-scrollbar::-webkit-scrollbar {

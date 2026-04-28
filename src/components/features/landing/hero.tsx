@@ -19,13 +19,13 @@ const AnimatedCounter = memo(function AnimatedCounter({
   const { ref, displayValue } = useAnimatedCounter(value)
 
   return (
-    <div ref={ref} className="text-center transition-all lg:p-5 md:p-5 sm:p-5 p-0  hover:bg-[#ededed] rounded-3xl text-[#085689] hover:text-[#78B6D9]">
+    <div ref={ref} className="text-center transition-all lg:p-5 md:p-5 sm:p-5 p-0 hover:bg-white/60 rounded-2xl text-primary hover:text-secondary">
       <p className="lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold mb-3 tracking-tighter tabular-nums">
         {displayValue}
       </p>
       <p className="text-sm font-semibold text-muted-foreground mb-1">{label}</p>
       {description && (
-        <p className="text-sm text-slate-600 max-w-[260px] mx-auto">{description}</p>
+        <p className="text-sm text-foreground/60 max-w-[260px] mx-auto">{description}</p>
       )}
     </div>
   )
@@ -37,7 +37,7 @@ export const Hero = memo(function Hero() {
   }, [])
 
   return (
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20 bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20 bg-gradient-to-b from-background to-primary/5">
       <div
         className="absolute inset-0 bg-[size:4rem_4rem]"
         aria-hidden="true"
@@ -48,7 +48,7 @@ export const Hero = memo(function Hero() {
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-[500] font-poppins text-foreground leading-[1.1] text-balance mb-6">
             IT Recruitment Agency for{" "}
-            <span className="text-[#085689]">Tech Roles</span>
+            <span className="text-primary">Tech Roles</span>
           </h1>
 
           {/* Subheadline */}
@@ -63,20 +63,20 @@ export const Hero = memo(function Hero() {
           <div className="flex flex-row items-center justify-center gap-4">
             <Button
               onClick={() => handleNavigate("#services")}
-              className="bg-[#085689] lg:w-[150px] w-[110px] lg:text-md text-sm text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 cursor-pointer"
+              className="bg-primary lg:w-[150px] w-[110px] lg:text-md text-sm text-primary-foreground hover:bg-primary/90 rounded-lg px-8 py-6 cursor-pointer"
             >
               Learn More
             </Button>
             <Button
               onClick={() => handleNavigate("#jobs")}
               variant="outline"
-              className="bg-transparent lg:w-[150px] w-[110px] text-sm text-black hover:bg-[#085689] bg-[#78B6D9] hover:text-white rounded-lg px-8 py-6 border-2 border-[#78B6D9]/50 cursor-pointer"
+              className="lg:w-[150px] w-[110px] text-sm text-foreground hover:bg-secondary hover:text-secondary-foreground rounded-lg px-8 py-6 border border-border cursor-pointer"
             >
               Find a job
             </Button>
           </div>
 
-          <div className=" bg-[#f3f3f368]  p-12 -mt-7 rounded-4xl ">
+          <div className="bg-white/40 backdrop-blur-sm p-12 -mt-7 rounded-3xl border border-border/30">
             {/* <p className="text-md font-medium tracking-wider text-[#085689] uppercase mb-6">
               Our Track Record
             </p> */}

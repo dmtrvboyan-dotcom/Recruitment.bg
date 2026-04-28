@@ -20,7 +20,7 @@ export const SmartRSection = memo(function SmartRSection() {
   return (
     <section
       id="smartr"
-      className="py-24 md:py-32 px-6 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12 relative overflow-hidden "
+      className="py-24 md:py-32 px-6 lg:pb-[170px] md:pb-[50px] bg-gradient-to-b from-background to-primary/5 relative overflow-hidden "
     >
 
 
@@ -30,61 +30,61 @@ export const SmartRSection = memo(function SmartRSection() {
         {/* Content */}
         <div className="flex flex-col items-center">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4 text-orange-500" />
-            <span className="text-sm font-medium text-[#085689] uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-destructive" />
+            <span className="text-sm font-medium text-primary uppercase tracking-wider">
               Own Technology
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-12">
             Smart.R — Own{" "}
-            <span className="text-[#085689]">Applicant Tracking</span> system
+            <span className="text-primary">Applicant Tracking</span> system
           </h2>
 
           <div className="text-lg leading-relaxed mb-12 max-w-2xl">
-            <span className="font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">✦ Now available for purchase</span>
+            <span className="font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">Now available for purchase</span>
             <br />
-            {/* <span className="text-slate-500 mt-2 block">Get your hiring system, ready to go.</span> */}
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-600 font-medium max-w-3xl mx-auto">
+            {/* <span className="text-muted-foreground mt-2 block">Get your hiring system, ready to go.</span> */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm text-muted-foreground font-medium max-w-3xl mx-auto">
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>Candidates in one place</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>Customizable workflows</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>Team collaboration</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>Analytics & reporting</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>Ready for any domain</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>Hiring manager tools</span>
               </div>
 
               
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>In BG, EN, DE, ES, RU</span>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-                <RiCheckLine className="text-[#085689]" size={16} />
+                <RiCheckLine className="text-primary" size={16} />
                 <span>Smart AI insights</span>
               </div>
             </div>
@@ -93,7 +93,7 @@ export const SmartRSection = memo(function SmartRSection() {
 
           <div className="flex flex-row sm:flex-row items-center justify-center gap-2 mb-12">
             <Link href="/applicant-tracking-system" target="_blank">
-              <Button className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base cursor-pointer">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-8 py-6 text-base cursor-pointer">
                 Learn more
               </Button>
             </Link>
@@ -101,7 +101,7 @@ export const SmartRSection = memo(function SmartRSection() {
             <Button
               onClick={handleNavigate}
               variant="outline"
-              className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-lg px-8 py-6 text-base border-slate-300 cursor-pointer"
+              className="bg-transparent text-foreground hover:bg-secondary hover:text-secondary-foreground rounded-lg px-8 py-6 text-base border-border cursor-pointer"
             >
               Book a demo
             </Button>

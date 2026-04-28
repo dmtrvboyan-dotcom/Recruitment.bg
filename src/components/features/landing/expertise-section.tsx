@@ -20,23 +20,23 @@ const ExpertiseCard = memo(function ExpertiseCard({
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col"
+            className="group block p-8 bg-white rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col"
         >
             <div className="mb-6">
-                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     <Icon className="w-8 h-8" />
                 </div>
             </div>
 
-            <h3 className="font-semibold text-2xl text-black mb-3 leading-tight group-hover:text-[#085689] transition-colors">
+            <h3 className="font-semibold text-2xl text-foreground mb-3 leading-tight group-hover:text-primary transition-colors">
                 {item.title}
             </h3>
 
-            <p className="text-slate-600 text-[15px] leading-relaxed flex-1">
+            <p className="text-muted-foreground text-[15px] leading-relaxed flex-1">
                 {item.description}
             </p>
 
-            <div className="mt-8 flex items-center text-[#085689] font-medium text-sm group-hover:gap-2 transition-all">
+            <div className="mt-8 flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all">
                 Learn more
                 <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
             </div>
@@ -68,19 +68,19 @@ const FeaturedExpertiseCard = memo(function FeaturedExpertiseCard() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block p-4 sm:p-8 md:p-10 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 col-span-1 lg:col-span-3 flex flex-col"
+            className="group block p-4 sm:p-8 md:p-10 bg-white rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 col-span-1 lg:col-span-3 flex flex-col"
         >
             <div className="mb-6">
-                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     <Icon className="w-9 h-9" />
                 </div>
             </div>
 
-            <h3 className="font-semibold text-2xl md:text-3xl text-black mb-4 leading-tight group-hover:text-[#085689] transition-colors">
+            <h3 className="font-semibold text-2xl md:text-3xl text-foreground mb-4 leading-tight group-hover:text-primary transition-colors">
                 {title}
             </h3>
 
-            <p className="text-slate-600 text-[15px] md:text-base leading-relaxed mb-10 flex-1">
+            <p className="text-muted-foreground text-[15px] md:text-base leading-relaxed mb-10 flex-1">
                 {description}
             </p>
 
@@ -91,16 +91,16 @@ const FeaturedExpertiseCard = memo(function FeaturedExpertiseCard() {
                     return (
                         <div
                             key={index}
-                            className="flex items-center gap-2 text-xs font-medium px-4 py-2.5 bg-white rounded-full border border-slate-200 text-slate-700 hover:bg-[#085689]/5 transition-colors"
+                            className="flex items-center gap-2 text-xs font-medium px-4 py-2.5 bg-muted rounded-full border border-border text-foreground hover:bg-primary/10 transition-colors"
                         >
-                            <TagIcon className="w-4 h-4 text-[#085689]" />
+                            <TagIcon className="w-4 h-4 text-primary" />
                             {tag}
                         </div>
                     )
                 })}
             </div>
 
-            <div className="mt-auto flex items-center text-[#085689] font-medium text-sm group-hover:gap-2 transition-all">
+            <div className="mt-auto flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all">
                 {cta || "Learn more about our reach"}
                 <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
             </div>
@@ -113,18 +113,18 @@ const FeaturedExpertiseCard = memo(function FeaturedExpertiseCard() {
  */
 export function ExpertiseSection() {
     return (
-        <section className="px-4 py-24 md:px-8 md:py-32 bg-transparent lg:pb-[170px] bg-gradient-to-b from-[#085689]/12 to-[#f9f9f9]">
+        <section className="px-4 py-24 md:px-8 md:py-32 bg-transparent lg:pb-[170px] bg-gradient-to-b from-primary/5 to-background">
             <div className="mx-auto max-w-6xl">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
+                    <p className="text-md font-medium text-primary uppercase tracking-wider mb-4">
                         OUR EXPERTISE
                     </p>
 
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
                         We help companies hire across industries
                     </h2>
-                    <p className="text-xl text-slate-600 leading-relaxed max-w-4xl mx-auto">
+                    <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
                         From specialized technical roles to executive leadership, we deliver
                         tailored recruitment solutions across key industries.
                     </p>
@@ -141,12 +141,12 @@ export function ExpertiseSection() {
                 </div>
 
                 <div className="text-center mt-12">
-                    <p className="text-slate-500 sm:text-xl text-sm">
+                    <p className="text-muted-foreground sm:text-xl text-sm">
                         Not sure where to start?{" "}
-                        <a href="#contact" className="text-[#085689] hover:underline font-medium">
+                        <a href="#contact" className="text-primary hover:underline font-medium">
                             Contact us
                         </a>{" "}
-                        and we’ll guide you.
+                        and we&apos;ll guide you.
                     </p>
                 </div>
             </div>

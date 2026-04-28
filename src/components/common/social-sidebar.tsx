@@ -23,7 +23,7 @@ const SocialLink = memo(function SocialLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-[#085689] hover:text-[#78B6D9] transition-colors duration-200"
+      className="text-primary hover:text-primary/70 transition-colors duration-200"
       aria-label={label}
     >
       <Icon size={size} />
@@ -42,10 +42,10 @@ export function SocialSidebar() {
         <SocialLink href={COMPANY_INFO.linkedinUrl} label="LinkedIn" icon={Linkedin} />
         <SocialLink href={COMPANY_INFO.facebookUrl} label="Facebook" icon={Facebook} />
 
-        <div className="w-px h-20 bg-[#085689]/20 my-2" />
+        <div className="w-px h-20 bg-primary/20 my-2" />
 
         <span
-          className="text-black text-md font-bold tracking-[3px] uppercase"
+          className="text-foreground text-md font-bold tracking-[3px] uppercase"
           style={{ writingMode: "sideways-lr", textOrientation: "mixed" }}
         >
           Recruitment agency
@@ -53,7 +53,7 @@ export function SocialSidebar() {
       </div>
 
       {/* Mobile Bottom Bar */}
-      <div className="2xl:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#f3f3f3] border-slate-200 py-2">
+      <div className="2xl:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border py-2">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-8">
           <SocialLink
             href={COMPANY_INFO.linkedinUrl}
@@ -62,7 +62,7 @@ export function SocialSidebar() {
             size={25}
           />
 
-          <span className="text-black text-sm font-bold tracking-widest uppercase">
+          <span className="text-foreground text-sm font-bold tracking-widest uppercase">
             Recruitment agency
           </span>
 

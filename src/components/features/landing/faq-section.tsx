@@ -21,33 +21,33 @@ const FAQItemComponent = memo(function FAQItemComponent({
   onToggle: () => void
 }) {
   return (
-    <div className="border border-slate-200 rounded-2xl overflow-hidden bg-[#f5f5f5] mb-4 last:mb-0 transition-all duration-300">
+    <div className="border border-border rounded-xl overflow-hidden bg-white mb-4 last:mb-0 transition-all duration-300 shadow-sm">
       <button
         onClick={onToggle}
         className="w-full px-6 py-6 flex items-center justify-between text-left group transition-colors"
       >
         <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-full bg-[#085689]/10 flex-shrink-0 flex items-center justify-center">
-            <HelpCircle className="w-5 h-5 text-[#085689]" />
+          <div className="w-8 h-8 rounded-full bg-primary/10 flex-shrink-0 flex items-center justify-center">
+            <HelpCircle className="w-5 h-5 text-primary" />
           </div>
-          <h3 className="text-xl font-semibold text-black pr-8 leading-tight">
+          <h3 className="text-xl font-semibold text-foreground pr-8 leading-tight">
             {faq.q}
           </h3>
         </div>
 
         <ChevronDown
-          className={`w-6 h-6 text-[#085689] transition-transform duration-500 shrink-0 cursor-pointer  hover:text-[#78B6D9] ${
+          className={`w-6 h-6 text-primary transition-transform duration-500 shrink-0 cursor-pointer hover:text-primary/70 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out cursor-pointer hover:text-[#78B6D9] ${
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-8 pl-17 ,text-lg text-slate-600 leading-relaxed">
+        <div className="px-6 pb-8 pl-17 text-lg text-muted-foreground leading-relaxed">
           {faq.a}
         </div>
       </div>
@@ -78,18 +78,18 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="py-20 lg:py-28 bg-tranparent lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-gradient-to-b from-primary/5 to-background"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-4">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
+          <p className="text-md font-medium text-primary uppercase tracking-wider mb-4">
             Got questions?
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
             Frequently Asked Questions
           </h2>
-          {/* <p className="text-xl text-slate-600 leading-relaxed">
+          {/* <p className="text-xl text-muted-foreground leading-relaxed">
             Everything you need to know about working with us.
           </p> */}
         </div>
@@ -127,7 +127,7 @@ export function FAQSection() {
         <div className="flex justify-center mt-16">
           <Button
             onClick={handleNavigate}
-            className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base cursor-pointer"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-8 py-6 text-base cursor-pointer"
           >
             Still have questions? Let&apos;s talk
           </Button>
