@@ -10,7 +10,7 @@ export function SmartRSection() {
   return (
     <section
       id="smartr"
-      className="py-24 md:py-32 px-6 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12 relative overflow-hidden"
+      className="py-24 md:py-32 px-6 lg:pb-[170px] md:pb-[50px] bg-linear-to-b to-[#f9f9f9] from-[#085689]/12 relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
         {/* Badge */}

@@ -45,6 +45,10 @@ export default function LandingPage() {
         <Hero />
       </ScrollReveal>
 
+      <ScrollReveal>
+        <TrustSection />
+      </ScrollReveal>
+
       {/* Services Section */}
       <ScrollReveal>
         <Services />
@@ -56,9 +60,7 @@ export default function LandingPage() {
       </ScrollReveal>
 
       {/* Trust Metrics */}
-      {/* <ScrollReveal>
-        <TrustSection />
-      </ScrollReveal> */}
+      
 
       {/* Companies Section */}
       <ScrollReveal>

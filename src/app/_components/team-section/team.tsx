@@ -16,7 +16,7 @@ export function MeetTheTeam() {
   return (
     <section
       id="about"
-      className="py-14 sm:py-20 lg:py-28 lg:pb-[120px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12"
+      className="py-14 sm:py-20 lg:py-28 lg:pb-[120px] md:pb-[50px] bg-linear-to-b to-[#f9f9f9] from-[#085689]/12"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}

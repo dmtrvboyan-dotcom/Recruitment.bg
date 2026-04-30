@@ -17,7 +17,7 @@ export function CallToAction() {
   return (
     <section
       id="contact"
-      className="py-24 lg:py-32 lg:pb-[170px] md:pb-[50px] mb-50 bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="py-24 lg:py-32 lg:pb-[170px] md:pb-[50px] mb-50 bg-linear-to-b to-[#085689]/12 from-[#f9f9f9]"
     >
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         {/* Header */}

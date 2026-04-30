@@ -87,7 +87,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="bg-[#f9f9f9] text-black border-t border-white/10 mt-[-150px]">
+    <footer className="bg-linear-to-b from-[#085689]/12 to-[#f9f9f9] text-black border-t border-white/10 mt-[-201px]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand / Logo */}

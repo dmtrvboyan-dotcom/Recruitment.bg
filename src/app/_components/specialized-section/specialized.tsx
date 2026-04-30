@@ -22,7 +22,7 @@ export function SpecializedRecruitment() {
   return (
     <section
       id="specialized"
-      className="py-20 lg:py-28 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12"
+      className="py-20 lg:py-28 lg:pb-[170px] md:pb-[50px] bg-linear-to-b to-[#f9f9f9] from-[#085689]/12"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}

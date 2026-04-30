@@ -247,7 +247,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
         </p>
         <div className="flex justify-center">
           <a
-            href="tel:+359888123456"
+            href="tel:+359 876 449 229‬"
             className="flex items-center gap-2 text-[#085689] hover:text-[#0a6a9c] transition-colors"
           >
             <Phone className="w-5 h-5" />

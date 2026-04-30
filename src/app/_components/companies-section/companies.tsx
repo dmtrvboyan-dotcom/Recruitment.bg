@@ -15,7 +15,7 @@ export function CompaniesSection() {
   return (
     <section
       id="companies"
-      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-linear-to-b to-[#085689]/12 from-[#f9f9f9]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}

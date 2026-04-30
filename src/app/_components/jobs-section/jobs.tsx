@@ -40,7 +40,7 @@ export function JobsSection() {
   )
 
   return (
-    <section id="jobs" className="py-16 lg:py-24 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
+    <section id="jobs" className="py-16 lg:py-24 lg:pb-[170px] md:pb-[50px] bg-linear-to-b to-[#f9f9f9] from-[#085689]/12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {selectedJob && (
           <JobModal job={selectedJob} onClose={() => setSelectedJob(null)} />

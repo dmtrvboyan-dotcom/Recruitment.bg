@@ -4,7 +4,7 @@ import { FeaturedExpertiseCard } from "./featured-expertise-card"
 
 export function ExpertiseSection() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-transparent lg:pb-[170px] bg-gradient-to-b from-[#085689]/12 to-[#f9f9f9]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-transparent lg:pb-[170px] bg-gradient-to-b to-[#085689]/12 from-[#f9f9f9]">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">

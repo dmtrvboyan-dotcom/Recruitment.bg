@@ -27,7 +27,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="py-24 lg:py-32 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="py-24 lg:py-32 lg:pb-[170px] md:pb-[50px] bg-linear-to-b to-[#085689]/12 from-[#f9f9f9]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center mb-16 lg:mb-20">
