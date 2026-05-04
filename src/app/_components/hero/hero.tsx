@@ -18,11 +18,11 @@ const AnimatedCounter = memo(function AnimatedCounter({
   const { ref, displayValue } = useAnimatedCounter(value)
 
   return (
-    <div ref={ref} className="text-center transition-all lg:p-5 md:p-5 sm:p-5 p-0  hover:bg-[#ededed] rounded-3xl text-[#085689] hover:text-[#78B6D9]">
-      <p className="lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold mb-3 tracking-tighter tabular-nums">
+    <div ref={ref} className="text-center transition-all lg:p-5 md:p-5 sm:p-5 p-0  rounded-3xl text-[#085689] hover:text-[#78B6D9]">
+      <p className="text-3xl lg:text-4xl font-bold text-brand-navy tabular-nums tracking-tight mb-1">
         {displayValue}
       </p>
-      <p className="text-sm font-semibold text-muted-foreground mb-1">{label}</p>
+      <p className="text-xs font-medium text-brand-teal uppercase tracking-widest leading-snug max-w-[120px] text-center">{label}</p>
       {description && (
         <p className="text-sm text-slate-600 max-w-[260px] mx-auto">{description}</p>
       )}
@@ -44,6 +44,16 @@ export const Hero = memo(function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto text-center">
+
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0a3d62]/5 border border-[#0a3d62]/10 mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-sm font-medium text-[#0a3d62]">
+              Now hiring across Europe
+            </span>
+          </div>
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-[500] font-poppins text-foreground leading-[1.1] text-balance mb-6">
             IT Recruitment Agency for{" "}
@@ -75,12 +85,10 @@ export const Hero = memo(function Hero() {
             </Button>
           </div>
 
-          <div className=" bg-[#f3f3f368]  p-12 -mt-7 rounded-4xl ">
-            {/* <p className="text-md font-medium tracking-wider text-[#085689] uppercase mb-6">
-              Our Track Record
-            </p> */}
+          <div className="p-10 rounded-4xl ">
+  
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 ">
+            <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 animate-fade-in-up delay-[400ms]">
               {TRUST_METRICS.map((metric, idx) => (
                 <AnimatedCounter
                   key={idx}
@@ -92,12 +100,6 @@ export const Hero = memo(function Hero() {
             </div>
           </div>
 
-          {/* <button
-            className="mt-16 animate-bounce text-foreground/60 hover:text-primary transition-colors duration-200"
-            aria-label="Scroll down"
-          >
-            <ChevronDown size={32} />
-          </button> */}
         </div>
       </div>
     </section>

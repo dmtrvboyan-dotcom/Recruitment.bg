@@ -1,17 +1,17 @@
 "use client"
 
-import { useState, useCallback, memo } from "react"
+import { useState, useRef, useCallback, memo } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react"
 import { NAV_ITEMS, type NavItem } from "@/lib/constants/navigation"
 import { scrollToSection, scrollToTop } from "@/lib/utils/scroll"
-import { useScrollState, useEscapeKey, useBodyScrollLock } from "@/lib/hooks"
+import { useScrollState, useEscapeKey, useBodyScrollLock, useClickOutside } from "@/lib/hooks"
 
 // ── Contact details ──────────────────────────────────────────────────────────
-const PHONE_NUMBER = "+359 876 449 229‬"   
-const PHONE_HREF   = "tel:+359 876 449 229‬"    
-const EMAIL_HREF   = "mailto:office@recruitment.bg" 
+const PHONE_NUMBER = "+359 876 449 229‬"
+const PHONE_HREF = "tel:+359 876 449 229‬"
+const EMAIL_HREF = "mailto:office@recruitment.bg"
 // ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -39,9 +39,8 @@ const DesktopDropdown = memo(function DesktopDropdown({
       </button>
 
       <div
-        className={`absolute top-full left-0 mt-3 w-56 bg-[#f5f5f5] rounded-2xl shadow-xl py-3 px-2 transition-all duration-300 origin-top ${
-          isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none cursor-pointer"
-        }`}
+        className={`absolute top-full left-0 mt-3 w-56 bg-[#f5f5f5] rounded-2xl shadow-xl py-3 px-2 transition-all duration-300 origin-top ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none cursor-pointer"
+          }`}
       >
         {item.dropdownItems?.map((subItem) => (
           <button
@@ -81,9 +80,8 @@ const MobileDropdown = memo(function MobileDropdown({
       </button>
 
       <div
-        className={`pl-6 mt-2 transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0 "
-        }`}
+        className={`pl-6 mt-2 transition-all duration-300 overflow-hidden ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0 "
+          }`}
       >
         {item.dropdownItems?.map((subItem) => (
           <button
@@ -102,7 +100,8 @@ const MobileDropdown = memo(function MobileDropdown({
 export function Header() {
   const isScrolled = useScrollState()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null)
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false)
@@ -111,6 +110,10 @@ export function Header() {
 
   useEscapeKey(closeMenu)
   useBodyScrollLock(isMenuOpen)
+
+  useClickOutside(navRef, () => {
+    setOpenDropdown(null)
+  })
 
   const handleNavigate = useCallback((href: string, openInNewTab?: boolean) => {
     if (openInNewTab) {
@@ -142,13 +145,15 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "backdrop-blur-md py-3 shadow-sm" : "bg-transparent py-6"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "backdrop-blur-md py-3 shadow-sm" : "bg-transparent py-6"
+          }`}
         style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
       >
         <div className="max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12r">
-          <nav className="relative flex items-center justify-between h-14">
+          <nav
+            ref={navRef}
+            className="relative flex items-center justify-between h-14"
+          >
             <Link href="/" onClick={handleLogoClick} className="block flex-shrink-0">
               <img
                 src="/uploaded/recr-logo.png"
@@ -159,9 +164,8 @@ export function Header() {
 
             {/* Desktop Navigation — hidden when scrolled */}
             <div
-              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-8 transition-opacity duration-300 ${
-                isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
+              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-8 transition-opacity duration-300 ${isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+                }`}
             >
               {NAV_ITEMS.map((item) =>
                 item.hasDropdown ? (
@@ -196,9 +200,8 @@ export function Header() {
               {/* Phone number — only visible on desktop when scrolled */}
               <a
                 href={PHONE_HREF}
-                className={`hidden lg:flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-[#085689] transition-all duration-300 ${
-                  isScrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                }`}
+                className={`hidden lg:flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-[#085689] transition-all duration-300 ${isScrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                  }`}
               >
                 <Phone size={15} className="text-[#085689]" />
                 {PHONE_NUMBER}
@@ -207,9 +210,8 @@ export function Header() {
               {/* Hamburger */}
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className={`p-2 text-foreground transition-transform duration-300 hover:scale-110 ${
-                  isScrolled ? "block" : "block lg:hidden"
-                }`}
+                className={`p-2 text-foreground transition-transform duration-300 hover:scale-110 ${isScrolled ? "block" : "block lg:hidden"
+                  }`}
                 aria-label="Open menu"
               >
                 <Menu size={22} />
@@ -221,16 +223,14 @@ export function Header() {
 
       {/* Mobile / Slide Menu */}
       <div
-        className={`fixed inset-0 z-[999] transition-all duration-500 ${
-          isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
-        }`}
+        className={`fixed inset-0 z-[999] transition-all duration-500 ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+          }`}
       >
         <div className="absolute inset-0 bg-black/50" onClick={closeMenu} />
 
         <div
-          className={`absolute top-0 right-0 h-full w-full lg:w-1/2 bg-[#085689] shadow-2xl transform transition-transform duration-500 ease-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute top-0 right-0 h-full w-full lg:w-1/2 bg-[#085689] shadow-2xl transform transition-transform duration-500 ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="flex flex-col h-full p-8 pt-20 relative">
             <button

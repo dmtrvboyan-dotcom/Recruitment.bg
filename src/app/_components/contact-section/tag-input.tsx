@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { X } from "lucide-react"
+import { useClickOutside } from "@/lib/hooks"
 
 export interface TagInputProps {
   value: string[]
@@ -50,10 +51,13 @@ export function TagInput({
   const addTag = (tag: string) => {
     const norm = normalize(tag)
     if (!norm || value.includes(norm) || value.length >= maxTags) return
+
     onChange([...value, norm])
     setInputValue("")
     setActiveIdx(-1)
-    setIsOpen(false)
+
+    setIsOpen(true)
+
     inputRef.current?.focus()
   }
 
@@ -84,24 +88,35 @@ export function TagInput({
     }
   }
 
-  React.useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (!containerRef.current?.contains(e.target as Node)) {
-        setIsOpen(false)
-        setActiveIdx(-1)
-      }
-    }
-    document.addEventListener("mousedown", handler)
-    return () => document.removeEventListener("mousedown", handler)
-  }, [])
+  useClickOutside(containerRef, () => {
+    setIsOpen(false)
+    setActiveIdx(-1)
+  })
 
-  const atMax = value.length >= maxTags
+  // React.useEffect(() => {
+  //   const handler = (e: MouseEvent) => {
+  //     if (!containerRef.current?.contains(e.target as Node)) {
+  //       setIsOpen(true)
+  //       setActiveIdx(-1)
+  //     }
+  //   }
+  //   document.addEventListener("mousedown", handler)
+  //   return () => document.removeEventListener("mousedown", handler)
+  // }, [])
+
+  const atMax = value.length >= maxTags;
+
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
       <div
         className={`flex flex-wrap items-center gap-1.5 min-h-[44px] rounded-md border border-input bg-background px-3 py-2 text-sm transition-shadow focus-within:ring-2 focus-within:ring-[#085689]/40 focus-within:border-[#085689] ${atMax ? "opacity-60 cursor-not-allowed" : "cursor-text"}`}
-        onClick={() => !atMax && inputRef.current?.focus()}
+        onClick={() => {
+          if (!atMax) {
+            inputRef.current?.focus()
+            setIsOpen(true)
+          }
+        }}
       >
         {value.map((tag) => (
           <span
